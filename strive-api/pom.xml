@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.jacky.strive</groupId>
+    <artifactId>api</artifactId>
+    <version>0.0.1</version>
+    <packaging>jar</packaging>
+
+    <name>api</name>
+    <description>Demo project for Spring Boot</description>
+
+    <parent>
+        <groupId>com.jacky</groupId>
+        <artifactId>strive</artifactId>
+        <version>0.0.1</version>
+    </parent>
+    <properties>
+        <logback.version>1.2.1</logback.version>
+        <logstash.version>4.11</logstash.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>com.jacky.strive</groupId>
+            <artifactId>service</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.25</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+      <!--  <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>${logstash.version}</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.getsentry.raven</groupId>
+            <artifactId>raven-logback</artifactId>
+            <version>8.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>strive-api</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>dev/**</exclude>
+                    <exclude>prod/**</exclude>
+                    <exclude>test/**</exclude>
+                    <exclude>staging/**</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/${profiles.active}</directory>
+            </resource>
+        </resources>
+    </build>
+
+</project>

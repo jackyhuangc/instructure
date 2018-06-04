@@ -1,0 +1,40 @@
+<configuration scan="false">
+    <property name="APP_NAME" value="strive"/>
+    <property name="LOG_PATH" value="./logs"/>
+    <contextName>${APP_NAME}</contextName>
+
+    <appender name="Stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <!-- 格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符 -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="LogStash" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/api.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/api.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- each file should be at most 100MB, keep 60 days worth of history, but at most 20GB -->
+            <maxFileSize>10MB</maxFileSize>
+            <maxHistory>20</maxHistory>
+            <totalSizeCap>200MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="Sentry" class="com.getsentry.raven.logback.SentryAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <dsn>
+            https://eca4550bc2074d198c18d742a4101d5e:df4400ca8c68446e9c467de920062b2b@sentry.io/1209195
+        </dsn>
+        <tags>appname:strive_test</tags>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="Stdout"/>
+        <appender-ref ref="LogStash"/>
+        <!--<appender-ref ref="Sentry"/>-->
+    </root>
+</configuration>
