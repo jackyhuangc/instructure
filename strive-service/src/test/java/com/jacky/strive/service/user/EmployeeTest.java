@@ -1,46 +1,33 @@
+/*
 package com.jacky.strive.service.user;
 
 import com.jacky.strive.config.DataSourceConfig;
-import com.jacky.strive.service.Employee;
-import com.jacky.strive.service.EmployeeRepository;
-import org.apache.lucene.spatial3d.geom.GeoDistance;
-import org.elasticsearch.action.search.SearchType;
-import org.elasticsearch.common.unit.DistanceUnit;
 import org.elasticsearch.index.query.*;
-import org.elasticsearch.index.query.functionscore.FunctionScoreQueryBuilder;
-import org.elasticsearch.search.aggregations.AbstractAggregationBuilder;
-import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.sort.FieldSortBuilder;
-import org.elasticsearch.search.sort.SortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.elasticsearch.core.aggregation.impl.AggregatedPageImpl;
-import org.springframework.data.elasticsearch.core.facet.FacetRequest;
 import org.springframework.data.elasticsearch.core.query.*;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import qsq.biz.common.util.JsonUtil;
 import qsq.biz.common.util.LogUtil;
 
-import java.util.Collection;
 import java.util.List;
 
-/**
+*
  * Description Here...
  *
  * @author Jacky Huang
  * @date 2018/5/24 18:25
  * @since jdk1.8
- */
+
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = DataSourceConfig.class)
 @SpringBootTest
@@ -122,3 +109,4 @@ public class EmployeeTest {
         LogUtil.warn("清除成功");
     }
 }
+*/

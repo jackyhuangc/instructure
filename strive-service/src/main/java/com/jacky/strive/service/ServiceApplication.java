@@ -1,3 +1,4 @@
+/*
 package com.jacky.strive.service;
 
 import org.springframework.boot.SpringApplication;
@@ -11,3 +12,4 @@ public class ServiceApplication {
 		SpringApplication.run(ServiceApplication.class, args);
 	}
 }
+*/

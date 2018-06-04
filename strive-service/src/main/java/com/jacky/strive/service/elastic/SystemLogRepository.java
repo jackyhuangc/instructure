@@ -1,5 +1,6 @@
-package com.jacky.strive.service;
+package com.jacky.strive.service.elastic;
 
+import com.jacky.strive.service.elastic.model.SystemLog;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Component;
 
@@ -11,8 +12,6 @@ import org.springframework.stereotype.Component;
  * @since jdk1.8
  */
 @Component
-public interface EmployeeRepository extends ElasticsearchRepository<Employee,String> {
-
-    Employee queryEmployeeById(String id);
+public interface SystemLogRepository extends ElasticsearchRepository<SystemLog, String> {
 
 }

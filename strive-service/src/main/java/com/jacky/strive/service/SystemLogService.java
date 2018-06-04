@@ -1,33 +1,22 @@
 package com.jacky.strive.service;
 
-import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.dao.UserDao;
-import com.jacky.strive.dao.model.User;
-import com.jacky.strive.service.dto.PageDto;
 import com.jacky.strive.service.dto.SystemLogPageDto;
-import com.jacky.strive.service.model.SystemLog;
+import com.jacky.strive.service.elastic.SystemLogRepository;
+import com.jacky.strive.service.elastic.model.SystemLog;
 import org.elasticsearch.index.query.BoolQueryBuilder;
-import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;
 import org.elasticsearch.search.sort.SortOrder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchRepositoriesAutoConfiguration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQuery;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
 import org.springframework.stereotype.Service;
-import qsq.biz.common.util.JsonUtil;
-import qsq.biz.common.util.LogUtil;
-import tk.mybatis.mapper.entity.Example;
 
-import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
 
@@ -47,9 +36,6 @@ public class SystemLogService {
     ElasticsearchTemplate elasticsearchTemplate;
 
     @Autowired
-    EmployeeRepository employeeRepository;
-
-    @Autowired
     SystemLogRepository systemLogRepository;
 
     public PageInfo<SystemLog> findSystemLog(SystemLogPageDto pageDto) {
@@ -64,8 +50,9 @@ public class SystemLogService {
         //builder下有must、should以及mustNot 相当于sql中的and、or以及not
 
         //设置模糊搜索(wildcardQuery通配符查询)
-        builder.must(QueryBuilders.wildcardQuery("operator", String.format("*%s*", pageDto.getOperator())));
-        builder.must(QueryBuilders.wildcardQuery("opt_content", String.format("*%s*", pageDto.getContent())));
+        builder.must(QueryBuilders.matchQuery("opt_content",pageDto.getContent()));
+        //builder.must(QueryBuilders.wildcardQuery("operator", String.format("*%s*", pageDto.getOperator())));
+        //builder.must(QueryBuilders.wildcardQuery("opt_content", String.format("*%s*", pageDto.getContent())));
 
         // https://blog.csdn.net/qq_35280509/article/details/51637726 中文查询处理
 //        // 查询条件

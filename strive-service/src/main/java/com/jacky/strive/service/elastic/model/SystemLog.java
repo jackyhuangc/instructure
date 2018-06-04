@@ -1,4 +1,4 @@
-package com.jacky.strive.service.model;
+package com.jacky.strive.service.elastic.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
