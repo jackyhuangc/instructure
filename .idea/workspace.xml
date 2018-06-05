@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9916ba-eb19-49fe-9ad0-d759573e7c8e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/strive-api/target/" />
@@ -81,8 +79,8 @@
       <file leaf-file-name="generatorConfig.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="113" column="60" selection-start-line="113" selection-start-column="60" selection-end-line="113" selection-end-column="60" />
+            <state relative-caret-position="256">
+              <caret line="137" column="45" selection-start-line="137" selection-start-column="45" selection-end-line="137" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -875,7 +873,7 @@
       <workItem from="1528019140171" duration="8748000" />
       <workItem from="1528032334959" duration="389000" />
       <workItem from="1528122000469" duration="2678000" />
-      <workItem from="1528171261409" duration="3221000" />
+      <workItem from="1528171261409" duration="3476000" />
     </task>
     <task id="LOCAL-00001" summary="添加实体">
       <created>1528180877380</created>
@@ -891,7 +889,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528181112541</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="添加实体">
+      <created>1528198074022</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528198074022</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -927,7 +932,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97892000" />
+    <option name="totallyTimeSpent" value="98147000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -960,11 +965,11 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32952926" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49356222" visible="true" weight="0.37945792" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49356222" visible="true" weight="0.37945792" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.32905984" />
       <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49785408" weight="0.30527818" />
       <window_info anchor="bottom" id="MyBatis Sql Log" order="13" sideWeight="0.49785408" weight="0.3295325" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20375335" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20375335" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3281027" />
@@ -1447,8 +1452,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="113" column="60" selection-start-line="113" selection-start-column="60" selection-end-line="113" selection-end-column="60" />
+        <state relative-caret-position="256">
+          <caret line="137" column="45" selection-start-line="137" selection-start-column="45" selection-end-line="137" selection-end-column="45" />
         </state>
       </provider>
     </entry>

@@ -117,5 +117,25 @@
                selectByExampleQueryId="true">
             <generatedKey column="ProductId" sqlStatement="MySql" identity="true"/>
         </table>
+
+        <table tableName="user" domainObjectName="User"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="UserID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="role" domainObjectName="Role"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+            <generatedKey column="RoleID" sqlStatement="MySql" identity="true"/>
+        </table>
+
+        <table tableName="userrole" domainObjectName="UserRole"
+               enableCountByExample="true" enableUpdateByExample="true"
+               enableDeleteByExample="true" enableSelectByExample="true"
+               selectByExampleQueryId="true">
+        </table>
     </context>
 </generatorConfiguration>
