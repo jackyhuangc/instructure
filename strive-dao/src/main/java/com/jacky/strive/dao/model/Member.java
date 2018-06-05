@@ -11,9 +11,21 @@ public class Member {
 
     private String memberType;
 
+    private String memberImage;
+
+    private String memberPassword;
+
+    private String memberMobile;
+
+    private String memberEmial;
+
     private Integer memberQuotas;
 
     private Integer memberPoints;
+
+    private Boolean memberStatus;
+
+    private String recommendMemberNo;
 
     private Date createdAt;
 
@@ -51,6 +63,38 @@ public class Member {
         this.memberType = memberType == null ? null : memberType.trim();
     }
 
+    public String getMemberImage() {
+        return memberImage;
+    }
+
+    public void setMemberImage(String memberImage) {
+        this.memberImage = memberImage == null ? null : memberImage.trim();
+    }
+
+    public String getMemberPassword() {
+        return memberPassword;
+    }
+
+    public void setMemberPassword(String memberPassword) {
+        this.memberPassword = memberPassword == null ? null : memberPassword.trim();
+    }
+
+    public String getMemberMobile() {
+        return memberMobile;
+    }
+
+    public void setMemberMobile(String memberMobile) {
+        this.memberMobile = memberMobile == null ? null : memberMobile.trim();
+    }
+
+    public String getMemberEmial() {
+        return memberEmial;
+    }
+
+    public void setMemberEmial(String memberEmial) {
+        this.memberEmial = memberEmial == null ? null : memberEmial.trim();
+    }
+
     public Integer getMemberQuotas() {
         return memberQuotas;
     }
@@ -65,6 +109,22 @@ public class Member {
 
     public void setMemberPoints(Integer memberPoints) {
         this.memberPoints = memberPoints;
+    }
+
+    public Boolean getMemberStatus() {
+        return memberStatus;
+    }
+
+    public void setMemberStatus(Boolean memberStatus) {
+        this.memberStatus = memberStatus;
+    }
+
+    public String getRecommendMemberNo() {
+        return recommendMemberNo;
+    }
+
+    public void setRecommendMemberNo(String recommendMemberNo) {
+        this.recommendMemberNo = recommendMemberNo == null ? null : recommendMemberNo.trim();
     }
 
     public Date getCreatedAt() {
