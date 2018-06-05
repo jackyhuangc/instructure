@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd9916ba-eb19-49fe-9ad0-d759573e7c8e" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/strive.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/strive.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/api.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/api.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/Employee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/EmployeeRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/strive-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,74 +25,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="LogController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/LogController.java">
+      <file leaf-file-name="BaseRtnDto.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/BaseRtnDto.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="37" column="52" selection-start-line="37" selection-start-column="52" selection-end-line="37" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SystemLogService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EmployeeTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataSourceConfig.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/config/DataSourceConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SystemLogPageDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/SystemLogPageDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="45" selection-start-line="13" selection-start-column="45" selection-end-line="13" selection-end-column="45" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PageDto.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/PageDto.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="225">
+              <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SystemLog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/model/SystemLog.java">
+        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/model/SystemLog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="519">
-              <caret line="29" selection-start-line="29" selection-end-line="30" />
+            <state relative-caret-position="463">
+              <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -103,37 +46,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServiceApplication.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ServiceApplication.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strive-service/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" selection-end-line="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#264#265#0" expanded="true" />
-                <element signature="e#324#325#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-149">
+              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/UserServiceTest.java">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="100">
+              <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SystemLogRepository.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogRepository.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="100">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="generator.properties" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generator.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="generatorConfig.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -151,8 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>payment</find>
-      <find>en</find>
       <find>driverLocation</find>
       <find>BaseResultMap</find>
       <find>spring-boot-devtools</find>
@@ -181,6 +128,8 @@
       <find>@MapperScan</find>
       <find>MapperScannerConfigurer</find>
       <find>MapperScan</find>
+      <find>ex</find>
+      <find>sqlMapGenerator</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -189,8 +138,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/strive-job/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/strive-job/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/executor/handler/DemoJobHandler.java" />
         <option value="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/config/XxlJobConfig.java" />
         <option value="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/executor/DemoJobHandler.java" />
@@ -209,7 +156,6 @@
         <option value="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/UserDao2.java" />
         <option value="$PROJECT_DIR$/strive-job/pom.xml" />
         <option value="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/UserDaoImp.java" />
         <option value="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/TUserDao.java" />
         <option value="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/user/SUserDao.java" />
@@ -240,6 +186,9 @@
         <option value="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java" />
         <option value="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java" />
         <option value="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ServiceApplication.java" />
+        <option value="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/SystemLogRepository.java" />
+        <option value="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/mapper/MemberMapper.java" />
+        <option value="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" />
       </list>
     </option>
   </component>
@@ -292,6 +241,26 @@
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="mybatis-generator" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="dao" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="service" type="9519ce18:MavenProjectsStructure$ProjectNode" />
         </path>
         <path>
@@ -315,10 +284,10 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="835" />
-    <option name="y" value="25" />
-    <option name="width" value="1400" />
-    <option name="height" value="990" />
+    <option name="x" value="311" />
+    <option name="y" value="206" />
+    <option name="width" value="1120" />
+    <option name="height" value="794" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -402,6 +371,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -458,80 +428,28 @@
             <path>
               <item name="strive" type="b2602c69:ProjectViewProjectNode" />
               <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-job" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-job" type="462c0819:PsiDirectoryNode" />
-              <item name=".mvn" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-job" type="462c0819:PsiDirectoryNode" />
-              <item name=".mvn" type="462c0819:PsiDirectoryNode" />
-              <item name="wrapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-dao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
               <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="dto" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="strive" type="b2602c69:ProjectViewProjectNode" />
               <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-dao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
@@ -539,43 +457,17 @@
             <path>
               <item name="strive" type="b2602c69:ProjectViewProjectNode" />
               <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-dao" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
-              <item name="strive" type="462c0819:PsiDirectoryNode" />
-              <item name="strive-service" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="dev" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -626,6 +518,116 @@
       <recent name="E:\Workspace\Java\strive\strive-dao\src\main\resources\dev" />
     </key>
   </component>
+  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
+    <UpdatedFiles>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Updated from server" />
+        <option name="myStatusName" value="Changed on server" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="CHANGED_ON_SERVER" />
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated" />
+          <option name="myStatusName" value="Changed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ServiceApplication.java</PATH>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Created" />
+          <option name="myStatusName" value="Created" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CREATED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Deleted" />
+          <option name="myStatusName" value="Deleted" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="true" />
+          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Restored" />
+          <option name="myStatusName" value="Will be restored" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="RESTORED" />
+        </FILE-GROUP>
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Modified" />
+        <option name="myStatusName" value="Modified" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MODIFIED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Skipped" />
+        <option name="myStatusName" value="Skipped" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SKIPPED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with conflicts" />
+        <option name="myStatusName" value="Will be merged with conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_CONFLICTS" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with tree conflicts" />
+        <option name="myStatusName" value="Merged with tree conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged with property conflicts" />
+        <option name="myStatusName" value="Will be merged with property conflicts" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Merged" />
+        <option name="myStatusName" value="Will be merged" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="MERGED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Not in repository" />
+        <option name="myStatusName" value="Not in repository" />
+        <option name="mySupportsDeletion" value="true" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="UNKNOWN" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally added" />
+        <option name="myStatusName" value="Locally added" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_ADDED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Locally removed" />
+        <option name="myStatusName" value="Locally removed" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="LOCALLY_REMOVED" />
+      </FILE-GROUP>
+      <FILE-GROUP>
+        <option name="myUpdateName" value="Switched" />
+        <option name="myStatusName" value="Switched" />
+        <option name="mySupportsDeletion" value="false" />
+        <option name="myCanBeAbsent" value="false" />
+        <option name="myId" value="SWITCHED" />
+      </FILE-GROUP>
+    </UpdatedFiles>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -672,7 +674,7 @@
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jacky.strive.service.*" />
+          <option name="PATTERN" value="com.jacky.strive.service.elastic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -695,7 +697,7 @@
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jacky.strive.service.*" />
+          <option name="PATTERN" value="com.jacky.strive.service.elastic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -718,7 +720,7 @@
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jacky.strive.service.*" />
+          <option name="PATTERN" value="com.jacky.strive.service.elastic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -741,7 +743,7 @@
       <module name="service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.jacky.strive.service.*" />
+          <option name="PATTERN" value="com.jacky.strive.service.elastic.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -866,14 +868,12 @@
       <workItem from="1527947703145" duration="5843000" />
       <workItem from="1528019140171" duration="8748000" />
       <workItem from="1528032334959" duration="389000" />
-      <workItem from="1528122000469" duration="2224000" />
+      <workItem from="1528122000469" duration="2678000" />
+      <workItem from="1528171261409" duration="1902000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="EmployeeTest_testAdd - 2018.06.02 at 22h 38m 10s.xml">
-      <configuration name="EmployeeTest.testAdd" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="EmployeeTest_testAdd - 2018.06.02 at 22h 38m 51s.xml">
       <configuration name="EmployeeTest.testAdd" configurationId="JUnit" />
     </history-entry>
@@ -901,9 +901,12 @@
     <history-entry file="UserServiceTest_testTkMybatis - 2018.06.04 at 22h 56m 53s.xml">
       <configuration name="UserServiceTest.testTkMybatis" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserServiceTest_testTkMybatis - 2018.06.04 at 22h 57m 30s.xml">
+      <configuration name="UserServiceTest.testTkMybatis" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94217000" />
+    <option name="totallyTimeSpent" value="96573000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -920,7 +923,7 @@
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.2761394" side_tool="true" weight="0.4900285" />
-      <window_info anchor="right" id="Maven Projects" order="4" weight="0.26340482" />
+      <window_info anchor="right" id="Maven Projects" order="4" visible="true" weight="0.123324394" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
@@ -929,27 +932,27 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.72386056" visible="true" weight="0.19971469" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.72386056" weight="0.10699002" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.08131241" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="5" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49356222" weight="0.48860398" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32952926" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.49356222" visible="true" weight="0.2467903" />
       <window_info anchor="bottom" id="Spring" order="15" weight="0.32905984" />
-      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49785408" weight="0.3062678" />
+      <window_info anchor="bottom" id="Terminal" order="14" sideWeight="0.49785408" weight="0.30527818" />
       <window_info anchor="bottom" id="MyBatis Sql Log" order="13" sideWeight="0.49785408" weight="0.3295325" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20978552" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20375335" />
       <window_info anchor="right" id="Bean Validation" order="9" />
       <window_info id="Web" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3281027" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32905984" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="0" weight="0.08131241" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="13" weight="0.32905984" />
@@ -1072,69 +1075,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-elasticsearch/3.0.7.RELEASE/spring-data-elasticsearch-3.0.7.RELEASE.jar!/org/springframework/data/elasticsearch/annotations/Document.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="29" column="11" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.6.RELEASE/spring-data-commons-2.0.6.RELEASE.jar!/org/springframework/data/repository/CrudRepository.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-elasticsearch/3.0.7.RELEASE/spring-data-elasticsearch-3.0.7.RELEASE.jar!/org/springframework/data/elasticsearch/core/query/SearchQuery.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-elasticsearch/3.0.7.RELEASE/spring-data-elasticsearch-3.0.7.RELEASE.jar!/org/springframework/data/elasticsearch/core/query/NativeSearchQuery.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-commons/2.0.6.RELEASE/spring-data-commons-2.0.6.RELEASE.jar!/org/springframework/data/domain/PageRequest.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch/5.6.8/elasticsearch-5.6.8.jar!/org/elasticsearch/index/query/QueryBuilders.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch/5.6.8/elasticsearch-5.6.8.jar!/org/elasticsearch/index/query/QueryStringQueryBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="115" column="11" selection-start-line="115" selection-start-column="11" selection-end-line="115" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/data/spring-data-elasticsearch/3.0.7.RELEASE/spring-data-elasticsearch-3.0.7.RELEASE.jar!/org/springframework/data/elasticsearch/core/query/NativeSearchQueryBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="51" column="36" selection-start-line="51" selection-start-column="36" selection-end-line="51" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch/5.6.8/elasticsearch-5.6.8.jar!/org/elasticsearch/index/query/AbstractQueryBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/elasticsearch/elasticsearch/5.6.8/elasticsearch-5.6.8.jar!/org/elasticsearch/index/query/functionscore/FunctionScoreQueryBuilder.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1160,13 +1100,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="37" column="63" selection-start-line="37" selection-start-column="63" selection-end-line="37" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -1212,13 +1145,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/ServiceApplicationTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-service/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1247,13 +1173,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-api/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1265,13 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
         </state>
       </provider>
     </entry>
@@ -1331,13 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="12" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -1365,40 +1270,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/model/SystemLog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="29" selection-start-line="29" selection-end-line="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/Employee.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="17" selection-start-line="17" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/Employee.java" />
     <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/PageDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="13" column="20" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/EmployeeRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="13" column="67" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/EmployeeRepository.java" />
     <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/SystemLogPageDto.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1409,46 +1289,141 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2500">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/UserServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="36" column="48" lean-forward="true" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+        <state relative-caret-position="550">
+          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java">
+    <entry file="file://$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/ServiceApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+        <state relative-caret-position="150">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogRepository.java">
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/SystemLogRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java">
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ServiceApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="46" column="48" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+        <state relative-caret-position="150">
+          <caret line="6" column="9" selection-end-line="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ServiceApplication.java">
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/SystemLogService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" selection-end-line="13" />
+        <state relative-caret-position="525">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/BaseRtnDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="23" selection-start-line="9" selection-start-column="23" selection-end-line="9" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/model/SystemLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="39" column="1" selection-start-line="39" selection-start-column="1" selection-end-line="39" selection-end-column="1" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-            <element signature="e#324#325#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-service/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-149">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/UserExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/mapper/UserMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="28" column="47" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generator.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1625">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-786">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/mapper/MemberMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/mapper/strive/MemberMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="76" column="14" lean-forward="true" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
         </state>
       </provider>
     </entry>

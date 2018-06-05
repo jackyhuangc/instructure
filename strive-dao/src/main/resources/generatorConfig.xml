@@ -49,30 +49,30 @@
         </javaModelGenerator>
 
         <!--Mapper映射文件生成所在的目录 为每一个数据库的表生成对应的SqlMap文件 xml，目前会追加到mapper文件 -->
-        <sqlMapGenerator targetPackage="mapper.strive"
-                         targetProject="src/main/resources">
-            <property name="enableSubPackages" value="false"/>
-        </sqlMapGenerator>
+        <!--<sqlMapGenerator targetPackage="mapper.strive"-->
+                         <!--targetProject="src/main/resources">-->
+            <!--<property name="enableSubPackages" value="false"/>-->
+        <!--</sqlMapGenerator>-->
 
         <!-- 客户端代码，生成易于使用的针对Model对象和XML配置文件 的代码
                 type="ANNOTATEDMAPPER",生成Java Model 和基于注解的Mapper对象
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator targetPackage="com.jacky.strive.dao.mapper"
-                             targetProject="src/main/java" type="XMLMAPPER">
-            <property name="enableSubPackages" value="true"/>
-        </javaClientGenerator>
+        <!--<javaClientGenerator targetPackage="com.jacky.strive.dao.mapper"-->
+                             <!--targetProject="src/main/java" type="XMLMAPPER">-->
+            <!--<property name="enableSubPackages" value="true"/>-->
+        <!--</javaClientGenerator>-->
 
         <!--tableName:指定了表名
             domainObjectName:指定了实体类的名称
         -->
         <!-- 针对tk.mybatis，我们只需要实体，尽量让dao层简洁 -->
-        <table tableName="user" domainObjectName="User"
+        <table tableName="member" domainObjectName="Member"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">
-            <generatedKey column="UserID" sqlStatement="MySql" identity="true"/>
+            <generatedKey column="MemberId" sqlStatement="MySql" identity="true"/>
         </table>
     </context>
 </generatorConfiguration>
