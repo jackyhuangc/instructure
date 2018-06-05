@@ -7,13 +7,13 @@ public class KeyValue {
 
     private String keyvalueKey;
 
-    private String keyvalueValue;
-
     private String keyvalueMemo;
 
     private Date createAt;
 
     private Date updateAt;
+
+    private String keyvalueValue;
 
     public Integer getKeyvalueId() {
         return keyvalueId;
@@ -29,14 +29,6 @@ public class KeyValue {
 
     public void setKeyvalueKey(String keyvalueKey) {
         this.keyvalueKey = keyvalueKey == null ? null : keyvalueKey.trim();
-    }
-
-    public String getKeyvalueValue() {
-        return keyvalueValue;
-    }
-
-    public void setKeyvalueValue(String keyvalueValue) {
-        this.keyvalueValue = keyvalueValue == null ? null : keyvalueValue.trim();
     }
 
     public String getKeyvalueMemo() {
@@ -61,5 +53,13 @@ public class KeyValue {
 
     public void setUpdateAt(Date updateAt) {
         this.updateAt = updateAt;
+    }
+
+    public String getKeyvalueValue() {
+        return keyvalueValue;
+    }
+
+    public void setKeyvalueValue(String keyvalueValue) {
+        this.keyvalueValue = keyvalueValue == null ? null : keyvalueValue.trim();
     }
 }
