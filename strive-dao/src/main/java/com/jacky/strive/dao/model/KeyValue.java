@@ -7,6 +7,10 @@ public class KeyValue {
 
     private String keyvalueKey;
 
+    private String keyvalueValue;
+
+    private String keyvalueMemo;
+
     private Date createAt;
 
     private Date updateAt;
@@ -25,6 +29,22 @@ public class KeyValue {
 
     public void setKeyvalueKey(String keyvalueKey) {
         this.keyvalueKey = keyvalueKey == null ? null : keyvalueKey.trim();
+    }
+
+    public String getKeyvalueValue() {
+        return keyvalueValue;
+    }
+
+    public void setKeyvalueValue(String keyvalueValue) {
+        this.keyvalueValue = keyvalueValue == null ? null : keyvalueValue.trim();
+    }
+
+    public String getKeyvalueMemo() {
+        return keyvalueMemo;
+    }
+
+    public void setKeyvalueMemo(String keyvalueMemo) {
+        this.keyvalueMemo = keyvalueMemo == null ? null : keyvalueMemo.trim();
     }
 
     public Date getCreateAt() {

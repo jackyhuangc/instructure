@@ -7,7 +7,7 @@ public class AwardLog {
 
     private String awardPeriod;
 
-    private Integer awardResult;
+    private String awardResult;
 
     private Date awardBegin;
 
@@ -33,12 +33,12 @@ public class AwardLog {
         this.awardPeriod = awardPeriod == null ? null : awardPeriod.trim();
     }
 
-    public Integer getAwardResult() {
+    public String getAwardResult() {
         return awardResult;
     }
 
-    public void setAwardResult(Integer awardResult) {
-        this.awardResult = awardResult;
+    public void setAwardResult(String awardResult) {
+        this.awardResult = awardResult == null ? null : awardResult.trim();
     }
 
     public Date getAwardBegin() {

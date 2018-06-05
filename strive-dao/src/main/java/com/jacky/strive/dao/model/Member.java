@@ -17,7 +17,7 @@ public class Member {
 
     private String memberMobile;
 
-    private String memberEmial;
+    private String memberEmail;
 
     private Integer memberQuotas;
 
@@ -87,12 +87,12 @@ public class Member {
         this.memberMobile = memberMobile == null ? null : memberMobile.trim();
     }
 
-    public String getMemberEmial() {
-        return memberEmial;
+    public String getMemberEmail() {
+        return memberEmail;
     }
 
-    public void setMemberEmial(String memberEmial) {
-        this.memberEmial = memberEmial == null ? null : memberEmial.trim();
+    public void setMemberEmail(String memberEmail) {
+        this.memberEmail = memberEmail == null ? null : memberEmail.trim();
     }
 
     public Integer getMemberQuotas() {

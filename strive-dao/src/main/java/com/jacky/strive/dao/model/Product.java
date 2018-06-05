@@ -6,7 +6,7 @@ import java.util.Date;
 public class Product {
     private Integer productId;
 
-    private Integer productNo;
+    private String productNo;
 
     private String productType;
 
@@ -50,12 +50,12 @@ public class Product {
         this.productId = productId;
     }
 
-    public Integer getProductNo() {
+    public String getProductNo() {
         return productNo;
     }
 
-    public void setProductNo(Integer productNo) {
-        this.productNo = productNo;
+    public void setProductNo(String productNo) {
+        this.productNo = productNo == null ? null : productNo.trim();
     }
 
     public String getProductType() {
