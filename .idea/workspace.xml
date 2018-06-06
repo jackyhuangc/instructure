@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dd9916ba-eb19-49fe-9ad0-d759573e7c8e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/strive-api/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,11 +38,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="generatorConfig.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="generatorConfig.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
+            <state relative-caret-position="150">
+              <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
             </state>
           </provider>
         </entry>
@@ -88,10 +85,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Product.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
+            <state relative-caret-position="103">
               <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
               <folding>
                 <element signature="e#870#871#0" expanded="true" />
@@ -570,6 +567,14 @@
               <item name="dao" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-dao" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -866,7 +871,7 @@
       <workItem from="1528032334959" duration="389000" />
       <workItem from="1528122000469" duration="2678000" />
       <workItem from="1528171261409" duration="5524000" />
-      <workItem from="1528249537913" duration="508000" />
+      <workItem from="1528249537913" duration="1161000" />
     </task>
     <task id="LOCAL-00001" summary="添加实体">
       <created>1528180877380</created>
@@ -910,7 +915,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528199738269</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="添加实体">
+      <created>1528254613454</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1528254613454</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -946,7 +958,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="100703000" />
+    <option name="totallyTimeSpent" value="101356000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1430,13 +1442,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="9" selection-start-line="3" selection-start-column="9" selection-end-line="3" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/AwardLog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1473,7 +1478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
+        <state relative-caret-position="103">
           <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
           <folding>
             <element signature="e#870#871#0" expanded="true" />
@@ -1531,6 +1536,13 @@
             <element signature="e#4129#4130#0" expanded="true" />
             <element signature="e#4168#4169#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="92" lean-forward="true" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>

@@ -86,7 +86,7 @@
                selectByExampleQueryId="true">
             <generatedKey column="LogId" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="member_order" domainObjectName="MemberOrder"
+        <table tableName="order" domainObjectName="Order"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
                selectByExampleQueryId="true">

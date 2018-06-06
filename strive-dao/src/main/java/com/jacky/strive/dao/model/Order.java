@@ -2,7 +2,7 @@ package com.jacky.strive.dao.model;
 
 import java.util.Date;
 
-public class MemberOrder {
+public class Order {
     private Integer orderId;
 
     private String orderNo;
