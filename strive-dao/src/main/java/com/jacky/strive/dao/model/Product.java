@@ -8,9 +8,9 @@ public class Product {
 
     private String productNo;
 
-    private String productType;
-
     private String productName;
+
+    private String productAttr;
 
     private String productImage;
 
@@ -22,7 +22,7 @@ public class Product {
 
     private Integer productDeliverFee;
 
-    private Integer productExchange;
+    private Boolean productExchange;
 
     private Integer productPromotion;
 
@@ -30,11 +30,13 @@ public class Product {
 
     private Date productPromotionEnd;
 
-    private String productStatus;
+    private Boolean productStatus;
 
     private String productShop;
 
     private BigDecimal productOpinionRate;
+
+    private String productImagelist;
 
     private Date createdAt;
 
@@ -58,20 +60,20 @@ public class Product {
         this.productNo = productNo == null ? null : productNo.trim();
     }
 
-    public String getProductType() {
-        return productType;
-    }
-
-    public void setProductType(String productType) {
-        this.productType = productType == null ? null : productType.trim();
-    }
-
     public String getProductName() {
         return productName;
     }
 
     public void setProductName(String productName) {
         this.productName = productName == null ? null : productName.trim();
+    }
+
+    public String getProductAttr() {
+        return productAttr;
+    }
+
+    public void setProductAttr(String productAttr) {
+        this.productAttr = productAttr == null ? null : productAttr.trim();
     }
 
     public String getProductImage() {
@@ -114,11 +116,11 @@ public class Product {
         this.productDeliverFee = productDeliverFee;
     }
 
-    public Integer getProductExchange() {
+    public Boolean getProductExchange() {
         return productExchange;
     }
 
-    public void setProductExchange(Integer productExchange) {
+    public void setProductExchange(Boolean productExchange) {
         this.productExchange = productExchange;
     }
 
@@ -146,12 +148,12 @@ public class Product {
         this.productPromotionEnd = productPromotionEnd;
     }
 
-    public String getProductStatus() {
+    public Boolean getProductStatus() {
         return productStatus;
     }
 
-    public void setProductStatus(String productStatus) {
-        this.productStatus = productStatus == null ? null : productStatus.trim();
+    public void setProductStatus(Boolean productStatus) {
+        this.productStatus = productStatus;
     }
 
     public String getProductShop() {
@@ -168,6 +170,14 @@ public class Product {
 
     public void setProductOpinionRate(BigDecimal productOpinionRate) {
         this.productOpinionRate = productOpinionRate;
+    }
+
+    public String getProductImagelist() {
+        return productImagelist;
+    }
+
+    public void setProductImagelist(String productImagelist) {
+        this.productImagelist = productImagelist == null ? null : productImagelist.trim();
     }
 
     public Date getCreatedAt() {

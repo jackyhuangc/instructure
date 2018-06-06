@@ -5,9 +5,9 @@ import java.util.Date;
 public class MemberLog {
     private Integer logId;
 
-    private String logType;
+    private Integer logType;
 
-    private String logBusi;
+    private Integer logBusi;
 
     private String memberNo;
 
@@ -29,20 +29,20 @@ public class MemberLog {
         this.logId = logId;
     }
 
-    public String getLogType() {
+    public Integer getLogType() {
         return logType;
     }
 
-    public void setLogType(String logType) {
-        this.logType = logType == null ? null : logType.trim();
+    public void setLogType(Integer logType) {
+        this.logType = logType;
     }
 
-    public String getLogBusi() {
+    public Integer getLogBusi() {
         return logBusi;
     }
 
-    public void setLogBusi(String logBusi) {
-        this.logBusi = logBusi == null ? null : logBusi.trim();
+    public void setLogBusi(Integer logBusi) {
+        this.logBusi = logBusi;
     }
 
     public String getMemberNo() {

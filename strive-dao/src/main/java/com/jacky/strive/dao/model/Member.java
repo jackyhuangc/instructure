@@ -9,7 +9,7 @@ public class Member {
 
     private String memberName;
 
-    private String memberType;
+    private Integer memberType;
 
     private String memberImage;
 
@@ -55,12 +55,12 @@ public class Member {
         this.memberName = memberName == null ? null : memberName.trim();
     }
 
-    public String getMemberType() {
+    public Integer getMemberType() {
         return memberType;
     }
 
-    public void setMemberType(String memberType) {
-        this.memberType = memberType == null ? null : memberType.trim();
+    public void setMemberType(Integer memberType) {
+        this.memberType = memberType;
     }
 
     public String getMemberImage() {

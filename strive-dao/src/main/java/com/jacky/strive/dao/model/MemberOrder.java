@@ -7,7 +7,7 @@ public class MemberOrder {
 
     private String orderNo;
 
-    private String orderType;
+    private Integer orderType;
 
     private String memberNo;
 
@@ -31,7 +31,7 @@ public class MemberOrder {
 
     private Integer orderPoints;
 
-    private String orderStatus;
+    private Integer orderStatus;
 
     private String orderAwardPeriod;
 
@@ -73,12 +73,12 @@ public class MemberOrder {
         this.orderNo = orderNo == null ? null : orderNo.trim();
     }
 
-    public String getOrderType() {
+    public Integer getOrderType() {
         return orderType;
     }
 
-    public void setOrderType(String orderType) {
-        this.orderType = orderType == null ? null : orderType.trim();
+    public void setOrderType(Integer orderType) {
+        this.orderType = orderType;
     }
 
     public String getMemberNo() {
@@ -169,12 +169,12 @@ public class MemberOrder {
         this.orderPoints = orderPoints;
     }
 
-    public String getOrderStatus() {
+    public Integer getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(String orderStatus) {
-        this.orderStatus = orderStatus == null ? null : orderStatus.trim();
+    public void setOrderStatus(Integer orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public String getOrderAwardPeriod() {
