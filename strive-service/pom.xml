@@ -20,6 +20,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>qsq</groupId>
+            <artifactId>biz-scheduler</artifactId>
+            <version>${scheduler.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.jacky.strive</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1</version>

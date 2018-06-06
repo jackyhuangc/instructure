@@ -8,4 +8,5 @@ package com.jacky.strive.service.dto;
  * @since jdk1.8
  */
 public class BaseRtnDto {
+
 }
