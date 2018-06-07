@@ -7,7 +7,7 @@ public class MemberLog {
 
     private Integer logType;
 
-    private Integer logBusi;
+    private String logBusi;
 
     private String memberNo;
 
@@ -37,12 +37,12 @@ public class MemberLog {
         this.logType = logType;
     }
 
-    public Integer getLogBusi() {
+    public String getLogBusi() {
         return logBusi;
     }
 
-    public void setLogBusi(Integer logBusi) {
-        this.logBusi = logBusi;
+    public void setLogBusi(String logBusi) {
+        this.logBusi = logBusi == null ? null : logBusi.trim();
     }
 
     public String getMemberNo() {

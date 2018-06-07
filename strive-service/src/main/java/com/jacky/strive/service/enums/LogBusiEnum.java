@@ -6,20 +6,23 @@ package com.jacky.strive.service.enums;
  * @desc
  **/
 public enum LogBusiEnum {
+    充值("充值", "充值"),
+    提现("提现", "提现"),
+    消费("消费", "购买商品"),
+    退款("退款", "退款或退货后退款"),
+    赠送("赠送", "购买商品时，赠送积分"),
+    兑换("兑换", "积分兑换商品");
 
-    IN(0, "充值(赠送)"),
-    OUT(1, "提现(兑换)");
-
-    private Integer value;
+    private String value;
 
     private String desc;
 
-    LogBusiEnum(Integer value, String desc) {
+    LogBusiEnum(String value, String desc) {
         this.value = value;
         this.desc = desc;
     }
 
-    public Integer getValue() {
+    public String getValue() {
         return value;
     }
 

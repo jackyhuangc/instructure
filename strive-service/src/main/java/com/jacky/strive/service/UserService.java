@@ -26,6 +26,11 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
+    public User findByUserName()
+    {
+        return null;
+    }
+
     public String testConnnect() {
         Page<User> page = PageHelper.startPage(2, 2);
         Example exapl = new Example(User.class);
