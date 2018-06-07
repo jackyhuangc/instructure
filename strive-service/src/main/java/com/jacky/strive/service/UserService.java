@@ -26,8 +26,7 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
-    public User findByUserName()
-    {
+    public User findByUserName(String userName, String password) {
         return null;
     }
 
