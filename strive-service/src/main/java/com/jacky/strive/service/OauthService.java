@@ -42,7 +42,7 @@ public class OauthService {
         }
         
         PrincipalDto principalDto = null;
-        if (userName.split(SEPARATOR).length > 1 && userName.split(SEPARATOR)[1] == PREFIX_M) {
+        if (userName.split(SEPARATOR).length > 1 && userName.split(SEPARATOR)[1].equals(PREFIX_M)) {
             Member m = memberService.findByMemberNo(userName.split(SEPARATOR)[0]);
             if (null != m) {
                 principalDto = new PrincipalDto<Member>();
