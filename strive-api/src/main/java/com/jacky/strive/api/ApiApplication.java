@@ -8,11 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.jacky"})
-@EnableAutoConfiguration( exclude = {DataSourceAutoConfiguration.class})
+//@EnableAutoConfiguration( exclude = {DataSourceAutoConfiguration.class})
 public class ApiApplication {
 
     public static void main(String[] args) {
 
+        // 该属性解决elasticsearch的availableProcessors is already set to [4], rejecting [4]问题
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(ApiApplication.class, args);
     }
 }

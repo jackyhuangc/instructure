@@ -1,9 +1,11 @@
 package com.jacky.strive.oauth2.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.env.Environment;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -32,12 +34,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthenticationManager authenticationManager;
 
+    //    @Autowired
+//    private DataSource dataSource;
     @Autowired
-    private DataSource dataSource;
+    private Environment env;
+
+    @Bean
+    public DataSource getDataSource() {
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setUrl(env.getProperty("spring.datasource.url"));
+        dataSource.setUsername(env.getProperty("spring.datasource.username"));
+        dataSource.setPassword(env.getProperty("spring.datasource.password"));
+        return dataSource;
+    }
 
     @Bean
     public TokenStore tokenStore() {
-        return new JdbcTokenStore(dataSource);
+        return new JdbcTokenStore(getDataSource());
     }
 
     @Primary
@@ -56,7 +69,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Bean
     public ClientDetailsService clientDetails() {
-        return new JdbcClientDetailsService(dataSource);
+        return new JdbcClientDetailsService(getDataSource());
     }
 
     /**
@@ -84,17 +97,19 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     /**
      * Configure the security of the Authorization Server
      * 配置授权服务器的安全性，如哪些方法可放行/授权
+     *
      * @param oauthServer
      * @throws Exception
      */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
         oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
-        // oauthServer.allowFormAuthenticationForClients();
+        //oauthServer.allowFormAuthenticationForClients();
     }
 
     /**
      * Configure the ClientDetailsService, 配置客户端授权信息
+     *
      * @param clients
      * @throws Exception
      */

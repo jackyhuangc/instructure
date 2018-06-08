@@ -1,11 +1,24 @@
+spring:
+  data:
+    elasticsearch:
+      cluster-name:  es-5.0-test
+      cluster-nodes: 127.0.0.1:9300
+      repositories:
+        enabled: true
+
+server:
+  port: 8081
+
 #适用于通过oauth2.0搭建自己的认证服务器进行认证的resource服务(rest-api)
 security:
   oauth2:
     client:
-      client-id: acme
-      client-secret: acmesecret
+      client-id: strive
+      client-secret: strivesecret
       access-token-uri: http://localhost:8088/admin/oauth/token
       user-authorization-uri: http://localhost:8088/admin/oauth/authorize
+      prefer-token-info: true
+      service-id: oauth2-resource
       scope: web
     resource:
       user-info-uri: http://localhost:8088/admin/me
