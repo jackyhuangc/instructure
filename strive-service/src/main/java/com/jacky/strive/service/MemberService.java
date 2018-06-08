@@ -1,7 +1,12 @@
 package com.jacky.strive.service;
 
+import com.jacky.strive.dao.MemberDao;
 import com.jacky.strive.dao.model.Member;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Service;
 import qsq.biz.scheduler.entity.ResResult;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -10,10 +15,21 @@ import java.util.List;
  * @create 2018/6/6 上午11:50
  * @desc
  **/
+@Service
+@Scope("prototype")
 public class MemberService {
 
-    public ResResult findByMemberNo(String memberNo) {
-        return null;
+    @Autowired
+    MemberDao memberDao;
+
+    public Member findByMemberNo(String memberNo) {
+        Example example = new Example(Member.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("memberNo", memberNo);
+        criteria.orEqualTo("memberName", memberNo);
+
+        Member m = memberDao.selectOneByExample(example);
+        return m;
     }
 
     public ResResult findAll(String memberNo, String memberName) {

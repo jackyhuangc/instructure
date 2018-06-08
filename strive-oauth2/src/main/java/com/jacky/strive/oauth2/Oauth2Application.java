@@ -10,10 +10,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
  */
 @EnableResourceServer
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.jacky"})
+@ComponentScan(basePackages = {"com.jacky","com.jacky.strive.oauth2.config"})
 public class Oauth2Application {
 
     public static void main(String[] args) {
+
+        // 该属性解决elasticsearch的availableProcessors is already set to [4], rejecting [4]问题
+        System.setProperty("es.set.netty.runtime.available.processors", "false");
         SpringApplication.run(Oauth2Application.class, args);
     }
 }

@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8" />
-<title>欢迎登录</title>
-<link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}" />
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <meta charset="UTF-8"/>
+    <title>欢迎登录</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/favicon.ico}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
 
-	<div class="login-03">
-		<div class="third-login">
-			<h1>
-				<img src="images/bdth.png" alt="" /> Single Sign-On
-			</h1>
-			<form class="three" th:action="@{/doLogin}" method="POST"
-				autocomplete="off">
-				<p>Username</p>
-				<li class="base"><input type="text" name="username" value=""
-					onfocus="this.value='';"
-					onblur="if (this.value == '') {this.value ='';}" /><a href="#"
-					class=" icons3 user3"></a></li>
-				<p>Password</p>
-				<li><input type="password" value="" name="password"
-					onfocus="this.value = '';"
-					onblur="if (this.value == '') {this.value = '';}" /><a href="#"
-					class=" icons3 lock3"></a></li>
+<div class="login-03">
+    <div class="third-login">
+        <h1>
+            <img src="images/bdth.png" alt=""/> 后台登录
+        </h1>
+        <form class="three" th:action="@{/doLogin}" method="POST"
+              autocomplete="off">
+            <p>Username</p>
+            <li class="base"><input type="text" name="username" value=""
+                                    onfocus="this.value='';"
+                                    onblur="if (this.value == '') {this.value ='';}"/><a href="#"
+                                                                                         class=" icons3 user3"></a></li>
+            <p>Password</p>
+            <li><input type="password" value="" name="password"
+                       onfocus="this.value = '';"
+                       onblur="if (this.value == '') {this.value = '';}"/><a href="#"
+                                                                             class=" icons3 lock3"></a></li>
 
-				<div class="submit-three">
-					<input type="submit" value="Log In" />
-				</div>
-			</form>
+            <div class="submit-three">
+                <!--	<input type="hidden"
+            th:name="${_csrf.parameterName}" th:value="${_csrf.token}" /> <input
+            type="text" th:value="${_csrf.token}" />-->
+                <input type="submit" value="登录"/>
+            </div>
+        </form>
 
-			<div class="login-tip">
-				<div th:if="${param.error}">
+        <div class="login-tip">
+            <div th:if="${param.error}">
 					<span style="color: red;"
-						th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}">用户名或密码错误！</span>
-				</div>
-				<div th:if="${param.logout}">您已注销成功</div>
-			</div>
-		</div>
-	</div>
+                          th:text="${session.SPRING_SECURITY_LAST_EXCEPTION.message}">用户名或密码错误！</span>
+            </div>
+            <div th:if="${param.logout}">您已注销成功</div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

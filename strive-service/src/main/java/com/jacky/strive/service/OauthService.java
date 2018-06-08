@@ -7,8 +7,10 @@ import com.jacky.strive.dao.model.User;
 import com.jacky.strive.service.dto.PrincipalDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
+
+import java.util.ArrayList;
 
 /**
  * Description Here...
@@ -29,28 +31,35 @@ public class OauthService {
     UserDao userDao;
 
     @Autowired
-    MemberDao memberDao;
+    MemberService memberService;
+
+    @Autowired
+    UserService userService;
 
     public PrincipalDto findByUserName(String userName) {
-
-        PrincipalDto principalDto = new PrincipalDto();
-
+        if (qsq.biz.common.util.StringUtil.isEmtpy(userName)) {
+            return null;
+        }
+        
+        PrincipalDto principalDto = null;
         if (userName.split(SEPARATOR).length > 1 && userName.split(SEPARATOR)[1] == PREFIX_M) {
-            Member m = new Member();
-            m.setMemberName("member");
-            m.setMemberPassword("");
-
-            principalDto.setUserName(userName);
-            principalDto.setPassword("123456");
-            principalDto.setData(m);
+            Member m = memberService.findByMemberNo(userName.split(SEPARATOR)[0]);
+            if (null != m) {
+                principalDto = new PrincipalDto<Member>();
+                principalDto.setRoles(new ArrayList<>());
+                principalDto.setUserName(userName);
+                principalDto.setPassword(m.getMemberPassword());
+                principalDto.setData(m);
+            }
         } else {
-            User u = new User();
-            u.setUsername("admin");
-            u.setPassword("");
-
-            principalDto.setUserName(userName);
-            principalDto.setPassword("123456");
-            principalDto.setData(u);
+            User u = userService.findByUserName(userName.split(SEPARATOR)[0]);
+            if (null != u) {
+                principalDto = new PrincipalDto<User>();
+                principalDto.setRoles(new ArrayList<>());
+                principalDto.setUserName(userName);
+                principalDto.setPassword(u.getPassword());
+                principalDto.setData(u);
+            }
         }
 
         return principalDto;

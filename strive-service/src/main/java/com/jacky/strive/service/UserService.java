@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.UserDao;
+import com.jacky.strive.dao.model.Member;
 import com.jacky.strive.dao.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -26,8 +27,14 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
-    public User findByUserName(String userName, String password) {
-        return null;
+    public User findByUserName(String userName) {
+        Example example = new Example(User.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("username", userName);
+        criteria.orEqualTo("telphone", userName);
+
+        User user = userDao.selectOneByExample(example);
+        return user;
     }
 
     public String testConnnect() {

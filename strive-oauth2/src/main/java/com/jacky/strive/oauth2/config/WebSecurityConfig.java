@@ -1,13 +1,24 @@
 package com.jacky.strive.oauth2.config;
 
+import com.jacky.strive.common.Md5Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Arrays;
 
 /**
  * 配置用户安全认证信息，以及受保护路径、允许访问路径
@@ -15,6 +26,8 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private static final Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     /**
      * 配置.忽略的静态文件，不加的话，登录之前页面的css,js不能正常使用，得登录之后才能正常.
@@ -56,30 +69,63 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
     }
 
+    /**
+     * 重写用户信息加载服务
+     *
+     * @return
+     */
+    @Bean
+    @Override
+    public UserDetailsService userDetailsService() {
+        return new CustomUserService();
+    }
+
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 
         // 内存用户验证
         // auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
 
-        // 自定义SSO身份认证
-        auth.authenticationProvider(new SsoAuthenticationProvider());
+        // 自定义验证方式一：重写AuthenticationProvider(内部调用UserDetailsService)
+        //auth.authenticationProvider(new SsoAuthenticationProvider());
 
-        // // user Details Service验证
-        // auth.userDetailsService(customUserService()).passwordEncoder(new
-        // PasswordEncoder() {
-        // // 使用MD5获取加密之后的密码
-        // @Override
-        // public String encode(CharSequence rawPassword) {
-        // return Md5Util.encode((String) rawPassword);
-        // }
-        //
-        // // 验证密码
-        // @Override
-        // public boolean matches(CharSequence rawPassword, String
-        // encodedPassword) {
-        // return encodedPassword.equals(Md5Util.encode((String) rawPassword));
-        // }
-        // });
+        // 自定义验证方式二：直接重写UserDetailsService验证
+        PasswordEncoder passwordEncoder = new PasswordEncoder() {
+            // 使用MD5获取加密之后的密码
+            @Override
+            public String encode(CharSequence rawPassword) {
+                return Md5Util.encode((String) rawPassword);
+            }
+
+            // 验证密码
+            @Override
+            public boolean matches(CharSequence rawPassword, String
+                    encodedPassword) {
+                if (encodedPassword.equals(rawPassword) || encodedPassword.equals(encode(rawPassword))) {
+                    return true;
+                }
+
+                logger.info("invalid password!");
+                throw new BadCredentialsException("invalid password!");
+            }
+        };
+        auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder);
+    }
+
+    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        /*
+         * Consider defining a bean of type 'org.springframework.security.authentication.AuthenticationManager' in your configuration.
+         * 解决authenticationmanager无法注入的问题
+         */
+        return super.authenticationManagerBean();
+    }
+
+    @Bean(name = BeanIds.USER_DETAILS_SERVICE)
+    @Override
+    public UserDetailsService userDetailsServiceBean() throws Exception {
+        return super.userDetailsServiceBean();
+        //return new CustomUserService();
     }
 }
