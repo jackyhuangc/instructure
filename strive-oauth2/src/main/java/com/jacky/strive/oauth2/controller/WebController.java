@@ -12,7 +12,7 @@ import java.security.Principal;
 @Controller
 public class WebController {
 
-    // @PreAuthorize("#oauth2.hasScope('read')")
+    // @PreAuthorize("#com.jacky.strive.api.oauth2.hasScope('read')")
     @RequestMapping("/")
     public String home() {
         return "home";
@@ -20,9 +20,6 @@ public class WebController {
 
     @Autowired
     OauthService oauthService;
-
-    @Autowired
-    CustomUserService customUserService;
 
     @RequestMapping("/home")
     public String index(Principal principal, Model model) {

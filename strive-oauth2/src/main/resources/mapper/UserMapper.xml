@@ -2,7 +2,7 @@
                  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
                  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 命名空间mapper：com.entity.PRODUCT,此值必须唯一 -->
-<mapper namespace="com.jacky.strive.oauth2.domain.UserMapper">
+<mapper namespace="com.jacky.strive.com.jacky.strive.api.oauth2.domain.UserMapper">
 	<!-- select id:用于session做查询；指明查询时的参数；查询返回的结果类型，转换成一个类的对象 PRODUCT是在config中注册的 -->
 	<select id="getById" parameterType="String" resultType="User_Vm">
 		<!-- 底层的SQL语句 -->

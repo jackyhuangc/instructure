@@ -5,11 +5,16 @@ spring:
       cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/oauth2?characterEncoding=UTF-8
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+
 
 server:
   port: 8081
 
-#适用于通过oauth2.0搭建自己的认证服务器进行认证的resource服务(rest-api)
 security:
   oauth2:
     client:
@@ -17,9 +22,66 @@ security:
       client-secret: strivesecret
       access-token-uri: http://localhost:8088/admin/oauth/token
       user-authorization-uri: http://localhost:8088/admin/oauth/authorize
-      prefer-token-info: true
-      service-id: oauth2-resource
       scope: web
     resource:
       user-info-uri: http://localhost:8088/admin/me
       token-info-uri: http://localhost:8088/admin/oauth/check_token
+
+            #jwk-set-uri: http://my-auth-server/token_keys
+#适用于通过oauth2.0搭建自己的认证服务器进行认证的resource服务(rest-api)
+#security:
+#   oauth2:
+#     client:
+#       client-id: strive
+#       client-secret: strivesecret
+#       access-token-uri: http://localhost:8088/admin/oauth/token
+#       user-authorization-uri: http://localhost:8088/admin/oauth/authorize
+#       prefer-token-info: true
+#       service-id: com.jacky.strive.api.oauth2-resource
+#       scope: web
+#     resource:
+#       user-info-uri: http://localhost:8088/admin/me
+#       token-info-uri: http://localhost:8088/admin/oauth/check_token
+
+#
+#security:
+#    oauth2:
+#      tokenStore: jwt
+#      clients[0]:
+#        clientId: paascloud-client-uac
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[1]:
+#        clientId: paascloud-browser
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[2]:
+#        clientId: paascloud-client-gateway
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[3]:
+#        clientId: paascloud-client-zipkin
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[4]:
+#        clientId: paascloud-client-mdc
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[5]:
+#        clientId: paascloud-client-omc
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      clients[6]:
+#        clientId: paascloud-client-opc
+#        clientSecret: paascloudClientSecret
+#        accessTokenValidateSeconds: 7200
+#        scope: "*"
+#      resources[0]:
+#        user-info-uri: http://localhost:8088/admin/me
+#        token-info-uri: http://localhost:8088/admin/oauth/check_token

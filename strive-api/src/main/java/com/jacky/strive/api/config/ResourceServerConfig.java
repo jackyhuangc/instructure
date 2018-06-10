@@ -1,5 +1,6 @@
 package com.jacky.strive.api.config;
 
+import org.springframework.boot.autoconfigure.security.oauth2.resource.ResourceServerProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,7 +18,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-
         /*
          * ant风格路径表达式规则 Wilcard Description * Matches zero or more characters.
          * ?Matches exactly one character. ** Matches zero or more

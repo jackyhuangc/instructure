@@ -22,7 +22,7 @@
         <module>strive-dao</module>
         <module>strive-job</module>
         <module>strive-common</module>
-        <module>strive-oauth2</module>
+        <module>strive-com.jacky.strive.api.oauth2</module>
     </modules>
 
     <properties>

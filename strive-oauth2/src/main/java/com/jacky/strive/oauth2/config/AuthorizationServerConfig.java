@@ -34,8 +34,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    //    @Autowired
-//    private DataSource dataSource;
     @Autowired
     private Environment env;
 

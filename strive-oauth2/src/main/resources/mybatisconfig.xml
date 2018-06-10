@@ -4,7 +4,7 @@
 <configuration>
     <!-- 注册对象的空间命名 -->
     <typeAliases>
-        <typeAlias type="com.jacky.strive.oauth2.domain.User" alias="User_Vm"/>
+        <typeAlias type="com.jacky.strive.com.jacky.strive.api.oauth2.domain.User" alias="User_Vm"/>
     </typeAliases>
 
     <environments default="development">
