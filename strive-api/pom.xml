@@ -35,67 +35,19 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-            <version>2.0.1.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-        </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.cloud</groupId>-->
-        <!--<artifactId>spring-cloud-starter-oauth2</artifactId>-->
-        <!--<version>1.1.2.RELEASE</version>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
-            <!-- 注意版本问题，否则会报collection转换问题，或其他invalid token问题，2.0.14.RELEASE目前可用 -->
-            <version>2.0.14.RELEASE</version>
+            <!-- 注意版本问题，否则会报collection转换问题，或其他invalid token问题，2.0.14.RELEASE目前可用，注册ResourceServer -->
+            <version>2.1.0.RELEASE</version>
         </dependency>
 
-        <!-- spring-security-oauth2-autoconfigure替换spring-cloud-starter-oauth2 -->
+        <!-- spring-security-oauth2-autoconfigure替换spring-cloud-starter-oauth2，解析ResourceServerProperties配置文件 -->
         <dependency>
             <groupId>org.springframework.security.oauth.boot</groupId>
             <artifactId>spring-security-oauth2-autoconfigure</artifactId>
             <version>2.0.1.RELEASE</version>
         </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.7.25</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-            <version>${logback.version}</version>
-        </dependency>
-        <!--  <dependency>
-              <groupId>net.logstash.logback</groupId>
-              <artifactId>logstash-logback-encoder</artifactId>
-              <version>${logstash.version}</version>
-          </dependency>-->
-        <dependency>
-            <groupId>com.getsentry.raven</groupId>
-            <artifactId>raven-logback</artifactId>
-            <version>8.0.3</version>
-        </dependency>
+
     </dependencies>
 
     <build>
