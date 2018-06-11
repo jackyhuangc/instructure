@@ -1,12 +1,6 @@
 package com.jacky.strive.oauth2.controller;
 
-import com.jacky.strive.oauth2.domain.User;
-import com.jacky.strive.oauth2.domain.UserMapper;
 import com.jacky.strive.service.OauthService;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
-import java.io.Reader;
 import java.security.Principal;
 
 /**

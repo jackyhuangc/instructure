@@ -6,7 +6,7 @@ spring:
       repositories:
         enabled: true
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/oauth2?characterEncoding=UTF-8
+    url: jdbc:mysql://172.16.33.102:3306/oauth2?characterEncoding=UTF-8
     username: root
     password: 123456
     driver-class-name: com.mysql.jdbc.Driver
@@ -20,12 +20,12 @@ security:
     client:
       client-id: strive
       client-secret: strivesecret
-      access-token-uri: http://localhost:8088/admin/oauth/token
-      user-authorization-uri: http://localhost:8088/admin/oauth/authorize
+      access-token-uri: http://172.16.33.102:8088/admin/oauth/token
+      user-authorization-uri: http://172.16.33.102:8088/admin/oauth/authorize
       scope: web
     resource:
-      user-info-uri: http://localhost:8088/admin/me
-      token-info-uri: http://localhost:8088/admin/oauth/check_token
+      user-info-uri: http://172.16.33.102:8088/admin/me
+      token-info-uri: http://172.16.33.102:8088/admin/oauth/check_token
 
             #jwk-set-uri: http://my-auth-server/token_keys
 #适用于通过oauth2.0搭建自己的认证服务器进行认证的resource服务(rest-api)
@@ -37,7 +37,7 @@ security:
 #       access-token-uri: http://localhost:8088/admin/oauth/token
 #       user-authorization-uri: http://localhost:8088/admin/oauth/authorize
 #       prefer-token-info: true
-#       service-id: com.jacky.strive.api.oauth2-resource
+#       service-id: oauth2-resource
 #       scope: web
 #     resource:
 #       user-info-uri: http://localhost:8088/admin/me

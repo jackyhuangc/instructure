@@ -103,7 +103,7 @@ CREATE TABLE `oauth_client_details` (
 --  Records of `oauth_client_details`
 -- ----------------------------
 BEGIN;
-INSERT INTO `oauth_client_details` VALUES ('acme', 'com.jacky.strive.api.oauth2-resource', 'acmesecret', 'app', 'authorization_code', '', null, null, null, null, 'app'), ('client', 'com.jacky.strive.api.oauth2-resource', 'secret', 'app', 'authorization_code', '', null, null, null, null, null), ('my-trusted-client', 'com.jacky.strive.api.oauth2-resource', null, 'read', 'authorization_code', null, null, null, null, null, '');
+INSERT INTO `oauth_client_details` VALUES ('acme', 'oauth2-resource', 'acmesecret', 'app', 'authorization_code', '', null, null, null, null, 'app'), ('client', 'oauth2-resource', 'secret', 'app', 'authorization_code', '', null, null, null, null, null), ('my-trusted-client', 'oauth2-resource', null, 'read', 'authorization_code', null, null, null, null, null, '');
 COMMIT;
 
 -- ----------------------------
