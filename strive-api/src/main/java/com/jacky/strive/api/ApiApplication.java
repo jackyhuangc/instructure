@@ -5,13 +5,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.security.oauth2.provider.error.DefaultOAuth2ExceptionRenderer;
 
 @SpringBootApplication
-@EnableResourceServer
 @ComponentScan(basePackages = {"com.jacky"})
-//@EnableAutoConfiguration( exclude = {DataSourceAutoConfiguration.class})
+@EnableAutoConfiguration( exclude = {DataSourceAutoConfiguration.class})
 public class ApiApplication {
 
     public static void main(String[] args) {

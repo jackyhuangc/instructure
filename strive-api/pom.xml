@@ -23,11 +23,6 @@
     <dependencies>
         <dependency>
             <groupId>com.jacky.strive</groupId>
-            <artifactId>oauth2</artifactId>
-            <version>0.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.jacky.strive</groupId>
             <artifactId>service</artifactId>
             <version>0.0.1</version>
         </dependency>

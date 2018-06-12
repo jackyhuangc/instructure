@@ -8,9 +8,8 @@
 #  user:
 #    password: password
 
-spring:
+oauth2:
   datasource:
-    url: jdbc:mysql://172.16.33.102:3306/oauth2?characterEncoding=UTF-8
-    username: root
+    url: jdbc:mysql://localhost:3306/oauth2?characterEncoding=UTF-8
+    user: root
     password: 123456
-    driver-class-name: com.mysql.jdbc.Driver

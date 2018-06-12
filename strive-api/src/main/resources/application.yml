@@ -5,12 +5,6 @@ spring:
       cluster-nodes: 127.0.0.1:9300
       repositories:
         enabled: true
-  datasource:
-    url: jdbc:mysql://172.16.33.102:3306/oauth2?characterEncoding=UTF-8
-    username: root
-    password: 123456
-    driver-class-name: com.mysql.jdbc.Driver
-
 
 server:
   port: 8081
