@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 /**
  * Description Here...
  *
@@ -20,7 +22,7 @@ public class HomeController {
     UserService userService;
 
     @GetMapping("/test")
-    public String testConnect() {
+    public String testConnect(Principal user) {
         Logger logger = LoggerFactory.getLogger(HomeController.class);
         logger.warn("sentry错误测试。。。");
         return userService.testConnnect();

@@ -55,12 +55,13 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     public AuthorizationServerTokenServices tokenServices(AuthorizationServerEndpointsConfigurer endpoints) {
         final DefaultTokenServices tokenServices = new DefaultTokenServices();
         tokenServices.setTokenStore(endpoints.getTokenStore());
-        tokenServices.setSupportRefreshToken(false);
         tokenServices.setClientDetailsService(endpoints.getClientDetailsService());
         tokenServices.setTokenEnhancer(endpoints.getTokenEnhancer());
         // 30天
         tokenServices.setAccessTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30));
 
+        tokenServices.setSupportRefreshToken(true);
+        tokenServices.setRefreshTokenValiditySeconds((int) TimeUnit.DAYS.toSeconds(30));
         return tokenServices;
     }
 

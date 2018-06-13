@@ -23,7 +23,7 @@ security:
       user-info-uri: http://localhost:8088/admin/me
       # token-info-uri关键
       token-info-uri: http://localhost:8088/admin/oauth/check_token
-
+      filter-order: 99
             #jwk-set-uri: http://my-auth-server/token_keys
 #适用于通过oauth2.0搭建自己的认证服务器进行认证的resource服务(rest-api)
 #security:

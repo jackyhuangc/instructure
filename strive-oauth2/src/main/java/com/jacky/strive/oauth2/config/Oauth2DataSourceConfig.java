@@ -3,11 +3,8 @@ package com.jacky.strive.oauth2.config;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * @author huangchao
@@ -21,7 +18,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Data
 public class Oauth2DataSourceConfig {
 
-    @Value("${user}")
+    // ${username} ${user} 分别会取到windows,mac用户名？？？
+    @Value("${username}")
     private String username;
 
     @Value("${password}")
