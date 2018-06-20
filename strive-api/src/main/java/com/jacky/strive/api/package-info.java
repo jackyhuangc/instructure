@@ -67,3 +67,10 @@ package com.jacky.strive.api;
  * 3） 展示对象：xxxVO，xxx一般为网页名称. *
  * 4）  POJO是DO/DTO/BO/VO的统称，禁止命名成xxxPOJO。
  */
+
+
+/**
+ *自动确认发货开关
+ * true：下单，直接标记已确认，可用进行发货操作。此模式与正常的电商平台一致，不需要确认过程
+ * false：下单，需先进行申请退款/申请发货操作
+ */
