@@ -1,4 +1,4 @@
-//package com.jacky.strive.common;
+//package com.jacky.mybatis.dao.common;
 //
 //import org.junit.Test;
 //import org.junit.runner.RunWith;

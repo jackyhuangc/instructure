@@ -1,9 +1,9 @@
-//package com.jacky.strive.service;
+//package com.jacky.mybatis.dao.service;
 //
 //import com.github.pagehelper.PageInfo;
-//import com.jacky.strive.service.dto.SystemLogPageDto;
-//import com.jacky.strive.service.elastic.SystemLogRepository;
-//import com.jacky.strive.service.elastic.model.SystemLog;
+//import com.jacky.mybatis.dao.service.dto.SystemLogPageDto;
+//import com.jacky.mybatis.dao.service.elastic.SystemLogRepository;
+//import com.jacky.mybatis.dao.service.elastic.model.SystemLog;
 //import org.elasticsearch.index.query.BoolQueryBuilder;
 //import org.elasticsearch.index.query.QueryBuilders;
 //import org.elasticsearch.search.sort.FieldSortBuilder;

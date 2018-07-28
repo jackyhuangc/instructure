@@ -1,6 +1,6 @@
-//package com.jacky.strive.service.elastic;
+//package com.jacky.mybatis.dao.service.elastic;
 //
-//import com.jacky.strive.service.elastic.model.SystemLog;
+//import com.jacky.mybatis.dao.service.elastic.model.SystemLog;
 //import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 //import org.springframework.stereotype.Component;
 //

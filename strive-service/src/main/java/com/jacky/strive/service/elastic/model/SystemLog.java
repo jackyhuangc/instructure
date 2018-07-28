@@ -1,4 +1,4 @@
-//package com.jacky.strive.service.elastic.model;
+//package com.jacky.mybatis.dao.service.elastic.model;
 //
 //import com.fasterxml.jackson.annotation.JsonProperty;
 //import lombok.Data;
@@ -17,7 +17,7 @@
 // * @since jdk1.8
 // */
 //@Data
-//@Document(indexName = "strive", type = "system_log", shards = 1, replicas = 0, refreshInterval = "-1")
+//@Document(indexName = "mybatis.dao", type = "system_log", shards = 1, replicas = 0, refreshInterval = "-1")
 //public class SystemLog {
 //    @Id
 //    private String id;

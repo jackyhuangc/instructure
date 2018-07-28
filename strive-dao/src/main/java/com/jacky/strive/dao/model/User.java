@@ -3,9 +3,9 @@ package com.jacky.strive.dao.model;
 import java.util.Date;
 
 public class User {
-    private String userid;
+    private String userId;
 
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -19,34 +19,36 @@ public class User {
 
     private String address;
 
-    private Date lastlogin;
+    private Date lastLogin;
 
-    private Date addtime;
+    private Date addTime;
 
-    private Date modifytime;
+    private Date modifyTime;
 
-    private Date expiredtime;
+    private Date expiredTime;
 
-    private Byte isactivated;
+    private Boolean isActivated;
 
-    private String permissioncode;
+    private String permissionCode;
+
+    private String userRoles;
 
     private String remark;
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getPassword() {
@@ -97,52 +99,60 @@ public class User {
         this.address = address == null ? null : address.trim();
     }
 
-    public Date getLastlogin() {
-        return lastlogin;
+    public Date getLastLogin() {
+        return lastLogin;
     }
 
-    public void setLastlogin(Date lastlogin) {
-        this.lastlogin = lastlogin;
+    public void setLastLogin(Date lastLogin) {
+        this.lastLogin = lastLogin;
     }
 
-    public Date getAddtime() {
-        return addtime;
+    public Date getAddTime() {
+        return addTime;
     }
 
-    public void setAddtime(Date addtime) {
-        this.addtime = addtime;
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 
-    public Date getModifytime() {
-        return modifytime;
+    public Date getModifyTime() {
+        return modifyTime;
     }
 
-    public void setModifytime(Date modifytime) {
-        this.modifytime = modifytime;
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
     }
 
-    public Date getExpiredtime() {
-        return expiredtime;
+    public Date getExpiredTime() {
+        return expiredTime;
     }
 
-    public void setExpiredtime(Date expiredtime) {
-        this.expiredtime = expiredtime;
+    public void setExpiredTime(Date expiredTime) {
+        this.expiredTime = expiredTime;
     }
 
-    public Byte getIsactivated() {
-        return isactivated;
+    public Boolean getIsActivated() {
+        return isActivated;
     }
 
-    public void setIsactivated(Byte isactivated) {
-        this.isactivated = isactivated;
+    public void setIsActivated(Boolean isActivated) {
+        this.isActivated = isActivated;
     }
 
-    public String getPermissioncode() {
-        return permissioncode;
+    public String getPermissionCode() {
+        return permissionCode;
     }
 
-    public void setPermissioncode(String permissioncode) {
-        this.permissioncode = permissioncode == null ? null : permissioncode.trim();
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode == null ? null : permissionCode.trim();
+    }
+
+    public String getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(String userRoles) {
+        this.userRoles = userRoles == null ? null : userRoles.trim();
     }
 
     public String getRemark() {

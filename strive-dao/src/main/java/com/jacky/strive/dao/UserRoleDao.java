@@ -1,7 +1,6 @@
 package com.jacky.strive.dao;
 
-import com.jacky.strive.dao.model.MemberLog;
-import com.jacky.strive.dao.model.UserRoleKey;
+import com.jacky.strive.dao.model.UserRole;
 import com.jacky.strive.mapper.MyMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface UserRoleDao extends MyMapper<UserRoleKey> {
+public interface UserRoleDao extends MyMapper<UserRole> {
 
     // TODO 使用tk.mybatis可使dao层结构更简洁
 }

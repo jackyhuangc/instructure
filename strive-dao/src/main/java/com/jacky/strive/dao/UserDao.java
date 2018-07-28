@@ -22,6 +22,8 @@ public interface UserDao extends MyMapper<User> {
 
     // TODO 使用tk.mybatis可使dao层结构更简洁
 
-    @Select("SELECT * FROM USER WHERE username like '%${username}%'")
+    // @Select("SELECT * FROM USER WHERE username like '%${username}%'")
     List<User> findByUserName(@Param("username") String username);
+
+    String getDynamicResult(@Param("sql") String sql);
 }

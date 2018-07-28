@@ -1,46 +1,46 @@
 package com.jacky.strive.dao.model;
 
 public class Role {
-    private String roleid;
+    private String roleId;
 
-    private String rolename;
+    private String roleName;
 
-    private String permissioncode;
+    private String permissionCode;
 
-    private Byte isenabled;
+    private Boolean isEnabled;
 
     private String remark;
 
-    public String getRoleid() {
-        return roleid;
+    public String getRoleId() {
+        return roleId;
     }
 
-    public void setRoleid(String roleid) {
-        this.roleid = roleid == null ? null : roleid.trim();
+    public void setRoleId(String roleId) {
+        this.roleId = roleId == null ? null : roleId.trim();
     }
 
-    public String getRolename() {
-        return rolename;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setRolename(String rolename) {
-        this.rolename = rolename == null ? null : rolename.trim();
+    public void setRoleName(String roleName) {
+        this.roleName = roleName == null ? null : roleName.trim();
     }
 
-    public String getPermissioncode() {
-        return permissioncode;
+    public String getPermissionCode() {
+        return permissionCode;
     }
 
-    public void setPermissioncode(String permissioncode) {
-        this.permissioncode = permissioncode == null ? null : permissioncode.trim();
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode == null ? null : permissionCode.trim();
     }
 
-    public Byte getIsenabled() {
-        return isenabled;
+    public Boolean getIsEnabled() {
+        return isEnabled;
     }
 
-    public void setIsenabled(Byte isenabled) {
-        this.isenabled = isenabled;
+    public void setIsEnabled(Boolean isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public String getRemark() {

@@ -1,7 +1,7 @@
 /*
-package com.jacky.strive.service.user;
+package com.jacky.mybatis.dao.service.user;
 
-import com.jacky.strive.config.DataSourceConfig;
+import com.jacky.mybatis.dao.config.DataSourceConfig;
 import org.elasticsearch.index.query.*;
 import org.elasticsearch.search.sort.FieldSortBuilder;
 import org.elasticsearch.search.sort.SortBuilders;

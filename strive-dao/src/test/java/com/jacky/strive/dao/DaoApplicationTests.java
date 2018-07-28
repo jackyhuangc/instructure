@@ -1,5 +1,5 @@
 /*
-package com.jacky.strive.dao;
+package com.jacky.mybatis.dao.dao;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
