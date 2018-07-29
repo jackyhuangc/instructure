@@ -3,12 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/strive-api/api.iml" filepath="$PROJECT_DIR$/strive-api/api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strive-common/common.iml" filepath="$PROJECT_DIR$/strive-common/common.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strive-dao/dao.iml" filepath="$PROJECT_DIR$/strive-dao/dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strive-job/job.iml" filepath="$PROJECT_DIR$/strive-job/job.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strive-oauth2/oauth2.iml" filepath="$PROJECT_DIR$/strive-oauth2/oauth2.iml" />
-      <module fileurl="file://$PROJECT_DIR$/strive-service/service.iml" filepath="$PROJECT_DIR$/strive-service/service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/strive.iml" filepath="$PROJECT_DIR$/.idea/strive.iml" />
+      <module fileurl="file://$PROJECT_DIR$/strive-web/strive-web.iml" filepath="$PROJECT_DIR$/strive-web/strive-web.iml" />
     </modules>
   </component>
 </project>

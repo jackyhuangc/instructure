@@ -1,21 +1,13 @@
 package com.jacky.strive.api.controller;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.dao.model.Member;
 import com.jacky.strive.dao.model.User;
 import com.jacky.strive.service.UserService;
-import com.jacky.strive.service.dto.MemberLoginDto;
-import com.jacky.strive.service.dto.MemberQueryDto;
 import com.jacky.strive.service.dto.UserQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import qsq.biz.common.util.DateUtil;
-import qsq.biz.common.util.StringUtil;
 import qsq.biz.scheduler.entity.ResResult;
-
-import java.util.Date;
-import java.util.List;
 
 /**
  * @author huangchao
@@ -37,7 +29,7 @@ public class UserController {
             return ResResult.fail("用户不存在");
         }
 
-        return ResResult.success("",u);
+        return ResResult.success("", u);
     }
 
     @PostMapping("/create")
@@ -48,7 +40,7 @@ public class UserController {
             return ResResult.fail("用户不存在");
         }
 
-        return ResResult.success("",u);
+        return ResResult.success("", u);
     }
 
     @PostMapping("/modify/{user_id}")
@@ -59,7 +51,7 @@ public class UserController {
             return ResResult.fail("用户不存在");
         }
 
-        return ResResult.success("",u);
+        return ResResult.success("", u);
     }
 
     @PostMapping("/modifyPassword/{user_id}/{org_pass}/{new_pass}")
@@ -86,13 +78,13 @@ public class UserController {
     public ResResult query(@RequestBody UserQueryDto queryDto) {
 
         PageInfo<User> userList = userService.findUserList(queryDto);
-        return ResResult.success("",userList);
+        return ResResult.success("", userList);
     }
 
     @GetMapping("/generateNewUserID")
     public ResResult generateNewUserID() {
 
         String ret = userService.generateNewUserID();
-        return ResResult.success("生成ID成功",ret);
+        return ResResult.success("生成ID成功", ret);
     }
 }

@@ -4,26 +4,14 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.List;
 
-//import javax.ws.rs.GET;
-//import javax.ws.rs.Produces;
-//import javax.ws.rs.core.MediaType;
-
 import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.Role;
-import com.jacky.strive.dao.model.UserRole;
 import com.jacky.strive.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import qsq.biz.common.util.AssertUtil;
 import qsq.biz.scheduler.entity.ResResult;
-//import com.jacky.jfutures.entities.ReturnResult;
-//import com.jacky.jfutures.entities.Role;
-//import com.jacky.jfutures.entities.RoleMapper;
-//import com.jacky.jfutures.entities.SystemLog;
-//import com.jacky.jfutures.entities.UserRole;
-//import com.jacky.jfutures.entities.UserRoleMapper;
-//import com.jacky.jfutures.utils.KafkaSender;
 
 /**
  * 角色权限管理控制器
@@ -58,7 +46,7 @@ public class RoleController {
         //service.sendMessage(JSON.toJSONString(
         //new SystemLog(principal.getName(), "Role Or Permission", "Delete", JSON.toJSONString(r), "")));
 
-        return ResResult.success("",ret);
+        return ResResult.success("", ret);
     }
 
     /**
@@ -75,7 +63,7 @@ public class RoleController {
         Role ret = roleService.modify(role);
         AssertUtil.notNull(ret, "角色更新失败");
 
-        return ResResult.success("",ret);
+        return ResResult.success("", ret);
     }
 
     /**
@@ -92,7 +80,7 @@ public class RoleController {
         boolean ret = roleService.enable(roleId, false);
         AssertUtil.isTrue(ret, "角色禁用失败");
 
-        return ResResult.success("",ret);
+        return ResResult.success("", ret);
     }
 
     /**
@@ -104,20 +92,7 @@ public class RoleController {
     public ResResult<List<Role>> queryRole(String roleId) {
 
         PageInfo<Role> pageInfo = roleService.findRoleList(roleId);
-        return ResResult.success("",pageInfo.getList());
-    }
-
-    /**
-     * 查询指定用户角色信息
-     *
-     * @param userId 用户ID
-     * @return 指定用户角色集合
-     */
-    @GetMapping("/queryUserRole")
-    public ResResult<List<UserRole>> queryUserRole(String userId) {
-
-        List<UserRole> userRoleList = roleService.findUserRoleList(userId);
-        return ResResult.success("",userRoleList);
+        return ResResult.success("", pageInfo.getList());
     }
 
     /**
@@ -131,6 +106,6 @@ public class RoleController {
         String ret = roleService.generateRoleID();
         AssertUtil.notNull(ret, "生成ID失败");
 
-        return ResResult.success("",ret);
+        return ResResult.success("", ret);
     }
 }

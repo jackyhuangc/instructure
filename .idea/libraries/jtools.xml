@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jtools">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/strive-oauth2.0/lib/jtools.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

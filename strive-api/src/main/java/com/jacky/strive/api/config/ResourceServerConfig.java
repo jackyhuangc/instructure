@@ -31,8 +31,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
                 // 先设置不需要权限的
                 // 这是图片资源路径
                 .antMatchers(HttpMethod.GET, "/upload/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/upload").permitAll()
-                .antMatchers(HttpMethod.POST, "/upload/batch").permitAll()
+                .antMatchers(HttpMethod.POST, "/upload/**").permitAll()
                 // 再设置需要权限的
                 .antMatchers(HttpMethod.GET, "/**").authenticated()
                 .antMatchers(HttpMethod.POST, "/**").authenticated();

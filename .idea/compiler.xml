@@ -14,16 +14,5 @@
         <module name="service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
-      <module name="api" target="1.8" />
-      <module name="common" target="1.8" />
-      <module name="dao" target="1.8" />
-      <module name="job" target="1.8" />
-      <module name="oauth2" target="8" />
-      <module name="oauth2 (1)" target="1.8" />
-      <module name="Oauth2.0-Authentication-Server" target="1.8" />
-      <module name="service" target="1.8" />
-      <module name="strive" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
