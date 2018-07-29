@@ -81,7 +81,7 @@ public class RoleController {
     /**
      * 删除角色
      *
-     * @param roleID 角色ID
+     * @param roleId 角色ID
      * @return 操作结果，成功可返回ID
      * @throws IOException
      */

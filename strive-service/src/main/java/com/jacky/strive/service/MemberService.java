@@ -1,5 +1,6 @@
 package com.jacky.strive.service;
 
+import com.jacky.strive.dao.KeyValueDao;
 import com.jacky.strive.dao.MemberDao;
 import com.jacky.strive.dao.UserDao;
 import com.jacky.strive.dao.model.Member;
@@ -23,6 +24,9 @@ public class MemberService {
 
     @Autowired
     MemberDao memberDao;
+
+    @Autowired
+    KeyValueDao keyValueDao;
 
     public Member findByMemberNo(String memberNo) {
         Example example = new Example(Member.class);
@@ -48,7 +52,7 @@ public class MemberService {
 
     public String generateNewMemberID() {
 
-        String maxUserId = memberDao.getDynamicResult("SELECT max(member_id) FROM `member`");
+        String maxUserId = keyValueDao.getDynamicResult("SELECT max(member_id) FROM `member`");
 
         if (!StringUtil.isEmtpy(maxUserId)) {
             maxUserId = "M" + String.format("%06d", Integer.valueOf(Integer.parseInt(maxUserId.substring(1)) + 1));

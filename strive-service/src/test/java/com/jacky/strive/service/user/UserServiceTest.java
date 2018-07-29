@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.util.StringUtils;
 import qsq.biz.common.util.StringUtil;
 import tk.mybatis.mapper.entity.Example;
 
@@ -35,6 +36,9 @@ public class UserServiceTest {
     @Test
     public void testMybatis() {
 
+        String[] arr = StringUtils.delimitedListToStringArray("1,2,3,4,", ",");
+
+        boolean ret1="1,2,3,4,".endsWith(",");
         String maxUserId = "U0003";
         String rett = maxUserId.substring(1);
         if (!StringUtil.isEmtpy(maxUserId)) {

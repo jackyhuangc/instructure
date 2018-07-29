@@ -1,6 +1,7 @@
 package com.jacky.strive.service;
 
 import com.github.pagehelper.PageInfo;
+import com.jacky.strive.dao.KeyValueDao;
 import com.jacky.strive.dao.RoleDao;
 import com.jacky.strive.dao.UserRoleDao;
 import com.jacky.strive.dao.model.Role;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import qsq.biz.common.util.AssertUtil;
+import qsq.biz.common.util.StringUtil;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -29,6 +31,9 @@ public class RoleService {
 
     @Autowired
     UserRoleDao userRoleDao;
+
+    @Autowired
+    KeyValueDao keyValueDao;
 
     public Role add(Role role) {
         int ret = roleDao.insert(role);
@@ -86,6 +91,7 @@ public class RoleService {
             roleID = "%" + roleID + "%";
         }
 
+        criteria.andEqualTo("isEnabled", true);
         criteria.andLike("roleId", roleID);
 
         List<Role> userList = roleDao.selectByExample(example);
@@ -107,12 +113,14 @@ public class RoleService {
     }
 
     public String generateRoleID() {
-        Example exapl = new Example(Role.class);
-        Example.Criteria criteria1 = exapl.createCriteria();
-        criteria1.andEqualTo("userName", "admin");
 
-        Role role = roleDao.selectOneByExample(exapl);
+        String roleId = keyValueDao.getDynamicResult("SELECT max(role_id) FROM `role`");
 
-        return "";
+        if (!StringUtil.isEmtpy(roleId)) {
+            roleId = "R" + String.format("%03d", Integer.valueOf(Integer.parseInt(roleId.substring(1)) + 1));
+        } else {
+            roleId = "R001";
+        }
+        return roleId;
     }
 }

@@ -37,7 +37,7 @@ public class SsoAuthenticationProvider implements AuthenticationProvider {
         // 密码MD5加密验证
         if (!(userDetails.getPassword() != token.getCredentials().toString() || userDetails.getPassword().equals(Md5Util.encode(token.getCredentials().toString())))) {
             logger.info("invalid password!");
-            throw new BadCredentialsException("invalid password!");
+            throw new BadCredentialsException("用户名或密码有误");
         }
 
         // 返回一个Token对象表示登录

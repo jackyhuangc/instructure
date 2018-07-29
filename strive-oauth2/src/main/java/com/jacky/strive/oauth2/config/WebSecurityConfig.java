@@ -112,7 +112,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 }
 
                 logger.info("invalid password!");
-                throw new BadCredentialsException("invalid password!");
+                throw new BadCredentialsException("用户名或密码有误");
             }
         };
         auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder);

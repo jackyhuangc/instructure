@@ -3,18 +3,23 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.jacky.strive.dao.KeyValueDao;
+import com.jacky.strive.dao.RoleDao;
 import com.jacky.strive.dao.UserDao;
 import com.jacky.strive.dao.model.Member;
+import com.jacky.strive.dao.model.Role;
 import com.jacky.strive.dao.model.User;
 import com.jacky.strive.service.dto.UserQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 import qsq.biz.common.util.AssertUtil;
 import qsq.biz.common.util.Md5Util;
 import qsq.biz.common.util.StringUtil;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,7 +36,14 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    RoleService roleService;
+
+    @Autowired
+    KeyValueDao keyValueDao;
+
     public User add(User user) {
+        user.setPassword(Md5Util.md5Encode(user.getTelphone().substring(user.getTelphone().length() - 6)));
         int ret = userDao.insert(user);
         return ret > 0 ? user : null;
     }
@@ -48,11 +60,11 @@ public class UserService {
     public boolean modifyPassword(String userID, String orgPass, String newPass) {
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("userid", userID);
+        criteria.andEqualTo("userId", userID);
 
         User user = findByUserID(userID);
         AssertUtil.notNull(user, "用户不存在");
-        AssertUtil.isTrue(user.getPassword() == orgPass || user.getPassword() == Md5Util.md5Encode(orgPass),
+        AssertUtil.isTrue(user.getPassword().equals(orgPass) || user.getPassword().equals(Md5Util.md5Encode(orgPass)),
                 "原密码不正确");
 
         user.setPassword(Md5Util.md5Encode(newPass));
@@ -87,7 +99,8 @@ public class UserService {
     public User findByUserName(String userName) {
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo("userName", userName);
+        criteria.andEqualTo("userId", userName);
+        criteria.orEqualTo("userName", userName);
         criteria.orEqualTo("telphone", userName);
 
         User user = userDao.selectOneByExample(example);
@@ -100,6 +113,23 @@ public class UserService {
         criteria.andEqualTo("userId", userID);
 
         User user = userDao.selectOneByExample(example);
+
+        if (!StringUtil.isEmtpy(user.getUserRoles())) {
+            PageInfo<Role> rolePageInfo = roleService.findRoleList("");
+
+            StringBuilder permissionCodes = new StringBuilder();
+            rolePageInfo.getList().stream().forEach(role -> {
+                if (Arrays.asList(StringUtils.delimitedListToStringArray(user.getUserRoles(), ",")).contains(role.getRoleId())) {
+
+                    permissionCodes.append(role.getPermissionCode());
+                    if (!role.getPermissionCode().endsWith(",")) {
+                        permissionCodes.append(",");
+                    }
+                }
+            });
+            user.setPermissionCode(permissionCodes.toString());
+        }
+
         return user;
     }
 
@@ -134,7 +164,7 @@ public class UserService {
 
     public String generateNewUserID() {
 
-        String maxUserId = userDao.getDynamicResult("SELECT max(user_id) FROM `user`");
+        String maxUserId = keyValueDao.getDynamicResult("SELECT max(user_id) FROM `user`");
 
         if (!StringUtil.isEmtpy(maxUserId)) {
             maxUserId = "U" + String.format("%04d", Integer.valueOf(Integer.parseInt(maxUserId.substring(1)) + 1));

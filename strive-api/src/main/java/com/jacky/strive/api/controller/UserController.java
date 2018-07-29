@@ -89,7 +89,7 @@ public class UserController {
         return ResResult.success("",userList);
     }
 
-    @PostMapping("/generateNewUserID")
+    @GetMapping("/generateNewUserID")
     public ResResult generateNewUserID() {
 
         String ret = userService.generateNewUserID();
