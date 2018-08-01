@@ -124,7 +124,7 @@ public class UserService {
 
         User user = userDao.selectOneByExample(example);
 
-        if (!StringUtil.isEmtpy(user.getUserRoles())) {
+        if (null != user && !StringUtil.isEmtpy(user.getUserRoles())) {
             PageInfo<Role> rolePageInfo = roleService.findRoleList("");
 
             StringBuilder permissionCodes = new StringBuilder();
