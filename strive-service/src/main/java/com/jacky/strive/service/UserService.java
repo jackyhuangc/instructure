@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import qsq.biz.common.util.AssertUtil;
+import qsq.biz.common.util.DateUtil;
 import qsq.biz.common.util.Md5Util;
 import qsq.biz.common.util.StringUtil;
 import tk.mybatis.mapper.entity.Example;
@@ -43,12 +44,21 @@ public class UserService {
     KeyValueDao keyValueDao;
 
     public User add(User user) {
+
+        User u = findByUserName(user.getTelphone());
+        AssertUtil.isTrue(null == u, "手机号已存在");
+
+        user.setAddTime(DateUtil.now());
         user.setPassword(Md5Util.md5Encode(user.getTelphone().substring(user.getTelphone().length() - 6)));
         int ret = userDao.insert(user);
         return ret > 0 ? user : null;
     }
 
     public User modify(User user) {
+
+        User u = findByUserName(user.getTelphone());
+        AssertUtil.isTrue(null == u || u.getUserId().equals(user.getUserId()), "手机号已存在");
+
         Example example = new Example(User.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("userId", user.getUserId());
