@@ -154,7 +154,7 @@ public class UserService {
 
         Example.Criteria criteria2 = example.createCriteria();
 
-        String condition = "";
+        String condition = "%%";
         if (null != queryDto.getUserId()) {
             condition = "%" + queryDto.getUserId() + "%";
         }
@@ -164,6 +164,7 @@ public class UserService {
         criteria2.orLike("telphone", condition);
 
         example.and(criteria2);
+        // 排序必须用数据库字段名
         example.setOrderByClause("add_time desc");
         List<User> userList = userDao.selectByExample(example);
 

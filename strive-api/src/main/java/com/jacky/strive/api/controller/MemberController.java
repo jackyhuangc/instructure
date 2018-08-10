@@ -5,6 +5,7 @@ import com.jacky.strive.dao.model.Member;
 import com.jacky.strive.service.MemberService;
 import com.jacky.strive.service.dto.MemberQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import qsq.biz.common.util.AssertUtil;
 import qsq.biz.scheduler.entity.ResResult;

@@ -1,8 +1,12 @@
 package com.jacky.strive.api.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.Product;
+import com.jacky.strive.service.ProductService;
 import com.jacky.strive.service.dto.ProductQueryDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import qsq.biz.common.util.AssertUtil;
 import qsq.biz.scheduler.entity.ResResult;
 
 /**
@@ -14,28 +18,59 @@ import qsq.biz.scheduler.entity.ResResult;
 @RequestMapping("/product")
 public class ProductController {
 
-    @GetMapping("/query")
-    public ResResult query(ProductQueryDto queryDto) {
-        return null;
-    }
+    @Autowired
+    ProductService productService;
 
     @GetMapping("/{product_no}")
     public ResResult get(@PathVariable("product_no") String productNo) {
-        return null;
+
+        Product m = productService.findByProductNo(productNo);
+        AssertUtil.notNull(m, "产品不存在");
+
+        return ResResult.success("", m);
     }
 
     @PostMapping("/add")
-    public ResResult add(Product product) {
-        return null;
+    public ResResult create(@RequestBody Product product) {
+
+        Product m = productService.add(product);
+        AssertUtil.notNull(m, "添加失败");
+
+        return ResResult.success("", m);
     }
 
-    @PutMapping("/modify/{product_no}")
-    public ResResult modify(@PathVariable("product_no") String productNo, Product product) {
-        return null;
+    @PostMapping("/modify/{product_no}")
+    public ResResult modify(@PathVariable("product_no") String productNo, @RequestBody Product product) {
+
+        product.setProductNo(productNo);
+        Product m = productService.modify(product);
+        AssertUtil.notNull(m, "修改失败");
+
+        return ResResult.success("", m);
     }
 
-    @PutMapping("/shelves/{product_no}")
-    public ResResult shelves(@PathVariable("product_no") String productNo, boolean shelves) {
-        return null;
+    @PostMapping("/activate/{product_no}/{active}")
+    public ResResult activate(@PathVariable("product_no") String productNo, @PathVariable("active") boolean active) {
+
+        boolean ret = productService.activate(productNo, active);
+        AssertUtil.isTrue(ret, "修改失败");
+
+        return ResResult.success("", ret);
+    }
+
+    @PostMapping("/query")
+    public ResResult query(@RequestBody ProductQueryDto queryDto) {
+
+        PageInfo<Product> productList = productService.findProductList(queryDto);
+
+        return ResResult.success("", productList);
+    }
+
+    @GetMapping("/generateNewProductNo")
+    public ResResult generateNewProductNo() {
+
+        String ret = productService.generateNewProductNo();
+
+        return ResResult.success("生成ID成功", ret);
     }
 }

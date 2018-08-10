@@ -1,8 +1,14 @@
 package com.jacky.strive.api.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.Order;
+import com.jacky.strive.dao.model.Product;
+import com.jacky.strive.service.OrderService;
 import com.jacky.strive.service.dto.OrderQueryDto;
+import com.jacky.strive.service.enums.OrderStatusEnum;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import qsq.biz.common.util.AssertUtil;
 import qsq.biz.scheduler.entity.ResResult;
 
 /**
@@ -14,20 +20,31 @@ import qsq.biz.scheduler.entity.ResResult;
 @RequestMapping("/order")
 public class OrderController {
 
-    @GetMapping("/query")
-    public ResResult query(OrderQueryDto queryDto) {
-        return null;
-    }
+    @Autowired
+    OrderService orderService;
 
     @GetMapping("/{order_no}")
     public ResResult get(@PathVariable("order_no") String orderNo) {
-        return null;
+
+        Order o = orderService.findByOrderNo(orderNo);
+        AssertUtil.notNull(o, "订单不存在");
+
+        return ResResult.success("", o);
     }
 
-    // 下单即支付(扣余额)
+    /**
+     * 下单即支付(扣余额)
+     *
+     * @param order
+     * @return
+     */
     @PostMapping("/place")
-    public ResResult place(Order order) {
-        return null;
+    public ResResult place(@RequestBody Order order) {
+
+        Order o = orderService.add(order);
+
+        AssertUtil.notNull(o, "下单失败");
+        return ResResult.success("", o);
     }
 
 //    // 取消订单，目前不支持
@@ -42,10 +59,30 @@ public class OrderController {
 //        return null;
 //    }
 
-    // 退款申请，自动审核并退款
-    @PostMapping("/revoke")
-    public ResResult revoke(Order order) {
-        return null;
+    /**
+     * 退款申请，自动审核并退款
+     *
+     * @param orderNo
+     * @return
+     */
+    @PostMapping("/revoking/{order_no}")
+    public ResResult revoking(@PathVariable("order_no") String orderNo) {
+        boolean ret = orderService.revoking(orderNo);
+
+        return ResResult.success("退款申请成功", ret);
+    }
+
+    /**
+     * 发货申请
+     *
+     * @param orderNo
+     * @return
+     */
+    @PostMapping("/delivering/{order_no}")
+    public ResResult delivering(@PathVariable("order_no") String orderNo) {
+        boolean ret = orderService.delivering(orderNo);
+
+        return ResResult.success("发货申请成功", ret);
     }
 
 //    // 退款审核并退款，放在退款后处理
@@ -55,32 +92,37 @@ public class OrderController {
 //    }
 
     // 确认(发货) 特别增加，客户/商家可调用
-    @PostMapping("/confirm/{order_no}")
-    public ResResult confirm(@PathVariable("order_no") String orderNo) {
-        return null;
-    }
+    @PostMapping("/delivered")
+    public ResResult delivered(@RequestBody Order order) {
 
-    // 发货
-    @PostMapping("/deliver/{order_no}")
-    public ResResult deliver(@PathVariable("order_no") String orderNo,Order order) {
-        return null;
+        boolean ret = orderService.delivered(order);
+
+        return ResResult.success("发货确认成功", ret);
     }
 
     // 收货
     @PostMapping("/receive/{order_no}")
-    public ResResult receive(@PathVariable("order_no") String orderNo,Order order) {
+    public ResResult receive(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
         return null;
     }
 
     // 退货申请
     @PostMapping("/refund/{order_no}")
-    public ResResult refund(@PathVariable("order_no") String orderNo,Order order) {
+    public ResResult refund(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
         return null;
     }
 
     // 退货审核并退款
     @PostMapping("/refund_audit")
-    public ResResult refundAudit(Order order) {
+    public ResResult refundAudit(@RequestBody Order order) {
         return null;
+    }
+
+    @PostMapping("/query")
+    public ResResult query(@RequestBody OrderQueryDto queryDto) {
+
+        PageInfo<Order> productList = orderService.findOrderList(queryDto);
+
+        return ResResult.success("", productList);
     }
 }

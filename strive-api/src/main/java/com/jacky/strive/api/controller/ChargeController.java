@@ -1,11 +1,12 @@
 package com.jacky.strive.api.controller;
 
-import com.jacky.strive.dao.model.Member;
+import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.MemberCharge;
+import com.jacky.strive.service.ChargeService;
 import com.jacky.strive.service.dto.ChargeQueryDto;
-import com.jacky.strive.service.dto.MemberLoginDto;
-import com.jacky.strive.service.dto.MemberQueryDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import qsq.biz.common.util.AssertUtil;
 import qsq.biz.scheduler.entity.ResResult;
 
 /**
@@ -17,23 +18,43 @@ import qsq.biz.scheduler.entity.ResResult;
 @RequestMapping("/charge")
 public class ChargeController {
 
-    @GetMapping("/query")
-    public ResResult query(ChargeQueryDto queryDto) {
-        return null;
-    }
+    @Autowired
+    ChargeService chargeService;
 
     @GetMapping("/{charge_no}")
     public ResResult get(@PathVariable("charge_no") String chargeNo) {
-        return null;
+
+        MemberCharge m = chargeService.findByChargeNo(chargeNo);
+        AssertUtil.notNull(m, "数据不存在");
+
+        return ResResult.success("", m);
+    }
+
+    @GetMapping("/query")
+    public ResResult query(ChargeQueryDto queryDto) {
+
+        PageInfo<MemberCharge> memberChargeList = chargeService.findMemberChargeList(queryDto);
+
+        return ResResult.success("", memberChargeList);
     }
 
     @PostMapping("/charge")
     public ResResult charge(MemberCharge charge) {
-        return null;
+        charge.setChargeType(0);
+        charge.setChargeStatus(2);
+        MemberCharge m = chargeService.add(charge);
+        AssertUtil.notNull(m, "充值失败");
+
+        return ResResult.success("", m);
     }
 
     @PostMapping("/withdraw")
     public ResResult withdraw(MemberCharge charge) {
-        return null;
+        charge.setChargeType(1);
+        charge.setChargeStatus(2);
+        MemberCharge m = chargeService.add(charge);
+        AssertUtil.notNull(m, "提现失败");
+
+        return ResResult.success("", m);
     }
 }

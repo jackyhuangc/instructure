@@ -3,13 +3,13 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.dao.KeyValueDao;
-import com.jacky.strive.dao.MemberDao;
-import com.jacky.strive.dao.model.Member;
+import com.jacky.strive.dao.*;
+import com.jacky.strive.dao.model.*;
 import com.jacky.strive.service.dto.MemberQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import qsq.biz.common.util.AssertUtil;
 import qsq.biz.common.util.DateUtil;
 import qsq.biz.common.util.Md5Util;
@@ -25,10 +25,23 @@ import java.util.List;
  **/
 @Service
 @Scope("prototype")
+@Transactional(rollbackFor = Exception.class)
 public class MemberService {
 
     @Autowired
     MemberDao memberDao;
+
+    @Autowired
+    MemberAddressDao memberAddressDao;
+
+    @Autowired
+    MemberVoucherDao memberVoucherDao;
+
+    @Autowired
+    MemberLogDao memberLogDao;
+
+    @Autowired
+    MemberChargeDao memberChargeDao;
 
     @Autowired
     KeyValueDao keyValueDao;
@@ -42,6 +55,11 @@ public class MemberService {
         member.setCreatedAt(DateUtil.now());
         member.setMemberPassword(Md5Util.md5Encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
         int ret = memberDao.insert(member);
+
+        if (null != member.getMemberAddress()) {
+            addAddress(member.getMemberAddress());
+        }
+
         return ret > 0 ? member : null;
     }
 
@@ -120,7 +138,7 @@ public class MemberService {
 
         Example.Criteria criteria2 = example.createCriteria();
 
-        String condition = "";
+        String condition = "%%";
         if (null != queryDto.getMemberNo()) {
             condition = "%" + queryDto.getMemberNo() + "%";
         }
@@ -148,5 +166,23 @@ public class MemberService {
             maxMemberNo = "M000001";
         }
         return maxMemberNo;
+    }
+
+    public MemberAddress addAddress(MemberAddress memberAddress) {
+
+        memberAddress.setCreatedAt(DateUtil.now());
+        int ret = memberAddressDao.insert(memberAddress);
+        AssertUtil.isTrue(ret > 0, "添加地址失败");
+
+        return ret > 0 ? memberAddress : null;
+    }
+
+    public MemberVoucher addVoucher(MemberVoucher memberVoucher) {
+
+        memberVoucher.setCreatedAt(DateUtil.now());
+        int ret = memberVoucherDao.insert(memberVoucher);
+        AssertUtil.isTrue(ret > 0, "添加代价券失败");
+
+        return ret > 0 ? memberVoucher : null;
     }
 }

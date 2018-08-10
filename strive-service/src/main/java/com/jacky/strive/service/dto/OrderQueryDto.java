@@ -17,4 +17,8 @@ public class OrderQueryDto extends PageDto {
     private String productNo;
 
     private String productName;
+
+    private Integer orderType;
+
+    private Integer orderStatus;
 }

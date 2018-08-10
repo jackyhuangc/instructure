@@ -8,13 +8,11 @@ import lombok.Data;
  * @desc
  **/
 @Data
-public class ChargeQueryDto extends PageDto {
-
-    private String chargeNo;
+public class LogQueryDto extends PageDto {
 
     private String memberNo;
 
-    private Integer chargeType;
+    private Integer logType;
 
-    private Integer chargeStatus;
+    private String logBusi;
 }

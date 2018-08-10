@@ -31,6 +31,11 @@ public class Member {
 
     private Date updatedAt;
 
+    private MemberAddress memberAddress;
+    private MemberCharge memberCharge;
+    private MemberLog memberLog;
+    private MemberVoucher memberVoucher;
+
     public Integer getMemberId() {
         return memberId;
     }
@@ -141,5 +146,38 @@ public class Member {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public MemberCharge getMemberCharge() {
+        return memberCharge;
+    }
+
+    public void setMemberCharge(MemberCharge memberCharge) {
+        this.memberCharge = memberCharge;
+    }
+
+
+    public MemberAddress getMemberAddress() {
+        return memberAddress;
+    }
+
+    public void setMemberAddress(MemberAddress memberAddress) {
+        this.memberAddress = memberAddress;
+    }
+
+    public MemberLog getMemberLog() {
+        return memberLog;
+    }
+
+    public void setMemberLog(MemberLog memberLog) {
+        this.memberLog = memberLog;
+    }
+
+    public MemberVoucher getMemberVoucher() {
+        return memberVoucher;
+    }
+
+    public void setMemberVoucher(MemberVoucher memberVoucher) {
+        this.memberVoucher = memberVoucher;
     }
 }
