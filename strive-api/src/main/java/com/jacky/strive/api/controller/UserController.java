@@ -68,6 +68,15 @@ public class UserController {
         return ResResult.success("", ret);
     }
 
+    @PostMapping("/delete/{user_id}")
+    public ResResult delete(@PathVariable("user_id") String userID) {
+
+        boolean ret = userService.delete(userID);
+        AssertUtil.isTrue(ret, "删除失败");
+
+        return ResResult.success("", ret);
+    }
+
     @PostMapping("/query")
     public ResResult query(@RequestBody UserQueryDto queryDto) {
 

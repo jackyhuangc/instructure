@@ -58,6 +58,15 @@ public class ProductController {
         return ResResult.success("", ret);
     }
 
+    @PostMapping("/delete/{product_no}")
+    public ResResult delete(@PathVariable("product_no") String productNo) {
+
+        boolean ret = productService.delete(productNo);
+        AssertUtil.isTrue(ret, "删除失败");
+
+        return ResResult.success("", ret);
+    }
+
     @PostMapping("/query")
     public ResResult query(@RequestBody ProductQueryDto queryDto) {
 

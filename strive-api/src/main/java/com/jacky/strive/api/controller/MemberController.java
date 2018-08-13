@@ -31,7 +31,7 @@ public class MemberController {
         return ResResult.success("", m);
     }
 
-    @PostMapping("/register")
+    @PostMapping("/create")
     public ResResult create(@RequestBody Member member) {
 
         Member m = memberService.add(member);
@@ -64,6 +64,15 @@ public class MemberController {
 
         boolean ret = memberService.activate(memberNo, active);
         AssertUtil.isTrue(ret, "修改失败");
+
+        return ResResult.success("", ret);
+    }
+
+    @PostMapping("/delete/{member_no}")
+    public ResResult delete(@PathVariable("member_no") String memberNo) {
+
+        boolean ret = memberService.delete(memberNo);
+        AssertUtil.isTrue(ret, "删除失败");
 
         return ResResult.success("", ret);
     }

@@ -53,6 +53,8 @@ public class MemberService {
         AssertUtil.isTrue(null == u, "手机号已存在");
 
         member.setCreatedAt(DateUtil.now());
+        member.setMemberQuotas(0);
+        member.setMemberPoints(0);
         member.setMemberPassword(Md5Util.md5Encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
         int ret = memberDao.insert(member);
 
@@ -106,6 +108,18 @@ public class MemberService {
         return ret > 0;
     }
 
+    public boolean delete(String memberNo) {
+        Example example = new Example(Member.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("memberNo", memberNo);
+
+        Member member = findByMemberNo(memberNo);
+        AssertUtil.notNull(member, "用户不存在");
+
+        int ret = memberDao.deleteByExample(example);
+        return ret > 0;
+    }
+
     public Member findByMemberName(String memberName) {
         Example example = new Example(Member.class);
         Example.Criteria criteria = example.createCriteria();
@@ -132,9 +146,9 @@ public class MemberService {
         Page<Member> page = PageHelper.startPage(queryDto.getPage(), queryDto.getSize());
 
         Example example = new Example(Member.class);
-        Example.Criteria criteria1 = example.createCriteria();
-        criteria1.andEqualTo("isActivated", true);
-        criteria1.orIsNull("isActivated");
+//        Example.Criteria criteria1 = example.createCriteria();
+//        criteria1.andEqualTo("memberStatus", true);
+//        criteria1.orIsNull("memberStatus");
 
         Example.Criteria criteria2 = example.createCriteria();
 

@@ -67,6 +67,18 @@ public class ProductService {
         return ret > 0;
     }
 
+    public boolean delete(String productNo) {
+        Example example = new Example(Product.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("productNo", productNo);
+
+        Product product = findByProductNo(productNo);
+        AssertUtil.notNull(product, "商品不存在");
+
+        int ret = productDao.deleteByExample(example);
+        return ret > 0;
+    }
+
     public Product findByProductName(String productName) {
         Example example = new Example(Product.class);
         Example.Criteria criteria = example.createCriteria();

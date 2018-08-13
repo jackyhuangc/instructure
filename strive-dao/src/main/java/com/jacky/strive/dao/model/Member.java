@@ -25,6 +25,8 @@ public class Member {
 
     private Boolean memberStatus;
 
+    private String memberRemark;
+
     private String recommendMemberNo;
 
     private Date createdAt;
@@ -179,5 +181,13 @@ public class Member {
 
     public void setMemberVoucher(MemberVoucher memberVoucher) {
         this.memberVoucher = memberVoucher;
+    }
+
+    public String getMemberRemark() {
+        return memberRemark;
+    }
+
+    public void setMemberRemark(String memberRemark) {
+        this.memberRemark = memberRemark;
     }
 }

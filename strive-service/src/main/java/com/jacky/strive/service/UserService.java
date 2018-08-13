@@ -102,6 +102,9 @@ public class UserService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("userId", userID);
 
+        User user = findByUserID(userID);
+        AssertUtil.notNull(user, "用户不存在");
+
         int ret = userDao.deleteByExample(example);
         return ret > 0;
     }
@@ -148,9 +151,9 @@ public class UserService {
         Page<User> page = PageHelper.startPage(queryDto.getPage(), queryDto.getSize());
 
         Example example = new Example(User.class);
-        Example.Criteria criteria1 = example.createCriteria();
-        criteria1.andEqualTo("isActivated", true);
-        criteria1.orIsNull("isActivated");
+//        Example.Criteria criteria1 = example.createCriteria();
+//        criteria1.andEqualTo("isActivated", true);
+//        criteria1.orIsNull("isActivated");
 
         Example.Criteria criteria2 = example.createCriteria();
 
