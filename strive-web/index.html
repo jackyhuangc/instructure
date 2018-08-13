@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Admin Center</title>
+  <link href="../../../static/favicon.ico" rel="icon" />
+  <link href="../../../static/Content/bootstrap.css" rel="stylesheet" />
+  <link href="../../../static/Content/css/font-awesome.css" rel="stylesheet" />
+  <style type="text/css">
+    html,
+    body {
+      /*根据屏幕尺寸自适应大小*/
+      background: url('../../../static/Content/images/bg.png') top center no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
+      height: 100%;
+      overflow: hidden;
+      background-color: #62b3d2;
+      font-family: 'Microsoft YaHei', STFangsong;
+    }
+
+  </style>
+  <script src="../../../static/Content/js/jquery-1.8.3.min.js"></script>
+  <script src="../../../static/globalConfig.js"></script>
+  <script>
+    $(function () {
+
+      var isIE = !!window.ActiveXObject;
+      // var isIE6 = isIE && !window.XMLHttpRequest;
+      //var isIE8 = isIE && !!document.documentMode;
+      var userAgent = window.navigator.userAgent.toLowerCase();
+      var version = $.browser.version;
+      console.log(userAgent);
+      console.log(version);
+      //var isIE7 = isIE && !isIE6 && !isIE8;
+      if (isIE) {
+        if (parseInt($.browser.version) < 9) {
+
+          alert("浏览器版本过低，请更换谷歌或IE9以上浏览器操作！");
+          //alert($.browser.version);
+        }
+        // if (isIE6) {
+        //     alert("ie6");
+        // } else if (isIE8) {
+        //     alert("ie8");
+        // } else if (isIE7) {
+        //     alert("ie7");
+        // }
+
+        //alert("IE 浏览器暂时无法上传文件，请更换谷歌浏览器操作！");
+        return;
+      }
+    });
+
+  </script>
+</head>
+
+<body>
+  <div id="app">
+  </div>
+</body>
+
+</html>

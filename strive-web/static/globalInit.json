@@ -1,0 +1,189 @@
+{
+  "permission": [{
+      "code": "1000",
+      "parentCode": "",
+      "title": "交易中心",
+      "icon": "1_06.png",
+      "url": "",
+      "target": 0,
+      "child": [{
+        "code": "100001",
+        "parentCode": "1000",
+        "title": "订单管理",
+        "icon": "",
+        "url": "",
+        "target": 0,
+        "child": [{
+            "code": "10000101",
+            "parentCode": "100001",
+            "title": "消费订单",
+            "icon": "",
+            "url": "/pages/monitor-center/index.html",
+            "target": 0,
+            "child": []
+          },
+          {
+            "code": "10000102",
+            "parentCode": "100001",
+            "title": "积分订单",
+            "icon": "",
+            "url": "/pages/monitor-center/index.html",
+            "target": 0,
+            "child": []
+          }
+        ]
+      }]
+    },
+    {
+      "code": "1001",
+      "parentCode": "",
+      "title": "会员中心",
+      "icon": "1_2.png",
+      "url": "",
+      "target": 0,
+      "child": [{
+          "code": "100101",
+          "parentCode": "1001",
+          "title": "会员管理",
+          "icon": "",
+          "url": "",
+          "target": 0,
+          "child": [{
+              "code": "10010101",
+              "parentCode": "100101",
+              "title": "会员列表",
+              "icon": "",
+              "url": "/pages/member/index.html",
+              "target": 0,
+              "child": []
+            },
+            {
+              "code": "10010102",
+              "parentCode": "100101",
+              "title": "充值提现",
+              "icon": "",
+              "url": "/static/intruduce.html",
+              "target": 0,
+              "child": []
+            }
+          ]
+        },
+        {
+          "code": "100102",
+          "parentCode": "1001",
+          "title": "积分管理",
+          "icon": "",
+          "url": "",
+          "target": 0,
+          "child": [{
+              "code": "10010201",
+              "parentCode": "100102",
+              "title": "积分历史",
+              "icon": "",
+              "url": "/static/intruduce.html",
+              "target": 0,
+              "child": []
+            },
+            {
+              "code": "10010202",
+              "parentCode": "100102",
+              "title": "积分规则",
+              "icon": "",
+              "url": "/pages/user/role/index.html",
+              "target": 0,
+              "child": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "1002",
+      "parentCode": "",
+      "title": "产品中心",
+      "icon": "1_12.png",
+      "url": "",
+      "target": 0,
+      "child": [{
+        "code": "100201",
+        "parentCode": "1002",
+        "title": "产品管理",
+        "icon": "",
+        "url": "",
+        "target": 0,
+        "child": [{
+            "code": "10020101",
+            "parentCode": "100201",
+            "title": "产品列表",
+            "icon": "",
+            "url": "/pages/systemlog/index.html",
+            "target": 0,
+            "child": []
+          },
+          {
+            "code": "10020102",
+            "parentCode": "100201",
+            "title": "促销商品",
+            "icon": "",
+            "url": "/pages/systemlog/index.html",
+            "target": 0,
+            "child": []
+          }
+        ]
+      }]
+    },
+    {
+      "code": "1003",
+      "parentCode": "",
+      "title": "系统维护",
+      "icon": "1_03.png",
+      "url": "",
+      "target": 0,
+      "child": [{
+          "code": "100301",
+          "parentCode": "1003",
+          "title": "用户管理",
+          "icon": "",
+          "url": "",
+          "target": 0,
+          "child": [{
+              "code": "10030101",
+              "parentCode": "100301",
+              "title": "用户信息",
+              "icon": "",
+              "url": "/pages/user/index.html",
+              "target": 0,
+              "child": []
+            },
+            {
+              "code": "10030102",
+              "parentCode": "100301",
+              "title": "角色信息",
+              "icon": "",
+              "url": "/pages/user/role/index.html",
+              "target": 0,
+              "child": []
+            }
+          ]
+        },
+        {
+          "code": "100302",
+          "parentCode": "1003",
+          "title": "数据管理",
+          "icon": "",
+          "url": "",
+          "target": 0,
+          "child": [{
+            "code": "10030201",
+            "parentCode": "100302",
+            "title": "字典数据",
+            "icon": "",
+            "url": "/pages/user/index.html",
+            "target": 0,
+            "child": []
+          }]
+        }
+      ]
+    }
+  ]
+}

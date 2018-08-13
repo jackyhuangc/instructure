@@ -1,0 +1,387 @@
+<html>
+
+<head>
+
+    <link href="../../../static/Content/js/dropper-v1.0.1/jquery.fs.dropper.css" rel="stylesheet" />
+    <style>
+        .demo .filelists {
+            margin: 20px 0;
+            font-family: 'Microsoft YaHei';
+        }
+
+        .demo .filelists h5 {
+            margin: 10px 0 0;
+        }
+
+        .demo .filelists .complete {
+            color: green;
+        }
+
+        .demo .filelists .queue {
+            color: red;
+        }
+
+        .demo .filelist {
+            margin: 0;
+            padding: 10px 0;
+        }
+
+        .demo .filelist li {
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            font-size: 14px;
+            height: 14px;
+            list-style: none;
+            padding: 5px;
+        }
+
+        .demo .filelist li:hover {
+            background: #D7E9F9;
+        }
+
+        .demo .filelist li:before {
+            display: none;
+        }
+
+        .demo .filelist li .file {
+            color: #333;
+            float: left;
+        }
+
+        .demo .filelist li .progress {
+            color: #666;
+            float: right;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .demo .filelist li .delete {
+            color: red;
+            cursor: pointer;
+            float: right;
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .demo .filelist li.complete .progress {
+            color: green;
+        }
+
+        .demo .filelist li.error {
+            width: 100%;
+            margin-top: 0px;
+        }
+
+        .demo .filelist li.error .progress {
+            color: red;
+        }
+
+        .demo .filelist li .optionvisable {
+            visibility: visible;
+            float: right;
+        }
+
+        .demo .filelist li .optionhidden {
+            visibility: hidden;
+            float: right;
+        }
+
+        input:read-only {
+            background-color: #dddddd;
+        }
+    </style>
+
+    <link href="../../../static/Content/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../../static/Content/js/layui/css/layui.css" rel="stylesheet" />
+    <link href="../../../static/Content/js/jedate/skin/jedate.css" rel="stylesheet" />
+    <script src="../../../static/Content/js/layui/layui.js" charset="utf-8"></script>
+    <script src="../../../static/Content/js/vue/vue.js"></script>
+    <script src="../../../static/Content/js/vue/vue-router.js"></script>
+    <script src="../../../static/Content/js/vue/vue-resource.js"></script>
+    <script src="../../../static/Content/js/jquery-1.8.3.min.js"></script>
+    <script src="../../../static/Content/js/dropper-v1.0.1/jquery.fs.dropper.js"></script>
+    <script src="../../../static/Content/js/jedate/jedate.js"></script>
+    <script src="../../../static/global.config.js"></script>
+    <script>
+        var $filequeue,
+            $filelist;
+
+        $(document).ready(function () {
+            $(window).one("pronto.load", function () {
+                $(".demo .dropped").dropper("destroy").off(".dropper");
+            });
+
+            $("#selectReplyTime")
+                .on('click', function () {
+                    jeDate({
+                        dateCell: '#selectReplyTime',
+                        isinitVal: true,
+                        isTime: false,
+                        format: 'YYYY-MM-DD'
+                    });
+                });
+        });
+
+        function onStart(e, files) {
+            console.log("Start");
+            // console.log($("#selectStateDistrict option:selected").text().trim());
+            // console.log($("#selectCountryDistrict option:selected").text().trim());
+            // 上传之前改写存储路径
+            $(e.target).data().dropper.postData.allowUpload = true;
+            $(e.target).data().dropper.postData.state = $("#State").val();
+            $(e.target).data().dropper.postData.statecode = $("#StateCode").val();
+            $(e.target).data().dropper.postData.country = $("#Country").text().trim();
+            $(e.target).data().dropper.postData.countrycode = $("#CountryCode").val();
+            $(e.target).data().dropper.postData.plantype = $("#selectPlanType").val();
+            $(e.target).data().dropper.postData.planlevel = $("#CountryCode").val().substring(4, 2) != '00' ? 3 : 2;
+            $(e.target).data().dropper.postData.ennmcd = $("#ENNMCD").val();
+            $(e.target).data().dropper.postData.replyUser = $("#selectReplyUser").val();
+            $(e.target).data().dropper.postData.replyTime = $("#selectReplyTime").val();
+            $(e.target).data().dropper.postData.replyContent = '';
+
+            var html = '';
+
+            for (var i = 0; i < files.length; i++) {
+                html += '<li data-index="' + files[i].index + '"><span class="file">' + files[i].name + '</span><span class="progress">Queued</span></li>';
+            }
+
+            $filequeue.append(html);
+        }
+
+        function onComplete(e) {
+            console.log("Complete");
+            //console.log(e);
+        }
+
+        function onFileStart(e, file) {
+            console.log("File Start");
+
+            //console.log($(e.target).data().dropper.postData);
+            $filequeue.find("li[data-index=" + file.index + "]")
+                .find(".progress").text("0%");
+        }
+
+        function onFileProgress(e, file, percent) {
+            console.log("File Progress");
+            //console.log(e);
+
+            $filequeue.find("li[data-index=" + file.index + "]")
+                .find(".progress").text(percent + "%");
+        }
+
+        function onFileComplete(e, file, response) {
+            console.log("File Complete");
+            //console.log(e);
+
+            console.log(response.error);
+            if (response.error != "") {
+                $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
+                    .find(".progress").text(response.error);
+            } else {
+                var $target = $filequeue.find("li[data-index=" + file.index + "]");
+
+                $target.find(".file").text(file.name);
+                $target.find(".progress").remove();
+                $target.find(".option").attr('data-value', '');
+                $target.find(".option").removeClass("optionhidden");
+                $target.find(".option").addClass("optionvisable");
+                $target.appendTo($filelist);
+            }
+        }
+
+        function onFileError(e, file, error) {
+            console.log("File Error");
+            //console.log(e);
+
+            $filequeue.find("li[data-index=" + file.index + "]").addClass("error")
+                .find(".progress").text("Error: " + error);
+        }
+    </script>
+
+</head>
+
+<body style="min-width: 460px;padding:10px;">
+    <div class="demo" id="app">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;text-align: center;">
+            <legend style="font-size: 16px;font-weight: bold;">{{title}}</legend>
+        </fieldset>
+        <div class="tools" style="margin:10px 0px 10px 0px;">
+            <input type="hidden" id="State" value="" />
+            <input type="hidden" id="StateCode" value="" />
+            <input type="hidden" id="Country" value="" />
+            <input type="hidden" id="CountryCode" value="" />
+            <input type="hidden" id="ENNMCD" value="" />
+            <ul class="toolbar" style="margin-bottom: 20px;">
+                <li>
+                    <label for="selectPlanType">预案类型：</label>
+                    <select id="selectPlanType" class="datainp datasel" v-model="plantypes.selected">
+                        <option v-for="option in plantypes.data" v-bind:value="option.value">  
+                            {{ option.text }}  
+                        </option>  
+                    </select>
+                </li>
+                <li>
+                    <label for="selectReplyUser">批复机构：</label>
+                    <input class="datainp" id="selectReplyUser" type="text" placeholder="" value="" v-model="replyUser" />
+                </li>
+                <li>
+                    <label for="selectReplyTime">批复时间：</label>
+                    <input class="datainp wicon" id="selectReplyTime" type="text" placeholder="" value="" v-model="replyTime" />
+                </li>
+            </ul>
+        </div>
+
+        <div style="clear:left;"></div>
+        <div>
+            <div class="dropped"></div>
+            <div class="filelists">
+                <h5 class="complete">已完成</h5>
+                <ol class="filelist complete">
+                    <!--<li data-index='@index'><span class="file">xxx</span><span class="option optionvisable" data-value="@item.DFID"><a href="javascript:;" data-operation="changedir">调整路径</a>&nbsp;&nbsp;<a href="javascript:;" data-operation="download">下载</a>&nbsp;&nbsp;<a href="javascript:;" data-operation="deletefile">删除</a>&nbsp;&nbsp;<a href="javascript:;" data-operation="up">↑</a>&nbsp;&nbsp;<a href="javascript:;" data-operation="down">↓</a></span></li>-->
+                </ol>
+                <h5 class="queue">上传中</h5>
+                <ol class="filelist queue"></ol>
+            </div>
+        </div>
+        <script type="text/javascript">
+            var token = "default";
+            if (window.localStorage) {
+                token = localStorage.getItem('token');
+                if (!token) {
+                    localStorage.setItem('token', 'default');
+                    token = localStorage.getItem('token');
+                }
+            }
+            var vm = new Vue({
+                // 可单独设置HTTP属性
+                http: {
+                    headers: {
+                        Authorization: "WJ token=" + token//window.btoa(apikey + "&signed=" + hex_md5(apikey))
+                    }
+                },
+                el: '#app',
+                data: function () {
+                    return {
+                        title: '未知水库-[未知地区]',
+                        plantypes: {
+                            selected: '31',
+                            data: [
+                                { value: '31', text: '├调度方案' },
+                                { value: '32', text: '├度汛方案' },
+                                { value: '33', text: '├应急预案' },
+                                { value: '8', text: '└批复文件' }
+                            ]
+                        },
+                        replyUser: '',
+                        replyTime: '',
+                        listResult: []
+                    }
+                },
+                watch: {
+                    'plantypes.selected': function (val, old) {
+                        this.changeCondition(val, -1);
+                    }
+                },
+                methods: {
+                    query: function () {
+
+                        var thisURL = document.URL;
+                        console.log("*******" + thisURL);
+                        var getval = thisURL.split('?')[1];
+                        var urlParams = getval.split("&");
+                        for (var i = 0; i < urlParams.length; i++) {
+                            var key = urlParams[i].split('=')[0];
+                            var value = urlParams[i].split('=')[1];
+                            if (key == "ennmcd") {
+                                $("#ENNMCD").val(value);
+                            }
+                            else if (key == "plantype") {
+                                $("#PlanType").val(value);
+                            }
+                        }
+
+                        this.$http.get("/api/PlatResource/GetRSProject?ennmcd=" + $("#ENNMCD").val())
+                            .then(function (response) {
+
+                                console.log(response);
+
+                                var data = JSON.parse(response.data);
+                                if (data.code = '000') {
+                                    //console.log(response.data.data);
+                                    $("#State").val(data.data.State);
+                                    $("#StateCode").val(data.data.StateCode);
+                                    $("#Country").val(data.data.Country);
+                                    $("#CountryCode").val(data.data.CountryCode);
+
+                                    this.title = data.data.ennm + "-[" + data.data.country + "]";
+                                    this.changeCondition(31, -1);
+                                }
+                                else
+                                    layer.msg(data.error);
+                            });
+                        // .error(function (data, status, request) {
+                        //     console.log('fail' + status + "," + request);
+                        // })
+                    },
+                    changeCondition: function (pType, old) {
+                        console.log(pType);
+                        if (pType == "3" || pType == "31" || pType == "32" || pType == "33" || pType == "8") {
+                            if (pType == "8") {
+                                $("#selectReplyUser").removeAttr('readonly');
+                                $("#selectReplyTime").removeAttr('readonly');
+                            }
+                            else {
+                                $("#selectReplyUser").attr('readonly', 'readonly');
+                                $("#selectReplyTime").attr('readonly', 'readonly');
+                                this.replyUser = '';
+                                this.replyTime = '';
+                            }
+                        }
+                        else {
+                            this.show = false;
+                            $("#selectReplyUser").attr('readonly', 'readonly');
+                            $("#selectReplyTime").attr('readonly', 'readonly');
+                            this.replyUser = '';
+                            this.replyTime = '';
+                        }
+                    }
+                },
+                created: function () {
+                    console.log("created");
+                },
+                ready: function () {
+                    console.log("mounted");
+                    this.query();
+
+                    //this.upLoad();
+                    $filequeue = $(".demo .filelist.queue");
+                    $filelist = $(".demo .filelist.complete");
+
+                    $(".demo .dropped").dropper({
+                        action: "/api/Anonymous/UploadEmergencyPlan",
+                        maxSize: 1873741824,
+                        postData: {
+                        }
+                    }).on("start.dropper", onStart)
+                        .on("complete.dropper", onComplete)
+                        .on("fileStart.dropper", onFileStart)
+                        .on("fileProgress.dropper", onFileProgress)
+                        .on("fileComplete.dropper", onFileComplete)
+                        .on("fileError.dropper", onFileError);
+                },
+                beforeUpdate: function () {
+                    console.log("beforeUpdate");
+                },
+                updated: function () {
+                    console.log("updated");
+                    $('.tablelist tbody tr:odd').addClass('odd');
+                },
+                destroyed: function () {
+                    console.log("destroyed");
+                }
+            });
+        </script>
+    </div>
+</body>
+
+</html>
