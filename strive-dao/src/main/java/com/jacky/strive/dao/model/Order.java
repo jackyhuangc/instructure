@@ -1,5 +1,6 @@
 package com.jacky.strive.dao.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Order {
@@ -23,7 +24,9 @@ public class Order {
 
     private Integer orderAmount;
 
-    private Integer orderDiscount;
+    private BigDecimal orderDiscount;
+
+    private String orderVoucherNo;
 
     private Integer orderVoucher;
 
@@ -137,12 +140,20 @@ public class Order {
         this.orderAmount = orderAmount;
     }
 
-    public Integer getOrderDiscount() {
+    public BigDecimal getOrderDiscount() {
         return orderDiscount;
     }
 
-    public void setOrderDiscount(Integer orderDiscount) {
+    public void setOrderDiscount(BigDecimal orderDiscount) {
         this.orderDiscount = orderDiscount;
+    }
+
+    public String getOrderVoucherNo() {
+        return orderVoucherNo;
+    }
+
+    public void setOrderVoucherNo(String orderVoucherNo) {
+        this.orderVoucherNo = orderVoucherNo == null ? null : orderVoucherNo.trim();
     }
 
     public Integer getOrderVoucher() {

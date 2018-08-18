@@ -13,10 +13,7 @@ import com.jacky.strive.dao.model.MemberLog;
 import com.jacky.strive.dao.model.Order;
 import com.jacky.strive.service.dto.ChargeQueryDto;
 import com.jacky.strive.service.dto.OrderQueryDto;
-import com.jacky.strive.service.enums.ChargeTypeEnum;
-import com.jacky.strive.service.enums.LogBusiEnum;
-import com.jacky.strive.service.enums.LogTypeEnum;
-import com.jacky.strive.service.enums.OrderStatusEnum;
+import com.jacky.strive.service.enums.*;
 import org.apache.poi.poifs.crypt.dsig.OOXMLURIDereferencer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -81,42 +78,15 @@ public class OrderService {
         // 是否自动支付，根据KV判断，扣减余额
         if (NEED_AUTOPAY) {
 
-            MemberLog log = new MemberLog();
-            log.setCreatedAt(DateUtil.now());
-            log.setLogBusi(LogBusiEnum.消费.getValue());
-
-            // 要么用余额，要么用积分，暂时不支持余额+积分
-            log.setLogType(order.getOrderAmount() > 0 ?
-                    LogTypeEnum.QUOTAS.getValue() : LogTypeEnum.POINTS.getValue());
-            log.setMemberNo(order.getMemberNo());
-
-            // 订单实际成交总价+邮费
-            Integer quotas = order.getOrderAmount() * order.getOrderPrice() * order.getOrderDiscount() +
-                    order.getOrderDeliverFee();
-            log.setMemberQuotas(-quotas);
-
-            // 是否赠送积分，跟进商品来
-            log.setMemberPoints(order.getOrderPoints());
-            log.setUpdatedAt(DateUtil.now());
-            log.setLogMemo("");
-            log = logService.add(log);
-            AssertUtil.notNull(log, "日志添加失败");
-
             order.setOrderStatus(OrderStatusEnum.STATUS_PAID.getValue());
 
             if (NEED_CONFIRM) {
                 order.setOrderStatus(OrderStatusEnum.STATUS_CONFIRM.getValue());
             }
-
-            boolean blRet = activate(order, OrderStatusEnum.STATUS_NEW.getValue(), order.getOrderStatus());
-            AssertUtil.isTrue(blRet, "下单失败");
-
-            // 修改账户余额
-            member.setMemberQuotas(member.getMemberQuotas() + log.getMemberQuotas());
-            member.setMemberPoints(member.getMemberPoints() + log.getMemberPoints());
-            member = memberService.modify(member);
-            AssertUtil.notNull(member, "账户修改失败");
         }
+
+        boolean blRet = activate(order, OrderStatusEnum.STATUS_NEW.getValue(), order.getOrderStatus());
+        AssertUtil.isTrue(blRet, "下单失败");
 
         return ret > 0 ? order : null;
     }
@@ -134,38 +104,9 @@ public class OrderService {
 
         order.setOrderStatus(OrderStatusEnum.STATUS_REVOKING.getValue());
 
-        // 针对自动发货确认=false时，自动处理STATUS_REVOKING订单，进行退款
-        // 针对自动发货确认=true时，手动处理STATUS_REVOKING订单，才能退款
         if (NEED_REVOKED) {
             // 自动退款并更改金额
             order.setOrderStatus(OrderStatusEnum.STATUS_REVOKED.getValue());
-
-            MemberLog log = new MemberLog();
-            log.setCreatedAt(DateUtil.now());
-            log.setLogBusi(LogBusiEnum.消费.getValue());
-
-            // 要么用余额，要么用积分，暂时不支持余额+积分
-            log.setLogType(order.getOrderAmount() > 0 ?
-                    LogTypeEnum.QUOTAS.getValue() : LogTypeEnum.POINTS.getValue());
-            log.setMemberNo(order.getMemberNo());
-
-            // 订单实际成交总价+邮费
-            Integer quotas = order.getOrderAmount() * order.getOrderPrice() * order.getOrderDiscount() +
-                    order.getOrderDeliverFee();
-            log.setMemberQuotas(quotas);
-
-            // 是否赠送积分，跟进商品来
-            log.setMemberPoints(-order.getOrderPoints());
-            log.setUpdatedAt(DateUtil.now());
-            log.setLogMemo("");
-            log = logService.add(log);
-            AssertUtil.notNull(log, "日志添加失败");
-
-            // 修改账户余额
-            member.setMemberQuotas(member.getMemberQuotas() + log.getMemberQuotas());
-            member.setMemberPoints(member.getMemberPoints() + log.getMemberPoints());
-            member = memberService.modify(member);
-            AssertUtil.notNull(member, "账户修改失败");
         }
 
         boolean ret = activate(order, OrderStatusEnum.STATUS_CONFIRM.getValue(), order.getOrderStatus());
@@ -209,6 +150,69 @@ public class OrderService {
         o.setDeliverAt(DateUtil.now());
         o.setDeliverMemo(order.getDeliverMemo());
         boolean ret = activate(o, OrderStatusEnum.STATUS_DELIVERING.getValue(), o.getOrderStatus());
+        AssertUtil.isTrue(ret, "发货申请失败");
+
+        return ret;
+    }
+
+    // 收货确认
+    public boolean received(Order order) {
+        Member member = memberService.findByMemberNo(order.getMemberNo());
+        AssertUtil.notNull(member, "用户不存在");
+
+        Order o = findByOrderNo(order.getOrderNo());
+        AssertUtil.notNull(o, "订单不存在");
+
+        // 只有已发货的订单才能申请退款
+        AssertUtil.isTrue(order.getOrderStatus().equals(OrderStatusEnum.STATUS_DELIVERED.getValue()), "非已发货订单不能确认收货");
+
+        o.setOrderStatus(OrderStatusEnum.STATUS_RECEIVED.getValue());
+        o.setFinishAt(DateUtil.now());
+        o.setFinishMemo(order.getFinishMemo());
+        boolean ret = activate(o, OrderStatusEnum.STATUS_DELIVERED.getValue(), o.getOrderStatus());
+        AssertUtil.isTrue(ret, "发货申请失败");
+
+        return ret;
+    }
+
+    // 申请退货
+    public boolean refunding(Order order) {
+        Member member = memberService.findByMemberNo(order.getMemberNo());
+        AssertUtil.notNull(member, "用户不存在");
+
+        Order o = findByOrderNo(order.getOrderNo());
+        AssertUtil.notNull(o, "订单不存在");
+
+        // 只有已发货的订单才能申请退款
+        AssertUtil.isTrue(order.getOrderStatus().equals(OrderStatusEnum.STATUS_DELIVERED.getValue()), "非已发货订单不能确认收货");
+
+        o.setOrderStatus(OrderStatusEnum.STATUS_REFUNDING.getValue());
+        // o.setFinishAt(DateUtil.now());
+        o.setFinishMemo(order.getFinishMemo());
+        boolean ret = activate(o, OrderStatusEnum.STATUS_DELIVERED.getValue(), o.getOrderStatus());
+        AssertUtil.isTrue(ret, "发货申请失败");
+
+        return ret;
+    }
+
+    // 退货完成
+    public boolean refundAudit(Order order) {
+        Order o = findByOrderNo(order.getOrderNo());
+        AssertUtil.notNull(o, "订单不存在");
+
+        // 只有已发货的订单才能申请退款
+        AssertUtil.isTrue(order.getOrderStatus().equals(OrderStatusEnum.STATUS_REFUNDING.getValue()), "非已发货订单不能确认收货");
+
+        o.setOrderStatus(order.getOrderStatus());
+
+        if (OrderStatusEnum.STATUS_REFUNDED.getValue().equals(order.getOrderStatus())) {
+            // 退货完成，自动退款
+            o.setOrderStatus(OrderStatusEnum.STATUS_REVOKED.getValue());
+        }
+
+        o.setFinishAt(DateUtil.now());
+        o.setFinishMemo(order.getFinishMemo());
+        boolean ret = activate(o, OrderStatusEnum.STATUS_REFUNDING.getValue(), o.getOrderStatus());
         AssertUtil.isTrue(ret, "发货申请失败");
 
         return ret;

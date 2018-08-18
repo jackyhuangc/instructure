@@ -5,6 +5,8 @@ import java.util.Date;
 public class MemberVoucher {
     private Integer voucherId;
 
+    private String voucherNo;
+
     private String memberNo;
 
     private Integer voucherQuotas;
@@ -29,6 +31,14 @@ public class MemberVoucher {
 
     public void setVoucherId(Integer voucherId) {
         this.voucherId = voucherId;
+    }
+
+    public String getVoucherNo() {
+        return voucherNo;
+    }
+
+    public void setVoucherNo(String voucherNo) {
+        this.voucherNo = voucherNo == null ? null : voucherNo.trim();
     }
 
     public String getMemberNo() {

@@ -16,6 +16,10 @@ public class Product {
 
     private Integer productPrice;
 
+    private Integer productAmount;
+
+    private String productUnit;
+
     private BigDecimal productDiscountRate;
 
     private Integer productPoints;
@@ -90,6 +94,22 @@ public class Product {
 
     public void setProductPrice(Integer productPrice) {
         this.productPrice = productPrice;
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
+    }
+
+    public String getProductUnit() {
+        return productUnit;
+    }
+
+    public void setProductUnit(String productUnit) {
+        this.productUnit = productUnit == null ? null : productUnit.trim();
     }
 
     public BigDecimal getProductDiscountRate() {

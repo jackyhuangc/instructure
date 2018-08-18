@@ -30,10 +30,10 @@
       <div class="layui-form-item">
         <label class="layui-form-label">产品类型</label>
         <div class="layui-input-block">
-          <select name="country" id="country" lay-filter="country" lay-verify="required" lay-search="">
+          <select name="productAttr" id="productAttr" lay-filter="productAttr" lay-verify="required" lay-search="">
             <option value="">-请选择-</option>
-            <option value="China">XXXXXXX-ABC</option>
-            <option value="America">YYYYYYY-ABC</option>
+            <option value="XXXXXXX-ABC">XXXXXXX-ABC</option>
+            <option value="YYYYYYY-ABC">YYYYYYY-ABC</option>
           </select>
         </div>
       </div>
@@ -41,13 +41,27 @@
         <div class="layui-inline">
           <label class="layui-form-label">产品单价</label>
           <div class="layui-input-inline">
-            <input type="text" name="productPrice" v-model="datasource.productPrice" lay-verify="required" autocomplete="off" class="layui-input">
+            <input type="text" name="productPrice" v-model="datasource.productPrice" lay-verify="required|number" autocomplete="off" class="layui-input">
           </div>
         </div>
         <div class="layui-inline">
+          <label class="layui-form-label">折扣率</label>
+          <div class="layui-input-inline">
+            <input type="text" name="productDiscountRate" v-model="datasource.productDiscountRate" lay-verify="required|number" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <div class="layui-inline">
           <label class="layui-form-label">兑换积分</label>
           <div class="layui-input-inline">
-            <input type="text" name="productPoints" v-model="datasource.productPoints" lay-verify="required" autocomplete="off" class="layui-input">
+            <input type="text" name="productPoints" v-model="datasource.productPoints" lay-verify="required|number" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="layui-form-label">邮费</label>
+          <div class="layui-input-inline">
+            <input type="text" name="productDeliverFee" v-model="datasource.productDeliverFee" lay-verify="required|number" autocomplete="off" class="layui-input">
           </div>
         </div>
       </div>
@@ -62,13 +76,13 @@
       <div class="layui-form-item">
         <label class="layui-form-label">促销开始</label>
         <div class="layui-input-block">
-          <input type="text" name="address" v-model="datasource.productPromotionBegin" placeholder="" autocomplete="off" class="layui-input">
+          <input type="text" name="productPromotionBegin" id="productPromotionBegin" v-model="datasource.productPromotionBegin" placeholder="" autocomplete="off" class="layui-input">
         </div>
       </div>
       <div class="layui-form-item">
         <label class="layui-form-label">促销结束</label>
         <div class="layui-input-block">
-          <input type="text" name="address" v-model="datasource.productPromotionEnd" placeholder="" autocomplete="off" class="layui-input">
+          <input type="text" name="productPromotionEnd" id="productPromotionEnd" v-model="datasource.productPromotionEnd" placeholder="" autocomplete="off" class="layui-input">
         </div>
       </div>
 
@@ -196,11 +210,30 @@ export default {
   mounted: function() {
     var vm = this;
 
-    layui.use(["upload", "form"], function() {
+    layui.use(["upload", "form", "laydate"], function() {
       // layui自带的jquery
       // var $ = layui.jquery;
       var upload = layui.upload;
       var form = layui.form;
+      var laydate = layui.laydate;
+
+      laydate.render({
+        elem: "#productPromotionBegin",
+        theme: "molv",
+        type: "datetime",
+        done: function(value, date, endDate) {
+          vm.productPromotionBegin = value;
+        }
+      });
+
+      laydate.render({
+        elem: "#productPromotionEnd",
+        theme: "molv",
+        type: "datetime",
+        done: function(value, date, endDate) {
+          vm.productPromotionEnd = value;
+        }
+      });
 
       // 普通图片上传
       upload.render({
@@ -239,8 +272,8 @@ export default {
       });
 
       // 监听select列表
-      form.on("select(country)", function(obj) {
-        vm.datasource.country = obj.value;
+      form.on("select(productAttr)", function(obj) {
+        vm.datasource.productAttr = obj.value;
       });
 
       // 监听提交

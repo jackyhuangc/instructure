@@ -68,18 +68,18 @@
             domainObjectName:指定了实体类的名称
         -->
         <!-- 针对tk.mybatis，我们只需要实体，尽量让dao层简洁 -->
-        <table tableName="member" domainObjectName="Member"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="MemberId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="member_address" domainObjectName="MemberAddress"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="AddressId" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="member" domainObjectName="Member"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="MemberId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="member_address" domainObjectName="MemberAddress"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="AddressId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
         <table tableName="member_log" domainObjectName="MemberLog"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
@@ -99,18 +99,18 @@
                selectByExampleQueryId="true">
             <generatedKey column="VoucherId" sqlStatement="MySql" identity="true"/>
         </table>
-        <table tableName="keyvalue" domainObjectName="KeyValue"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="KeyValueId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="award_log" domainObjectName="AwardLog"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="LogId" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="keyvalue" domainObjectName="KeyValue"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="KeyValueId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="award_log" domainObjectName="AwardLog"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="LogId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
         <table tableName="product" domainObjectName="Product"
                enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="true" enableSelectByExample="true"
@@ -118,31 +118,31 @@
             <generatedKey column="ProductId" sqlStatement="MySql" identity="true"/>
         </table>
 
-        <table tableName="user" domainObjectName="User"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="UserID" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="user" domainObjectName="User"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="UserID" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="role" domainObjectName="Role"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="RoleID" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="role" domainObjectName="Role"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="RoleID" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
-        <table tableName="userrole" domainObjectName="UserRole"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-        </table>
+        <!--<table tableName="userrole" domainObjectName="UserRole"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+        <!--</table>-->
 
-        <table tableName="member_charge" domainObjectName="MemberCharge"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="ChargeID" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="member_charge" domainObjectName="MemberCharge"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="ChargeID" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
     </context>
 </generatorConfiguration>

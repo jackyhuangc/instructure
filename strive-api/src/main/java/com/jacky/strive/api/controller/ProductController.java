@@ -30,7 +30,7 @@ public class ProductController {
         return ResResult.success("", m);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/create")
     public ResResult create(@RequestBody Product product) {
 
         Product m = productService.add(product);

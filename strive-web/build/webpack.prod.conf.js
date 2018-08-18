@@ -74,6 +74,12 @@ var webpackConfig = merge(baseWebpackConfig, {
       chunks: ['pages/member/index']
     }),
     new HtmlWebpackPlugin({
+      filename: './pages/product/index.html',
+      template: './src/pages/product/index.html',
+      inject: true,
+      chunks: ['pages/product/index']
+    }),
+    new HtmlWebpackPlugin({
       filename: './pages/user/index.html',
       template: './src/pages/user/index.html',
       inject: true,

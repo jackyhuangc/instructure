@@ -92,8 +92,8 @@ public class OrderController {
 //    }
 
     // 确认(发货) 特别增加，客户/商家可调用
-    @PostMapping("/delivered")
-    public ResResult delivered(@RequestBody Order order) {
+    @PostMapping("/delivered/{order_no}")
+    public ResResult delivered(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
 
         boolean ret = orderService.delivered(order);
 
@@ -101,21 +101,30 @@ public class OrderController {
     }
 
     // 收货
-    @PostMapping("/receive/{order_no}")
-    public ResResult receive(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
-        return null;
+    @PostMapping("/received/{order_no}")
+    public ResResult received(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
+
+        boolean ret = orderService.received(order);
+
+        return ResResult.success("收货确认成功", ret);
     }
 
     // 退货申请
-    @PostMapping("/refund/{order_no}")
-    public ResResult refund(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
-        return null;
+    @PostMapping("/refunding/{order_no}")
+    public ResResult refunding(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
+
+        boolean ret = orderService.refunding(order);
+
+        return ResResult.success("退货申请成功", ret);
     }
 
     // 退货审核并退款
-    @PostMapping("/refund_audit")
-    public ResResult refundAudit(@RequestBody Order order) {
-        return null;
+    @PostMapping("/refund_audit/{order_no}")
+    public ResResult refundAudit(@PathVariable("order_no") String orderNo, @RequestBody Order order) {
+
+        boolean ret = orderService.refundAudit(order);
+
+        return ResResult.success("退货确认成功", ret);
     }
 
     @PostMapping("/query")

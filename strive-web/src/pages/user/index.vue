@@ -34,7 +34,6 @@
             <i class="layui-icon">&#xe615;</i> SEARCH</button>
           <button class="layui-btn layui-btn-normal" @click="btnAdd();">
             <i class="layui-icon">&#xe61f;</i> ADD</button>
-          </button>
         </div>
       </div>
     </div>

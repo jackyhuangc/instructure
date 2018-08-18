@@ -16,6 +16,7 @@ module.exports = {
     'pages/monitor-center/index': './src/pages/monitor-center/index.js',
     'pages/user/index': './src/pages/user/index.js',
     'pages/member/index': './src/pages/member/index.js',
+    'pages/product/index': './src/pages/product/index.js',
     'pages/user/personal/index': './src/pages/user/personal/index.js',
     'pages/user/role/index': './src/pages/user/role/index.js',
     'pages/systemlog/index': './src/pages/systemlog/index.js',

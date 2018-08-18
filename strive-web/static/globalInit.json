@@ -116,7 +116,7 @@
             "parentCode": "100201",
             "title": "产品列表",
             "icon": "",
-            "url": "/pages/systemlog/index.html",
+            "url": "/pages/product/index.html",
             "target": 0,
             "child": []
           },
@@ -169,14 +169,14 @@
         {
           "code": "100302",
           "parentCode": "1003",
-          "title": "数据管理",
+          "title": "配置管理",
           "icon": "",
           "url": "",
           "target": 0,
           "child": [{
             "code": "10030201",
             "parentCode": "100302",
-            "title": "字典数据",
+            "title": "KV配置",
             "icon": "",
             "url": "/pages/user/index.html",
             "target": 0,

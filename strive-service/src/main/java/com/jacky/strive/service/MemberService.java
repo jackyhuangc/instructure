@@ -146,9 +146,6 @@ public class MemberService {
         Page<Member> page = PageHelper.startPage(queryDto.getPage(), queryDto.getSize());
 
         Example example = new Example(Member.class);
-//        Example.Criteria criteria1 = example.createCriteria();
-//        criteria1.andEqualTo("memberStatus", true);
-//        criteria1.orIsNull("memberStatus");
 
         Example.Criteria criteria2 = example.createCriteria();
 
@@ -189,14 +186,5 @@ public class MemberService {
         AssertUtil.isTrue(ret > 0, "添加地址失败");
 
         return ret > 0 ? memberAddress : null;
-    }
-
-    public MemberVoucher addVoucher(MemberVoucher memberVoucher) {
-
-        memberVoucher.setCreatedAt(DateUtil.now());
-        int ret = memberVoucherDao.insert(memberVoucher);
-        AssertUtil.isTrue(ret > 0, "添加代价券失败");
-
-        return ret > 0 ? memberVoucher : null;
     }
 }

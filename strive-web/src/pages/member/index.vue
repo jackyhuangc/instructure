@@ -25,7 +25,6 @@
             <i class="layui-icon">&#xe615;</i> 查询</button>
           <button class="layui-btn layui-btn-normal" @click="btnAdd();">
             <i class="layui-icon">&#xe61f;</i> 添加</button>
-          </button>
         </div>
       </div>
     </div>

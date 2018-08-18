@@ -1,5 +1,6 @@
 package com.jacky.strive.dao.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class MemberLog {
@@ -11,9 +12,13 @@ public class MemberLog {
 
     private String memberNo;
 
-    private Integer memberQuotas;
+    private BigDecimal memberQuotas;
 
     private Integer memberPoints;
+
+    private String productNo;
+
+    private Integer productAmount;
 
     private String logMemo;
 
@@ -53,11 +58,11 @@ public class MemberLog {
         this.memberNo = memberNo == null ? null : memberNo.trim();
     }
 
-    public Integer getMemberQuotas() {
+    public BigDecimal getMemberQuotas() {
         return memberQuotas;
     }
 
-    public void setMemberQuotas(Integer memberQuotas) {
+    public void setMemberQuotas(BigDecimal memberQuotas) {
         this.memberQuotas = memberQuotas;
     }
 
@@ -67,6 +72,22 @@ public class MemberLog {
 
     public void setMemberPoints(Integer memberPoints) {
         this.memberPoints = memberPoints;
+    }
+
+    public String getProductNo() {
+        return productNo;
+    }
+
+    public void setProductNo(String productNo) {
+        this.productNo = productNo == null ? null : productNo.trim();
+    }
+
+    public Integer getProductAmount() {
+        return productAmount;
+    }
+
+    public void setProductAmount(Integer productAmount) {
+        this.productAmount = productAmount;
     }
 
     public String getLogMemo() {
