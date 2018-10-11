@@ -80,26 +80,26 @@
                <!--selectByExampleQueryId="true">-->
             <!--<generatedKey column="AddressId" sqlStatement="MySql" identity="true"/>-->
         <!--</table>-->
-        <table tableName="member_log" domainObjectName="MemberLog"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="LogId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="order" domainObjectName="Order"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
+        <!--<table tableName="member_log" domainObjectName="MemberLog"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="LogId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="order" domainObjectName="Order"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
 
-            <generatedKey column="OrderId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <table tableName="member_voucher" domainObjectName="MemberVoucher"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="VoucherId" sqlStatement="MySql" identity="true"/>
-        </table>
-        <!--<table tableName="keyvalue" domainObjectName="KeyValue"-->
+            <!--<generatedKey column="OrderId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="member_voucher" domainObjectName="MemberVoucher"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="VoucherId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
+        <!--<table tableName="key_value" domainObjectName="KeyValue"-->
                <!--enableCountByExample="true" enableUpdateByExample="true"-->
                <!--enableDeleteByExample="true" enableSelectByExample="true"-->
                <!--selectByExampleQueryId="true">-->
@@ -111,12 +111,12 @@
                <!--selectByExampleQueryId="true">-->
             <!--<generatedKey column="LogId" sqlStatement="MySql" identity="true"/>-->
         <!--</table>-->
-        <table tableName="product" domainObjectName="Product"
-               enableCountByExample="true" enableUpdateByExample="true"
-               enableDeleteByExample="true" enableSelectByExample="true"
-               selectByExampleQueryId="true">
-            <generatedKey column="ProductId" sqlStatement="MySql" identity="true"/>
-        </table>
+        <!--<table tableName="product" domainObjectName="Product"-->
+               <!--enableCountByExample="true" enableUpdateByExample="true"-->
+               <!--enableDeleteByExample="true" enableSelectByExample="true"-->
+               <!--selectByExampleQueryId="true">-->
+            <!--<generatedKey column="ProductId" sqlStatement="MySql" identity="true"/>-->
+        <!--</table>-->
 
         <!--<table tableName="user" domainObjectName="User"-->
                <!--enableCountByExample="true" enableUpdateByExample="true"-->
@@ -144,5 +144,12 @@
                <!--selectByExampleQueryId="true">-->
             <!--<generatedKey column="ChargeID" sqlStatement="MySql" identity="true"/>-->
         <!--</table>-->
+
+        <table tableName="member_order_pay" domainObjectName="MemberOrderPay"
+        enableCountByExample="true" enableUpdateByExample="true"
+        enableDeleteByExample="true" enableSelectByExample="true"
+        selectByExampleQueryId="true">
+        <generatedKey column="PayId" sqlStatement="MySql" identity="true"/>
+        </table>
     </context>
 </generatorConfiguration>
