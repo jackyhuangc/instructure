@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport"
+          content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>支付结果页面</title>
+</head>
+<style type="text/css">
+    body {
+        text-align: center
+    }
+
+    .main {
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -100px;
+    }
+
+    .pay_success {
+        height: 80px;
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+</style>
+<body>
+<div class="main">
+    <img th:if="${ErrorCode=='0000'}" class="pay_success" src="/strive/img/wx_success.png"/>
+    <h1 th:if="${ErrorCode=='0000'}">交易成功</h1>
+    <p th:if="${ErrorCode=='0000'}">交易订单号：<span th:text="${OrderNO}"></span></p>
+    <p th:if="${ErrorCode=='0000'}">交易金额：<span th:text="${Money}"></span></p>
+
+    <img th:if="${ErrorCode!='0000'}" class="pay_success" src="/strive/img/error.png"/>
+    <h1 th:if="${ErrorCode!='0000'}"><span th:text="${ErrorMessage}"></span></h1>
+    <p th:if="${ErrorCode!='0000'}">交易订单号：<span th:text="${OrderNO}"></span></p>
+    <p th:if="${ErrorCode!='0000'}">交易金额：<span th:text="${Money}"></span></p>
+</div>
+</body>
+</html>

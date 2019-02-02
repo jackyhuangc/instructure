@@ -5,15 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ebf05d4-4246-467f-b0a6-64aac35175ac" name="Default" comment="xxx">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hs_err_pid603.log" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/config/FastJsonHttpMessageConvertersConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/KeyValueController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/resources/application.yml(20181103可用)" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/resources/static/img/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/resources/static/img/wx_success.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-api/src/main/resources/templates/pay_back.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/AesCbcUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/Base64Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/ConsoleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/DateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/HttpUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/MapUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/SmsUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/ThreadPoolUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/GoldTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/KeyValueService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/BindingReqDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/BindingRspDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/KeyValueQueryDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/KvOrderConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/LoginThirdDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/MemberOrderExt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/OrderPayDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/SmsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/WeChat/WxPrepay.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/WeChat/WxRefund.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/WeChat/WxSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/WeChat/WxUserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/utils/WXRequestUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/api.2018-05-22.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/api.2018-05-24.0.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/api.2018-05-25.0.log" beforeDir="false" />
@@ -39,94 +61,6 @@
       <change beforePath="$PROJECT_DIR$/logs/api.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/logback.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/logs/logback.log.2018-07-26.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/j-admin bk0701.psc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/main.rar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/oauth2 bk0701.psc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/ApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/config/ResourceServerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/config/ResourceServerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/ChargeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/ChargeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/CommonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/CommonController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/MemberController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/MemberController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-api/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-common/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-common/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-common/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-common/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-common/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/MemberChargeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/MemberChargeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/OrderDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/KeyValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/KeyValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberAddress.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberAddress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberCharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberCharge.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberVoucher.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberVoucher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/MemberOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/java/com/jacky/strive/dao/model/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/dev/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/strive-dao/src/main/resources/dev/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/generator.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/generatorConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-dao/src/main/resources/jdbc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/JobApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/JobApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/config/XxlJobConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/config/XxlJobConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/controller/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/executor/DemoJobHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-job/src/main/java/com/jacky/strive/job/executor/DemoJobHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-job/src/test/java/com/jacky/strive/job/JobApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-job/src/test/java/com/jacky/strive/job/JobApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-oauth2/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-oauth2/src/main/resources/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-oauth2/src/main/resources/logback.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-oauth2/src/main/resources/oauth.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-oauth2/src/main/resources/oauth2.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ChargeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ChargeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/OrderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/ProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/BaseRtnDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/ChargeQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/LogQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/MemberLoginDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/MemberQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/OrderQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/PageDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/PrincipalDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/ProductQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/dto/UserQueryDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/SystemLogRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/elastic/model/SystemLog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/ChargeStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/ChargeTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/LogBusiEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/LogTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/MemberTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/OrderStatusEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/OrderTypeEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/ProductPromotionEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/ServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/EmployeeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/strive-service/src/test/java/com/jacky/strive/service/user/UserServiceTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/strive-web/.babelrc" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/strive-web/.editorconfig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/strive-web/.eslintignore" beforeDir="false" />
@@ -1310,11 +1244,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChargeController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ChargeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/ChargeController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="361">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -1337,15 +1271,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pay_back.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/strive-api/src/main/resources/templates/pay_back.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="45" column="66" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ConsoleTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/ConsoleTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -1362,6 +1287,11 @@
               <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.yml(20181103可用)" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/strive-api/src/main/resources/application.yml(20181103可用)">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="MemberController.java" pinned="false" current-in-tab="false">
@@ -1547,7 +1477,7 @@
       <path value="$PROJECT_DIR$/strive-web/static/Html/index/js/wangeditor/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="822" />
@@ -1566,6 +1496,59 @@
             <path>
               <item name="strive" type="b2602c69:ProjectViewProjectNode" />
               <item name="strive" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="strive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="strive" type="462c0819:PsiDirectoryNode" />
+              <item name="strive-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1846,7 +1829,7 @@
       <workItem from="1547174611485" duration="723000" />
       <workItem from="1547516501573" duration="4929000" />
       <workItem from="1549090365688" duration="446000" />
-      <workItem from="1549090830420" duration="1551000" />
+      <workItem from="1549090830420" duration="2600000" />
     </task>
     <task id="LOCAL-00001" summary="xxx">
       <created>1539270764335</created>
@@ -1855,7 +1838,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539270764335</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="xxx">
+      <created>1549094775192</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1549094775193</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1891,10 +1881,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="317055000" />
+    <option name="totallyTimeSpent" value="318104000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="822" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="822" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50214595" side_tool="true" visible="true" weight="0.1724138" />
@@ -2231,13 +2221,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/strive-common/src/main/java/com/jacky/strive/common/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3043">
-          <caret line="212" column="25" selection-start-line="212" selection-start-column="25" selection-end-line="212" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-service/src/main/java/com/jacky/strive/service/enums/ChargeStatusEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -2548,13 +2531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/KeyValueController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/ProductController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -2579,9 +2555,19 @@
     <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/ChargeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-api/src/main/java/com/jacky/strive/api/controller/KeyValueController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="24" column="59" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/strive-api/src/main/resources/application.yml(20181103可用)">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
