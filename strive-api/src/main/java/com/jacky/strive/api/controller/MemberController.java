@@ -2,12 +2,15 @@ package com.jacky.strive.api.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.Member;
+import com.jacky.strive.dao.model.MemberAddress;
 import com.jacky.strive.service.MemberService;
+import com.jacky.strive.service.dto.LoginThirdDto;
 import com.jacky.strive.service.dto.MemberQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import qsq.biz.common.util.AssertUtil;
+import qsq.biz.common.util.StringUtil;
 import qsq.biz.scheduler.entity.ResResult;
 
 /**
@@ -85,11 +88,64 @@ public class MemberController {
         return ResResult.success("", memberList);
     }
 
+    @GetMapping("/address/{member_no}")
+    public ResResult getDefault(@PathVariable("member_no") String memberNo) {
+
+        MemberAddress m = memberService.findMemberAddressByDefault(memberNo);
+        AssertUtil.notNull(m, "未设置默认地址");
+
+        return ResResult.success("", m);
+    }
+
+    @PostMapping("/createAddress")
+    public ResResult addAddress(@RequestBody MemberAddress memberAddress) {
+
+        MemberAddress m = memberService.addAddress(memberAddress);
+        AssertUtil.notNull(m, "添加失败");
+
+        return ResResult.success("", m);
+    }
+
+    @PostMapping("/modifyAddress/{member_no}")
+    public ResResult modifyAddress(@PathVariable("member_no") String memberNo, @RequestBody MemberAddress memberAddress) {
+
+        memberAddress.setMemberNo(memberNo);
+        MemberAddress m = memberService.modifyAddress(memberAddress);
+        AssertUtil.notNull(m, "修改失败");
+
+        return ResResult.success("", m);
+    }
+
+
+    @PostMapping("/deleteAddress/{member_no}")
+    public ResResult deleteAddress(@PathVariable("member_no") String memberNo, @RequestBody MemberAddress memberAddress) {
+
+        memberAddress.setMemberNo(memberNo);
+        Integer ret = memberService.deleteAddress(memberNo, memberAddress.getAddressId());
+        AssertUtil.notNull(ret > 0, "删除失败");
+
+        return ResResult.success("", ret);
+    }
+
+    @PostMapping("/queryAddress")
+    public ResResult queryAddress(@RequestBody MemberQueryDto queryDto) {
+
+        PageInfo<MemberAddress> memberList = memberService.findMemberAddressList(queryDto);
+
+        return ResResult.success("", memberList);
+    }
+
     @GetMapping("/generateNewMemberNo")
     public ResResult generateNewMemberNo() {
 
         String ret = memberService.generateNewMemberNo();
 
         return ResResult.success("生成ID成功", ret);
+    }
+
+    @PostMapping("/loginThird")
+    public ResResult loginThird(@RequestBody LoginThirdDto loginThirdDto) {
+
+        return memberService.loginThird(loginThirdDto);
     }
 }

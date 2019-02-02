@@ -3,19 +3,25 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.jacky.strive.common.AesCbcUtil;
 import com.jacky.strive.dao.*;
 import com.jacky.strive.dao.model.*;
+import com.jacky.strive.service.dto.LoginThirdDto;
 import com.jacky.strive.service.dto.MemberQueryDto;
+import com.jacky.strive.service.dto.WeChat.WxSession;
+import com.jacky.strive.service.dto.WeChat.WxUserInfo;
+import com.jacky.strive.service.enums.MemberTypeEnum;
+import com.jacky.strive.service.utils.WXRequestUtil;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.common.util.DateUtil;
-import qsq.biz.common.util.Md5Util;
-import qsq.biz.common.util.StringUtil;
+import qsq.biz.common.util.*;
+import qsq.biz.scheduler.entity.ResResult;
 import tk.mybatis.mapper.entity.Example;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -46,20 +52,44 @@ public class MemberService {
     @Autowired
     KeyValueDao keyValueDao;
 
-
     public Member add(Member member) {
 
         Member u = findByMemberName(member.getMemberMobile());
         AssertUtil.isTrue(null == u, "手机号已存在");
 
+
+        if (StringUtil.isEmtpy(member.getMemberSource())) {
+            member.setMemberSource("平台");
+        }
+
         member.setCreatedAt(DateUtil.now());
-        member.setMemberQuotas(0);
+        member.setMemberQuotas(BigDecimal.ZERO);
         member.setMemberPoints(0);
-        member.setMemberPassword(Md5Util.md5Encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
+        member.setMemberDeposit(BigDecimal.ZERO);
+        member.setMemberWithdraw(BigDecimal.ZERO);
+        member.setMemberBuyAction(BigDecimal.ZERO);
+        member.setMemberSellAction(BigDecimal.ZERO);
+        member.setMemberInterestAction(BigDecimal.ZERO);
+        if (!StringUtil.isEmtpy(member.getMemberPassword())) {
+            if (member.getMemberPassword().length() <= 18) {
+                member.setMemberPassword(Md5Util.md5Encode(member.getMemberPassword()));
+            }
+        } else {
+            member.setMemberPassword(Md5Util.md5Encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
+        }
         int ret = memberDao.insert(member);
 
-        if (null != member.getMemberAddress()) {
-            addAddress(member.getMemberAddress());
+        if (!StringUtil.isEmtpy(member.getMemberAddress())) {
+
+            MemberAddress address = new MemberAddress();
+            address.setShippingDefault(true);
+            address.setCreatedAt(DateUtil.now());
+            address.setMemberNo(member.getMemberNo());
+            address.setShippingUser(member.getMemberName());
+            address.setShippingMobile(member.getMemberMobile());
+            address.setShippingDistrict(member.getMemberDistrict());
+            address.setShippingAddress(member.getMemberAddress());
+            addAddress(address);
         }
 
         return ret > 0 ? member : null;
@@ -74,6 +104,7 @@ public class MemberService {
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("memberNo", member.getMemberNo());
 
+        member.setUpdatedAt(DateUtil.now());
         int ret = memberDao.updateByExampleSelective(member, example);
         return ret > 0 ? member : null;
     }
@@ -117,7 +148,14 @@ public class MemberService {
         AssertUtil.notNull(member, "用户不存在");
 
         int ret = memberDao.deleteByExample(example);
-        return ret > 0;
+
+        // 同时清空收货地址
+        MemberQueryDto queryDto = new MemberQueryDto();
+        queryDto.setMemberNo(memberNo);
+        PageInfo<MemberAddress> memberAddressList = findMemberAddressList(queryDto);
+        int delRet = deleteAddress(memberNo, -1);
+
+        return ret > 0 && delRet == memberAddressList.getList().size();
     }
 
     public Member findByMemberName(String memberName) {
@@ -138,6 +176,15 @@ public class MemberService {
 
         Member member = memberDao.selectOneByExample(example);
 
+        return member;
+    }
+
+    public Member findByUnionId(String unionId) {
+        Example example = new Example(Member.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("unionId", unionId);
+
+        Member member = memberDao.selectOneByExample(example);
         return member;
     }
 
@@ -185,6 +232,183 @@ public class MemberService {
         int ret = memberAddressDao.insert(memberAddress);
         AssertUtil.isTrue(ret > 0, "添加地址失败");
 
+        // 重新设置默认地址
+        if (memberAddress.getShippingDefault()) {
+            return modifyAddress(memberAddress);
+        } else {
+
+            MemberQueryDto queryDto = new MemberQueryDto();
+            PageInfo<MemberAddress> pageInfo = findMemberAddressList(queryDto);
+
+            // 只有一条数据时，一定要设置为默认
+            if (pageInfo.getList().size() == 1) {
+                memberAddress.setShippingDefault(true);
+                return modifyAddress(memberAddress);
+            }
+        }
+
         return ret > 0 ? memberAddress : null;
+    }
+
+    public PageInfo<MemberAddress> findMemberAddressList(MemberQueryDto queryDto) {
+
+        Example example = new Example(MemberAddress.class);
+
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andLike("memberNo", queryDto.getMemberNo());
+        example.setOrderByClause("created_at desc");
+
+        List<MemberAddress> addressList = memberAddressDao.selectByExample(example);
+
+        return new PageInfo<>(addressList);
+    }
+
+
+    public MemberAddress findMemberAddressByDefault(String memberNo) {
+
+        Example example = new Example(MemberAddress.class);
+
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andLike("memberNo", memberNo);
+        criteria.andEqualTo("shippingDefault", true);
+
+        MemberAddress address = memberAddressDao.selectOneByExample(example);
+
+        return address;
+    }
+
+    public MemberAddress modifyAddress(MemberAddress memberAddress) {
+
+        Example example = new Example(MemberAddress.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("memberNo", memberAddress.getMemberNo());
+
+        List<MemberAddress> addressList = memberAddressDao.selectByExample(example);
+
+        addressList.stream().forEach(address -> {
+            if (memberAddress.getAddressId().equals(address.getAddressId())) {
+
+                address.setShippingAddress(memberAddress.getShippingAddress());
+                address.setShippingDistrict(memberAddress.getShippingDistrict());
+                address.setShippingMobile(memberAddress.getShippingMobile());
+                address.setShippingUser(memberAddress.getShippingUser());
+                if (!memberAddress.getShippingDefault()) {
+                    AssertUtil.isTrue(!address.getShippingDefault(), "未选择默认地址");
+                }
+                address.setShippingDefault(memberAddress.getShippingDefault());
+
+            } else {
+                if (memberAddress.getShippingDefault()) {
+                    address.setShippingDefault(false);
+
+                }
+            }
+
+            Example exp = new Example(MemberAddress.class);
+            Example.Criteria crit = exp.createCriteria();
+            crit.andEqualTo("addressId", address.getAddressId());
+            int ret = memberAddressDao.updateByExampleSelective(address, exp);
+
+            //AssertUtil.isTrue(ret > 0, "修改地址失败");
+        });
+
+        return memberAddress;
+    }
+
+    public Integer deleteAddress(String memberNo, Integer addressId) {
+        Example example = new Example(MemberAddress.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("memberNo", memberNo);
+        if (addressId > 0) {
+            criteria.andEqualTo("addressId", addressId);
+        }
+
+        int ret = memberAddressDao.deleteByExample(example);
+        return ret;
+    }
+
+    public ResResult loginThird(LoginThirdDto loginThirdDto) {
+
+        if (loginThirdDto.getLoginType().equals("WeChat") || loginThirdDto.getLoginType().equals("QH")) {
+
+            WxUserInfo wxUserInfo = loginThirdDto.getUserInfo();
+            // 如果没有传入用户信息，则需要从微信服务器重新获取，这是正常的逻辑处理
+            if (null == wxUserInfo) {
+
+                ResResult<WxSession> resResult = WXRequestUtil.WxLogin(loginThirdDto.getCode());
+                if (resResult.isSuccess()) {
+
+                    // 用一下数据解析unionId等用户信息
+                    String result = AesCbcUtil.decrypt(loginThirdDto.getEncryptedData(), loginThirdDto.getIv(), resResult.getData().getSessionKey(), "UTF-8");
+
+                    wxUserInfo = JsonUtil.fromJson(result, WxUserInfo.class);
+                }
+            }
+
+            AssertUtil.notNull(wxUserInfo, "用户验证失败");
+
+            // 保存unionId到本地库，新增用户
+            if (null == wxUserInfo.getUnionId()) {
+
+                if (StringUtil.isEmtpy(wxUserInfo.getMobile())) {
+                    wxUserInfo.setUnionId(loginThirdDto.getLoginType() + "_" + wxUserInfo.getNickName());
+                } else {
+                    wxUserInfo.setUnionId(loginThirdDto.getLoginType() + "_" + wxUserInfo.getMobile());
+                }
+            }
+
+            Member member = findByUnionId(wxUserInfo.getUnionId());
+
+            if (null == member) {
+                if (StringUtil.isEmtpy(wxUserInfo.getPassword())) {
+                    wxUserInfo.setPassword("");
+                }
+                if (StringUtil.isEmtpy(wxUserInfo.getMobile())) {
+                    wxUserInfo.setMobile("");
+                }
+
+                member = new Member();
+                member.setMemberNo(generateNewMemberNo());
+                member.setMemberName(wxUserInfo.getNickName());
+                member.setMemberImage(wxUserInfo.getAvatarUrl());
+                member.setMemberType(MemberTypeEnum.普通.getValue());
+                member.setMemberQuotas(BigDecimal.ZERO);
+                member.setMemberPoints(0);
+                member.setMemberPassword(wxUserInfo.getPassword());
+                member.setMemberMobile(wxUserInfo.getMobile());
+
+                if (StringUtil.isEmtpy(wxUserInfo.getProvince())) {
+                    wxUserInfo.setProvince("");
+                }
+                if (StringUtil.isEmtpy(wxUserInfo.getCity())) {
+                    wxUserInfo.setCity("");
+                }
+
+                member.setMemberDistrict(wxUserInfo.getProvince() + wxUserInfo.getCity());
+                member.setMemberEmail("");
+                member.setMemberStatus(true);
+                // unionid适用于微信体系的所有账号，对于用户唯一
+                member.setUnionId(wxUserInfo.getUnionId());
+                // 此处的openid只记录最初创建的openid
+                member.setOpenId(wxUserInfo.getOpenId());
+                member.setMemberRemark(JsonUtil.toJson(wxUserInfo));
+                member.setCreatedAt(DateUtil.now());
+                member.setUpdatedAt(DateUtil.now());
+                member.setMemberSource(loginThirdDto.getLoginType());
+
+                member = add(member);
+                AssertUtil.notNull(member, "用户创建失败");
+            } else {
+                // 用户可能换了另一个系统登录，比如之前是微信小程序，现在是微信公众号，他们的openid各不同
+                member.setOpenId(wxUserInfo.getOpenId());
+                member.setMemberName(wxUserInfo.getNickName());
+                member.setMemberMobile(wxUserInfo.getMobile());
+                member = modify(member);
+            }
+
+            return ResResult.success("", member);
+        }
+
+        return ResResult.fail("不支持的第三方登录");
     }
 }

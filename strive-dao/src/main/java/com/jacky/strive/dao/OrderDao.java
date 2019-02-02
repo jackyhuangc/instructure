@@ -1,6 +1,6 @@
 package com.jacky.strive.dao;
 
-import com.jacky.strive.dao.model.Order;
+import com.jacky.strive.dao.model.MemberOrder;
 import com.jacky.strive.mapper.MyMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
  */
 @Mapper
 @Repository
-public interface OrderDao extends MyMapper<Order> {
+public interface OrderDao extends MyMapper<MemberOrder> {
 
     // TODO 使用tk.mybatis可使dao层结构更简洁
 }

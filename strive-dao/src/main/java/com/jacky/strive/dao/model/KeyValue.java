@@ -1,5 +1,7 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class KeyValue {
@@ -9,9 +11,10 @@ public class KeyValue {
 
     private String keyvalueMemo;
 
-    private Date createAt;
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
 
-    private Date updateAt;
+    private Date updatedAt;
 
     private String keyvalueValue;
 
@@ -39,20 +42,20 @@ public class KeyValue {
         this.keyvalueMemo = keyvalueMemo == null ? null : keyvalueMemo.trim();
     }
 
-    public Date getCreateAt() {
-        return createAt;
+    public Date getCreatedAt() {
+        return createdAt;
     }
 
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 
-    public Date getUpdateAt() {
-        return updateAt;
+    public Date getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
-        this.updateAt = updateAt;
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public String getKeyvalueValue() {

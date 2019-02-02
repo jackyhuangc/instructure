@@ -1,5 +1,7 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -18,13 +20,16 @@ public class MemberLog {
 
     private String productNo;
 
-    private Integer productAmount;
+    private BigDecimal productAmount;
 
     private String logMemo;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updatedAt;
+
+    private String payType;
 
     public Integer getLogId() {
         return logId;
@@ -82,11 +87,11 @@ public class MemberLog {
         this.productNo = productNo == null ? null : productNo.trim();
     }
 
-    public Integer getProductAmount() {
+    public BigDecimal getProductAmount() {
         return productAmount;
     }
 
-    public void setProductAmount(Integer productAmount) {
+    public void setProductAmount(BigDecimal productAmount) {
         this.productAmount = productAmount;
     }
 
@@ -112,5 +117,13 @@ public class MemberLog {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
     }
 }

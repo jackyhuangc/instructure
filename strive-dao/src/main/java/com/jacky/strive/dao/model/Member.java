@@ -1,5 +1,8 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class Member {
@@ -13,27 +16,43 @@ public class Member {
 
     private String memberImage;
 
+    private String memberSource;
+
     private String memberPassword;
 
     private String memberMobile;
 
     private String memberEmail;
 
-    private Integer memberQuotas;
+    private BigDecimal memberQuotas;
 
     private Integer memberPoints;
+    private BigDecimal memberDeposit;
+    private BigDecimal memberWithdraw;
+    private BigDecimal memberBuyAction;
+    private BigDecimal memberSellAction;
+    private BigDecimal memberInterestAction;
 
     private Boolean memberStatus;
+
+    private String memberDistrict;
+
+    private String memberAddress;
 
     private String memberRemark;
 
     private String recommendMemberNo;
 
+    private String unionId;
+
+    private String openId;
+
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updatedAt;
 
-    private MemberAddress memberAddress;
+    //private MemberAddress memberAddress;
     private MemberCharge memberCharge;
     private MemberLog memberLog;
     private MemberVoucher memberVoucher;
@@ -102,11 +121,11 @@ public class Member {
         this.memberEmail = memberEmail == null ? null : memberEmail.trim();
     }
 
-    public Integer getMemberQuotas() {
+    public BigDecimal getMemberQuotas() {
         return memberQuotas;
     }
 
-    public void setMemberQuotas(Integer memberQuotas) {
+    public void setMemberQuotas(BigDecimal memberQuotas) {
         this.memberQuotas = memberQuotas;
     }
 
@@ -158,15 +177,6 @@ public class Member {
         this.memberCharge = memberCharge;
     }
 
-
-    public MemberAddress getMemberAddress() {
-        return memberAddress;
-    }
-
-    public void setMemberAddress(MemberAddress memberAddress) {
-        this.memberAddress = memberAddress;
-    }
-
     public MemberLog getMemberLog() {
         return memberLog;
     }
@@ -189,5 +199,86 @@ public class Member {
 
     public void setMemberRemark(String memberRemark) {
         this.memberRemark = memberRemark;
+    }
+
+    public String getUnionId() {
+        return unionId;
+    }
+
+    public void setUnionId(String unionId) {
+        this.unionId = unionId;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getMemberSource() {
+        return this.memberSource;
+    }
+
+    public void setMemberSource(String memberSource) {
+        this.memberSource = memberSource;
+    }
+
+    public String getMemberDistrict() {
+        return this.memberDistrict;
+    }
+
+    public void setMemberDistrict(String memberDistrict) {
+        this.memberDistrict = memberDistrict;
+    }
+
+    public String getMemberAddress() {
+        return this.memberAddress;
+    }
+
+    public void setMemberAddress(String memberAddress) {
+        this.memberAddress = memberAddress;
+    }
+
+
+    public BigDecimal getMemberDeposit() {
+        return memberDeposit;
+    }
+
+    public void setMemberDeposit(BigDecimal memberDeposit) {
+        this.memberDeposit = memberDeposit;
+    }
+
+    public BigDecimal getMemberWithdraw() {
+        return memberWithdraw;
+    }
+
+    public void setMemberWithdraw(BigDecimal memberWithdraw) {
+        this.memberWithdraw = memberWithdraw;
+    }
+
+    public BigDecimal getMemberBuyAction() {
+        return memberBuyAction;
+    }
+
+    public void setMemberBuyAction(BigDecimal memberBuyAction) {
+        this.memberBuyAction = memberBuyAction;
+    }
+
+    public BigDecimal getMemberSellAction() {
+        return memberSellAction;
+    }
+
+    public void setMemberSellAction(BigDecimal memberSellAction) {
+        this.memberSellAction = memberSellAction;
+    }
+
+    public BigDecimal getMemberInterestAction() {
+        return memberInterestAction;
+    }
+
+    public void setMemberInterestAction(BigDecimal memberInterestAction) {
+        this.memberInterestAction = memberInterestAction;
     }
 }

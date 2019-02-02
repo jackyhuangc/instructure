@@ -1,5 +1,9 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Table;
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class MemberCharge {
@@ -9,9 +13,13 @@ public class MemberCharge {
 
     private Integer chargeType;
 
+    private String payType;
+
     private String memberNo;
 
-    private Integer chargeQuotas;
+    private String cardNum;
+
+    private BigDecimal chargeQuotas;
 
     private Integer chargePoints;
 
@@ -19,6 +27,9 @@ public class MemberCharge {
 
     private String chargeMemo;
 
+    private String openId;
+
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updatedAt;
@@ -55,11 +66,11 @@ public class MemberCharge {
         this.memberNo = memberNo == null ? null : memberNo.trim();
     }
 
-    public Integer getChargeQuotas() {
+    public BigDecimal getChargeQuotas() {
         return chargeQuotas;
     }
 
-    public void setChargeQuotas(Integer chargeQuotas) {
+    public void setChargeQuotas(BigDecimal chargeQuotas) {
         this.chargeQuotas = chargeQuotas;
     }
 
@@ -101,5 +112,29 @@ public class MemberCharge {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+    public String getCardNum() {
+        return cardNum;
+    }
+
+    public void setCardNum(String cardNum) {
+        this.cardNum = cardNum;
     }
 }

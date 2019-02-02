@@ -34,19 +34,19 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <!-- 注意版本问题，否则会报collection转换问题，或其他invalid token问题，2.0.14.RELEASE目前可用，注册ResourceServer -->
-            <version>2.1.0.RELEASE</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security.oauth</groupId>-->
+            <!--<artifactId>spring-security-oauth2</artifactId>-->
+            <!--&lt;!&ndash; 注意版本问题，否则会报collection转换问题，或其他invalid token问题，2.0.14.RELEASE目前可用，注册ResourceServer &ndash;&gt;-->
+            <!--<version>2.1.0.RELEASE</version>-->
+        <!--</dependency>-->
 
-        <!-- spring-security-oauth2-autoconfigure替换spring-cloud-starter-oauth2，解析ResourceServerProperties配置文件 -->
-        <dependency>
-            <groupId>org.springframework.security.oauth.boot</groupId>
-            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-            <version>2.0.1.RELEASE</version>
-        </dependency>
+        <!--&lt;!&ndash; spring-security-oauth2-autoconfigure替换spring-cloud-starter-oauth2，解析ResourceServerProperties配置文件 &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security.oauth.boot</groupId>-->
+            <!--<artifactId>spring-security-oauth2-autoconfigure</artifactId>-->
+            <!--<version>2.0.1.RELEASE</version>-->
+        <!--</dependency>-->
 
     </dependencies>
 

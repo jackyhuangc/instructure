@@ -7,9 +7,10 @@ package com.jacky.strive.service.enums;
  **/
 public enum ChargeStatusEnum {
 
-    STATUS_SUCCESS(0, "成功"),
-    STATUS_FAIL(1, "失败"),
-    STATUS_PROCESS(2, "处理中");
+    STATUS_NEW(0, "处理中"),
+    STATUS_PROCESS(1, "处理中"),
+    STATUS_SUCCESS(2, "成功"),
+    STATUS_FAIL(3, "失败");
 
     private Integer value;
 

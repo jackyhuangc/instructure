@@ -35,7 +35,7 @@ public class RoleController {
      * @return 操作结果，成功可返回ID
      * @throws IOException
      */
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
     public ResResult<String> addRole(@RequestBody Role role, Principal principal) throws IOException {
 
@@ -56,9 +56,9 @@ public class RoleController {
      * @return 操作结果，成功可返回ID
      * @throws IOException
      */
-    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    @RequestMapping(value = "/modify/{role_id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<String> updateRole(@RequestBody Role role, Principal principal) throws IOException {
+    public ResResult<String> updateRole(@PathVariable("role_id") String roleId, @RequestBody Role role, Principal principal) throws IOException {
 
         Role ret = roleService.modify(role);
         AssertUtil.notNull(ret, "角色更新失败");
@@ -73,9 +73,9 @@ public class RoleController {
      * @return 操作结果，成功可返回ID
      * @throws IOException
      */
-    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    @RequestMapping(value = "/delete/{role_id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<String> deleteRole(@RequestBody String roleId, Principal principal) throws IOException {
+    public ResResult<String> deleteRole(@PathVariable("role_id") String roleId, Principal principal) throws IOException {
 
         boolean ret = roleService.enable(roleId, false);
         AssertUtil.isTrue(ret, "角色禁用失败");
@@ -88,8 +88,19 @@ public class RoleController {
      *
      * @return 角色集合
      */
-    @GetMapping("/queryRole")
-    public ResResult<List<Role>> queryRole(String roleId) {
+    @GetMapping("/query/")
+    public ResResult<List<Role>> query() {
+
+        return query("");
+    }
+
+    /**
+     * 查询所有角色信息
+     *
+     * @return 角色集合
+     */
+    @GetMapping("/query/{role_id}")
+    public ResResult<List<Role>> query(@PathVariable("role_id") String roleId) {
 
         PageInfo<Role> pageInfo = roleService.findRoleList(roleId);
         return ResResult.success("", pageInfo.getList());

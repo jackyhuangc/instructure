@@ -16,6 +16,7 @@ import qsq.biz.common.util.Md5Util;
 import qsq.biz.common.util.StringUtil;
 import tk.mybatis.mapper.entity.Example;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -39,6 +40,11 @@ public class ProductService {
         Product u = findByProductName(product.getProductNo());
         AssertUtil.isTrue(null == u, "产品编号已存在");
 
+        product.setCreatedAt(DateUtil.now());
+        if(null==product.getProductAmount()) {
+            product.setProductAmount(BigDecimal.ZERO);
+        }
+        product.setProductOpinionRate(BigDecimal.ZERO);
         int ret = productDao.insert(product);
         return ret > 0 ? product : null;
     }
@@ -105,9 +111,9 @@ public class ProductService {
         Page<Product> page = PageHelper.startPage(queryDto.getPage(), queryDto.getSize());
 
         Example example = new Example(Product.class);
-        Example.Criteria criteria1 = example.createCriteria();
-        criteria1.andEqualTo("productStatus", true);
-        criteria1.orIsNull("productStatus");
+//        Example.Criteria criteria1 = example.createCriteria();
+//        criteria1.andEqualTo("productStatus", true);
+//        criteria1.orIsNull("productStatus");
 
         Example.Criteria criteria2 = example.createCriteria();
 

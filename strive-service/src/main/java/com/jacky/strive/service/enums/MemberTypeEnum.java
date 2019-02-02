@@ -7,8 +7,8 @@ package com.jacky.strive.service.enums;
  **/
 public enum MemberTypeEnum {
 
-    QUOTAS(0, "普通"),
-    POINTS(1, "VIP");
+    普通(0, "普通"),
+    VIP(1, "VIP");
 
     private Integer value;
 

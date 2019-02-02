@@ -1,14 +1,27 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Order {
+public class MemberOrder {
     private Integer orderId;
 
     private String orderNo;
 
+    private String orderFrom;
+
     private Integer orderType;
+
+    private String payType;
+
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
+    private Date payAt;
+
+    private String payBatchNo;
+
+    private BigDecimal payQuotas;
 
     private String memberNo;
 
@@ -16,13 +29,15 @@ public class Order {
 
     private String orderProductName;
 
+    private String orderProductModel;
+
     private String orderGiftNo;
 
     private String orderGiftName;
 
-    private Integer orderPrice;
+    private BigDecimal orderPrice;
 
-    private Integer orderAmount;
+    private BigDecimal orderAmount;
 
     private BigDecimal orderDiscount;
 
@@ -36,9 +51,13 @@ public class Order {
 
     private Integer orderStatus;
 
+    private BigDecimal orderOpinionRate;
+
     private String orderAwardPeriod;
 
     private String orderAwardResult;
+
+    private BigDecimal orderAwardQuotas;
 
     private String shippingUser;
 
@@ -52,13 +71,17 @@ public class Order {
 
     private String deliverMemo;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date finishAt;
 
     private String finishMemo;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updatedAt;
+
+    private String openId;
 
     public Integer getOrderId() {
         return orderId;
@@ -74,6 +97,14 @@ public class Order {
 
     public void setOrderNo(String orderNo) {
         this.orderNo = orderNo == null ? null : orderNo.trim();
+    }
+
+    public String getOrderFrom() {
+        return orderFrom;
+    }
+
+    public void setOrderFrom(String orderFrom) {
+        this.orderFrom = orderFrom;
     }
 
     public Integer getOrderType() {
@@ -124,19 +155,19 @@ public class Order {
         this.orderGiftName = orderGiftName == null ? null : orderGiftName.trim();
     }
 
-    public Integer getOrderPrice() {
+    public BigDecimal getOrderPrice() {
         return orderPrice;
     }
 
-    public void setOrderPrice(Integer orderPrice) {
+    public void setOrderPrice(BigDecimal orderPrice) {
         this.orderPrice = orderPrice;
     }
 
-    public Integer getOrderAmount() {
+    public BigDecimal getOrderAmount() {
         return orderAmount;
     }
 
-    public void setOrderAmount(Integer orderAmount) {
+    public void setOrderAmount(BigDecimal orderAmount) {
         this.orderAmount = orderAmount;
     }
 
@@ -282,5 +313,70 @@ public class Order {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getPayType() {
+        return payType;
+    }
+
+    public void setPayType(String payType) {
+        this.payType = payType;
+    }
+
+    public String getPayBatchNo() {
+        return payBatchNo;
+    }
+
+    public void setPayBatchNo(String payBatchNo) {
+        this.payBatchNo = payBatchNo;
+    }
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
+
+
+    public Date getPayAt() {
+        return payAt;
+    }
+
+    public void setPayAt(Date payAt) {
+        this.payAt = payAt;
+    }
+
+    public String getOrderProductModel() {
+        return orderProductModel;
+    }
+
+    public void setOrderProductModel(String orderProductModel) {
+        this.orderProductModel = orderProductModel;
+    }
+
+    public BigDecimal getPayQuotas() {
+        return payQuotas;
+    }
+
+    public void setPayQuotas(BigDecimal payQuotas) {
+        this.payQuotas = payQuotas;
+    }
+
+    public BigDecimal getOrderOpinionRate() {
+        return orderOpinionRate;
+    }
+
+    public void setOrderOpinionRate(BigDecimal orderOpinionRate) {
+        this.orderOpinionRate = orderOpinionRate;
+    }
+
+    public BigDecimal getOrderAwardQuotas() {
+        return orderAwardQuotas;
+    }
+
+    public void setOrderAwardQuotas(BigDecimal orderAwardQuotas) {
+        this.orderAwardQuotas = orderAwardQuotas;
     }
 }

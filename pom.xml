@@ -26,8 +26,8 @@
     </modules>
 
     <properties>
-        <scheduler.version>0.0.1</scheduler.version>
-        <common.version>0.1.11</common.version>
+        <scheduler.version>0.0.3</scheduler.version>
+        <common.version>0.1.15</common.version>
         <payment.version>0.1.1.0504</payment.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

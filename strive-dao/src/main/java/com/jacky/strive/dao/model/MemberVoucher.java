@@ -1,5 +1,6 @@
 package com.jacky.strive.dao.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class MemberVoucher {

@@ -1,5 +1,7 @@
 package com.jacky.strive.dao.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -14,9 +16,9 @@ public class Product {
 
     private String productImage;
 
-    private Integer productPrice;
+    private BigDecimal productPrice;
 
-    private Integer productAmount;
+    private BigDecimal productAmount;
 
     private String productUnit;
 
@@ -26,12 +28,14 @@ public class Product {
 
     private Integer productDeliverFee;
 
-    private Boolean productExchange;
+    private Integer productExchange;
 
     private Integer productPromotion;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date productPromotionBegin;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date productPromotionEnd;
 
     private Boolean productStatus;
@@ -40,8 +44,9 @@ public class Product {
 
     private BigDecimal productOpinionRate;
 
-    private String productImagelist;
+    private String productImageList;
 
+    @JsonFormat(timezone = "GMT+8", pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createdAt;
 
     private Date updatedAt;
@@ -88,19 +93,19 @@ public class Product {
         this.productImage = productImage == null ? null : productImage.trim();
     }
 
-    public Integer getProductPrice() {
+    public BigDecimal getProductPrice() {
         return productPrice;
     }
 
-    public void setProductPrice(Integer productPrice) {
+    public void setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
     }
 
-    public Integer getProductAmount() {
+    public BigDecimal getProductAmount() {
         return productAmount;
     }
 
-    public void setProductAmount(Integer productAmount) {
+    public void setProductAmount(BigDecimal productAmount) {
         this.productAmount = productAmount;
     }
 
@@ -136,11 +141,11 @@ public class Product {
         this.productDeliverFee = productDeliverFee;
     }
 
-    public Boolean getProductExchange() {
+    public Integer getProductExchange() {
         return productExchange;
     }
 
-    public void setProductExchange(Boolean productExchange) {
+    public void setProductExchange(Integer productExchange) {
         this.productExchange = productExchange;
     }
 
@@ -192,12 +197,12 @@ public class Product {
         this.productOpinionRate = productOpinionRate;
     }
 
-    public String getProductImagelist() {
-        return productImagelist;
+    public String getProductImageList() {
+        return productImageList;
     }
 
-    public void setProductImagelist(String productImagelist) {
-        this.productImagelist = productImagelist == null ? null : productImagelist.trim();
+    public void setProductImageList(String productImageList) {
+        this.productImageList = productImageList == null ? null : productImageList.trim();
     }
 
     public Date getCreatedAt() {

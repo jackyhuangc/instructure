@@ -1,50 +1,87 @@
 package com.jacky.strive.job;
 
-import com.github.pagehelper.PageInfo;
-import com.jacky.strive.dao.model.MemberCharge;
-import com.jacky.strive.service.ChargeService;
-import com.jacky.strive.service.dto.ChargeQueryDto;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.jacky.strive.common.HttpUtil;
+import com.jacky.strive.common.LogUtil;
+import com.jacky.strive.common.ThreadPoolUtil;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.jacky"})
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 public class JobApplication {
 
-
     public static void main(String[] args) {
-        //SpringApplication.run(JobApplication.class, args);
 
+        SpringApplication.run(JobApplication.class, args);
 
-        while (true) {
-            updateCharge();
-        }
-    }
+        ThreadPoolUtil.execute(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
 
-    public static void updateCharge() {
-        ChargeService chargeService = new ChargeService();
-
-        ChargeQueryDto chargeQueryDto = new ChargeQueryDto();
-        chargeQueryDto.setChargeType(0);
-        chargeQueryDto.setChargeStatus(2);
-        PageInfo<MemberCharge> pageInfo = chargeService.findMemberChargeList(chargeQueryDto);
-
-        pageInfo.getList().stream().forEach(charge -> {
-
-            // 处理中的订单，需要从通道去查询一下，看是否支付成功
-            if (charge.getChargeStatus().equals((2))) {
-
-                // 去通道查询
-
-                // 更新为成功或失败
-                chargeService.activate(charge.getChargeNo(), 0);
+                        LogUtil.info("线程/quatos/sync执行中#####################");
+                        HttpUtil.get("http://localhost:8082/job/quatos/sync", null);
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        LogUtil.error(e);
+                    }
+                }
             }
         });
 
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        ThreadPoolUtil.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+
+                        LogUtil.info("线程/charge/sync执行中#####################");
+                        HttpUtil.get("http://localhost:8082/job/charge/sync", null);
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        LogUtil.error(e);
+                    }
+                }
+            }
+        });
+
+// 目前只用MCB
+//        ThreadPoolUtil.execute(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    try {
+//
+//                        LogUtil.info("线程/charge/process执行中#####################");
+//                        HttpUtil.get("http://localhost:8082/job/charge/process", null);
+//                        Thread.sleep(1000);
+//                    } catch (Exception e) {
+//                        LogUtil.error(e);
+//                    }
+//                }
+//            }
+//        });
+
+        ThreadPoolUtil.execute(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+
+                        LogUtil.info("线程/interest/process执行中#####################");
+                        HttpUtil.get("http://localhost:8082/job/interest/process", null);
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        LogUtil.error(e);
+                    }
+                }
+            }
+        });
     }
 }

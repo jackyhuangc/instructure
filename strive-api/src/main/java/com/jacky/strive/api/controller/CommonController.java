@@ -4,13 +4,17 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jacky.strive.common.LogUtil;
+import com.jacky.strive.common.SmsUtil;
 import com.jacky.strive.service.dto.PostEntityDto;
+import com.jacky.strive.service.dto.SmsDto;
+import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +22,14 @@ import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import qsq.biz.common.util.BeanUtil;
+import qsq.biz.common.util.JsonUtil;
 import qsq.biz.common.util.StringUtil;
 import qsq.biz.scheduler.entity.ResResult;
 
@@ -153,9 +154,39 @@ public class CommonController {
         }
     }
 
+    @GetMapping(value = "/sendSms/{mobile}/{content}")
+    public ResResult<Boolean> sendSms(@PathVariable String mobile, @PathVariable String content) {
+
+        if (SmsUtil.sendSms(mobile, content)) {
+            return ResResult.success("发送成功");
+        } else {
+            return ResResult.fail("发送失败");
+        }
+    }
+
+    @RequestMapping(value = "/sendSms", method = RequestMethod.POST)
+    @ResponseBody
+    public ResResult<Boolean> sendSms(@RequestBody SmsDto smsDto) {
+
+        String sources = "0123456789";
+        Random rand = new Random();
+        StringBuffer randNum = new StringBuffer();
+        for (int j = 0; j < 6; j++) {
+            randNum.append(sources.charAt(rand.nextInt(9)) + "");
+        }
+
+        smsDto.setContent(smsDto.getContent()+randNum);
+
+        if (SmsUtil.sendSms(smsDto.getMobile(), smsDto.getContent())) {
+            return ResResult.success(randNum);
+        } else {
+            return ResResult.fail("发送失败");
+        }
+    }
+
     @RequestMapping(value = "/proxy/post", method = RequestMethod.POST)
     @ResponseBody
-    public String ProxyPost(@RequestBody PostEntityDto postEntity) {
+    public String ProxyPost( @RequestBody PostEntityDto postEntity) {
 
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<Object> httpEntity;
@@ -163,13 +194,40 @@ public class CommonController {
         if (postEntity.getHeader() != null) {
             HttpHeaders headers = new HttpHeaders();
             headers.add("Authorization", postEntity.getHeader());
-            httpEntity = new HttpEntity<Object>(postEntity.getData(), headers);
+
+            LinkedMultiValueMap map=convertJsonToMultiValueMap(JsonUtil.toJson(postEntity.getData()));
+            httpEntity = new HttpEntity<Object>(map, headers);
         } else {
-            httpEntity = new HttpEntity<Object>(postEntity.getData());
+
+            LinkedMultiValueMap map=convertJsonToMultiValueMap(JsonUtil.toJson(postEntity.getData()));
+            httpEntity = new HttpEntity<Object>(map);
         }
 
         String restResult = restTemplate.postForObject(postEntity.getUrl(), httpEntity, String.class);
         return restResult;
+    }
+
+    private LinkedMultiValueMap convertJsonToMultiValueMap(String jsonString)
+    {
+        JSONObject object = JSONObject.parseObject(jsonString);
+        Iterator it = object.keySet().iterator();
+        StringBuilder sb = new StringBuilder("{");
+        while (it.hasNext()) {
+            String key = (String) it.next();
+            Object value = object.getString(key);
+            if (value == null) {
+                sb.append(JSON.toJSONString(key)).append(":").append(value).append(",");
+            } else {
+                List<String> list = Collections.singletonList(value.toString());
+                sb.append(JSON.toJSONString(key)).append(":").append(JSON.toJSONString(list)).append(",");
+            }
+        }
+        sb.append("}");
+        sb.deleteCharAt(sb.length()-2);
+        System.out.println(sb.toString());
+        LinkedMultiValueMap params = JSON.parseObject(sb.toString(), LinkedMultiValueMap.class);
+
+        return params;
     }
 
 
@@ -207,4 +265,77 @@ public class CommonController {
             return ResResult.fail("empty file");
         }
     }
+
+    /**
+     * 文件上传具体实现方法（单文件上传）
+     *
+     * @param file
+     * @return
+     * @author 单红宇(CSDN CATOOP)
+     * @create 2017年3月11日
+     */
+    @RequestMapping(value = "/upload2layui/{dir}", method = RequestMethod.POST)
+    @ResponseBody
+    public LayuiResult upLoadToLayui(@RequestParam("file") MultipartFile file, @PathVariable("dir") String dir) {
+        LayuiResult result = new LayuiResult();
+        result.setCode(1);
+        result.setMsg("失败");
+        if (!file.isEmpty()) {
+
+            String fileDir = "upload/";
+            String fileOSDir = "static/Content/images/";
+            try {
+
+                if (!StringUtil.isEmtpy(dir)) {
+                    fileDir = fileDir + dir + "/";
+                    fileOSDir = fileOSDir + dir + "/";
+                }
+
+                File myPath = new File(fileDir);
+                // 若此目录不存在，则创建之
+                if (!myPath.exists()) {
+                    myPath.mkdir();
+                    logger.info("创建文件夹路径为：" + fileDir);
+                }
+
+                BufferedOutputStream out = new BufferedOutputStream(
+                        new FileOutputStream(new File(fileDir + file.getOriginalFilename())));
+                out.write(file.getBytes());
+                out.flush();
+                out.close();
+
+
+                FileOutputStream os = new FileOutputStream(new File("strive-web/" + fileOSDir + file.getOriginalFilename()));
+                FileCopyUtils.copy(file.getBytes(), os);
+
+            } catch (Exception ex) {
+                LogUtil.error(ex);
+                result.setMsg(ex.getMessage());
+            }
+
+            LayuiData data = new LayuiData();
+            data.setSrc("/" + fileOSDir + file.getOriginalFilename());
+            data.setTitle(file.getOriginalFilename());
+            result.setCode(0);
+            result.setMsg("上传成功");
+            result.setData(data);
+        } else {
+            result.setMsg("empty file");
+        }
+
+        return result;
+    }
+}
+
+@Data
+class LayuiResult {
+    Integer code;
+    String msg;
+    LayuiData data;
+}
+
+@Data
+class LayuiData {
+    String src;
+    String title;
 }

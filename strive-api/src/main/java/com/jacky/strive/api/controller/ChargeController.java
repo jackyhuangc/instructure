@@ -3,7 +3,10 @@ package com.jacky.strive.api.controller;
 import com.github.pagehelper.PageInfo;
 import com.jacky.strive.dao.model.MemberCharge;
 import com.jacky.strive.service.ChargeService;
+import com.jacky.strive.service.MemberService;
+import com.jacky.strive.service.dto.BindingReqDto;
 import com.jacky.strive.service.dto.ChargeQueryDto;
+import com.jacky.strive.service.enums.ChargeTypeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import qsq.biz.common.util.AssertUtil;
@@ -20,6 +23,9 @@ public class ChargeController {
 
     @Autowired
     ChargeService chargeService;
+
+    @Autowired
+    MemberService memberService;
 
     @GetMapping("/{charge_no}")
     public ResResult get(@PathVariable("charge_no") String chargeNo) {
@@ -40,21 +46,25 @@ public class ChargeController {
 
     @PostMapping("/charge")
     public ResResult charge(MemberCharge charge) {
-        charge.setChargeType(0);
-        charge.setChargeStatus(2);
-        MemberCharge m = chargeService.add(charge);
-        AssertUtil.notNull(m, "充值失败");
-
-        return ResResult.success("", m);
+        charge.setChargeType(ChargeTypeEnum.CHARGE.getValue());
+        ResResult resResult = chargeService.add(charge);
+        return resResult;
     }
 
     @PostMapping("/withdraw")
     public ResResult withdraw(MemberCharge charge) {
-        charge.setChargeType(1);
-        charge.setChargeStatus(2);
-        MemberCharge m = chargeService.add(charge);
-        AssertUtil.notNull(m, "提现失败");
+        charge.setChargeType(ChargeTypeEnum.WITHDRAW.getValue());
+        ResResult resResult = chargeService.add(charge);
+        return resResult;
+    }
 
-        return ResResult.success("", m);
+    @PostMapping("/bind_sms")
+    public ResResult bindSms(@RequestBody BindingReqDto bindingReqDto) {
+        return chargeService.bindSms(bindingReqDto);
+    }
+
+    @PostMapping("/bind")
+    public ResResult bind(@RequestBody BindingReqDto bindingReqDto) {
+        return chargeService.bind(bindingReqDto);
     }
 }

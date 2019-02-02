@@ -1,10 +1,10 @@
 package com.jacky.strive.dao;
 
 import com.jacky.strive.dao.model.MemberCharge;
-import com.jacky.strive.dao.model.MemberLog;
 import com.jacky.strive.mapper.MyMapper;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
+import tk.mybatis.spring.annotation.MapperScan;
 
 /**
  * Description Here...

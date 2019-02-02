@@ -1,8 +1,13 @@
 package com.jacky.strive.dao.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class MemberAddress {
+    @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer addressId;
 
     private String memberNo;
