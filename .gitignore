@@ -1,0 +1,15 @@
+# Created by .ignore support plugin (hsz.mobi)
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+logs
+upload
+strive-web
+20181115.zip
+strive-web 3.zip
+通用版本V1029.zip
