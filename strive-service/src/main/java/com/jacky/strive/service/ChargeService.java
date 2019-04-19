@@ -142,6 +142,10 @@ public class ChargeService {
 
     public ResResult bindSms(BindingReqDto bindingReqDto) {
 
+        // 仅本地校验
+        AssertUtil.isTrue(BankCardUtil.validate(bindingReqDto.getCardNum()), "银行卡号无效");
+        AssertUtil.isTrue(IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
+
         Example example = new Example(MemberCard.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("cardNum", bindingReqDto.getCardNum());
@@ -209,13 +213,9 @@ public class ChargeService {
 
     public ResResult bind(BindingReqDto bindingReqDto) {
 
-        if (!BankCardUtil.validate(bindingReqDto.getCardNum())) {
-            return ResResult.fail("银行卡号无效");
-        }
-
-        if (!IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity())) {
-            return ResResult.fail("身份证号无效");
-        }
+        // 模拟验证过程
+        AssertUtil.isTrue(BankCardUtil.validate(bindingReqDto.getCardNum()), "银行卡号无效");
+        AssertUtil.isTrue(IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
 
         Example example = new Example(MemberCard.class);
         Example.Criteria criteria = example.createCriteria();
