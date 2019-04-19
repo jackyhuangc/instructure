@@ -89,7 +89,7 @@ class ConsoleTest {
 
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
 
-        if (!BankCardUtil.validate("")) {
+        if (!BankCardUtil.validate("6221550705709891")) {
             int i = 0;
         }
 
