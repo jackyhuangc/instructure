@@ -3,6 +3,9 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.jacky.strive.common.BankCardUtil;
+import com.jacky.strive.common.HttpUtil;
+import com.jacky.strive.common.IdCardUtil;
 import com.jacky.strive.common.SmsUtil;
 import com.jacky.strive.dao.*;
 import com.jacky.strive.dao.model.*;
@@ -17,14 +20,10 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.common.util.BeanUtil;
-import qsq.biz.common.util.DateUtil;
-import qsq.biz.common.util.StringUtil;
+import qsq.biz.common.util.*;
 import qsq.biz.scheduler.entity.ResResult;
 import tk.mybatis.mapper.entity.Example;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -209,6 +208,14 @@ public class ChargeService {
     }
 
     public ResResult bind(BindingReqDto bindingReqDto) {
+
+        if (!BankCardUtil.validate(bindingReqDto.getCardNum())) {
+            return ResResult.fail("银行卡号无效");
+        }
+
+        if (!IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity())) {
+            return ResResult.fail("身份证号无效");
+        }
 
         Example example = new Example(MemberCard.class);
         Example.Criteria criteria = example.createCriteria();

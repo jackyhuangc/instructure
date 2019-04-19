@@ -6,9 +6,15 @@
  */
 package com.jacky.strive.common;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import lombok.Data;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang3.StringUtils;
+import qsq.biz.common.util.JsonUtil;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Type;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -16,9 +22,11 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.collectingAndThen;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
@@ -33,10 +41,116 @@ import static java.util.stream.Collectors.toMap;
 //class Test implements Serializable {
 //    private static final long serialVersionUID = -4246665266031558401L;
 //}
+class FeeStatistics {
+    private String channel;
 
-public class ConsoleTest {
+    public String getChannel() {
+        return channel;
+    }
 
-    public static void main(String[] args) {
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    private String date;
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    private Integer amount;
+}
+
+@Data
+class Request {
+    private List<Condition> condition;
+    private Long total;
+}
+
+@Data
+class Condition {
+    private String condName;
+    private List<String> condValue;
+}
+
+class ConsoleTest {
+
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+
+        if (!BankCardUtil.validate("")) {
+            int i = 0;
+        }
+
+        if (!IdCardUtil.validateIdCard18("")) {
+            int i = 1;
+        }
+
+
+        // SmsUtil.sendSms("13880476970", "xxx");
+        int ittt = "xx_lm_baofoo".indexOf("lm");
+        testcollectingAndThen();
+        trimToSize();
+
+        String str123 = String.format("灰度金额不能大于%s分", 123);
+        List<FeeStatistics> withdrawFeeStatisticsList = new ArrayList<>();
+        FeeStatistics feeStatistics = new FeeStatistics();
+        feeStatistics.setChannel("tq1");
+        feeStatistics.setDate("2019-03-11");
+        feeStatistics.setAmount(3);
+        withdrawFeeStatisticsList.add(feeStatistics);
+
+        FeeStatistics feeStatistics1 = new FeeStatistics();
+        feeStatistics1.setChannel("tq1");
+        feeStatistics1.setDate("2019-03-11");
+        feeStatistics1.setAmount(3);
+        withdrawFeeStatisticsList.add(feeStatistics1);
+
+        FeeStatistics feeStatistics2 = new FeeStatistics();
+        feeStatistics2.setChannel("tq1");
+        feeStatistics2.setDate("2019-03-13");
+        feeStatistics2.setAmount(3);
+
+        withdrawFeeStatisticsList.add(feeStatistics2);
+
+        FeeStatistics feeStatistics3 = new FeeStatistics();
+        feeStatistics3.setChannel("tq4");
+        feeStatistics3.setDate("2019-03-14");
+        feeStatistics3.setAmount(3);
+        withdrawFeeStatisticsList.add(feeStatistics3);
+
+        //
+        withdrawFeeStatisticsList.forEach(s -> {
+
+            s.setChannel("xxxx");
+        });
+
+        //Optional.ofNullable(null).ifPresent(System.out::println);
+
+        ListIterator<FeeStatistics> listIterator = withdrawFeeStatisticsList.listIterator();
+        while (listIterator.hasNext()) {
+            feeStatistics = listIterator.next();
+        }
+
+        Map<String, Map<String, IntSummaryStatistics>> channelNameGroupMap = withdrawFeeStatisticsList.stream().collect(
+                Collectors.groupingBy(FeeStatistics::getChannel,
+                        Collectors.groupingBy(FeeStatistics::getDate, Collectors.summarizingInt(FeeStatistics::getAmount))));
+
+        Collector<FeeStatistics, ?, Double> xx = Collectors.averagingDouble(FeeStatistics::getAmount);
+        List<String> list = withdrawFeeStatisticsList.stream().collect(Collectors.mapping(FeeStatistics::getChannel, toList()));
+        Map<String, Integer> map = withdrawFeeStatisticsList.stream().collect(Collectors.toMap(FeeStatistics::getChannel, FeeStatistics::getAmount));
+
 
         List<String> stringList = new ArrayList<>();
 
@@ -45,8 +159,8 @@ public class ConsoleTest {
 
         List<String> todayHasFailChannelNames = stringList.stream().collect(toList());
         String str = todayHasFailChannelNames.stream().collect(Collectors.joining("|"));
-        stringList.add("cbiz_qnn");
-        boolean rettt = stringList.contains("biz");
+        stringList.add("/cbiz_qnn");
+        boolean rettt = stringList.contains("/cbiz_qnn");
 
         Map<String, String> testMap = new HashMap<>();
         String test = testMap.get("123");
@@ -93,6 +207,76 @@ public class ConsoleTest {
         // <? extends T>和<? super T>
 
         function();
+    }
+
+    public static void testcollectingAndThen() {
+        String json = "{\n" +
+                "    \"condition\": [\n" +
+                "        {\n" +
+                "            \"condName\": \"name1\",\n" +
+                "            \"condValue\": [\n" +
+                "                \"val11\",\n" +
+                "                \"val12\"\n" +
+                "            ]\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"condName\": \"name2\",\n" +
+                "            \"condValue\": [\n" +
+                "                \"val21\"\n" +
+                "            ]\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"condName\": \"name3\",\n" +
+                "            \"condValue\": [\n" +
+                "                \"val31\",\n" +
+                "                \"val32\",\n" +
+                "                \"val33\"\n" +
+                "            ]\n" +
+                "        },\n" +
+                "        {\n" +
+                "            \"condName\": \"name3\",\n" +
+                "            \"condValue\": [\n" +
+                "                \"val31\",\n" +
+                "                \"val32\",\n" +
+                "                \"val33\"\n" +
+                "            ]\n" +
+                "        }\n" +
+                "    ],\n" +
+                "    \"total\": 3\n" +
+                "}";
+        try {
+
+            Request request = JsonUtil.fromJson(json, new TypeReference<Request>() {
+            });
+
+            // Collectors.collectingAndThen 转换 toList后的集合转换为指定的结果
+            Map<String, List<String>> collect = request.getCondition().stream()
+                    .collect(Collectors.groupingBy(Condition::getCondName,
+                            Collectors.mapping(Condition::getCondValue,
+                                    Collectors.collectingAndThen(Collectors.toList(), lists -> lists.stream().flatMap(List::stream).collect(Collectors.toList()))
+
+                            )));
+
+            // Collectors.collectingAndThen 转换 toList后的集合转换为指定的结果
+            Map<String, Integer> collect1 = request.getCondition().stream()
+                    .collect(Collectors.groupingBy(Condition::getCondName,
+                            Collectors.mapping(Condition::getCondValue, collectingAndThen(toList(), List::size))));
+            assert null != collect;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void trimToSize() {
+        ArrayList arrayList = new ArrayList();
+        for (int i = 0; i < 10; i++) {
+            arrayList.add(i);
+        }
+
+        arrayList.add(10);
+
+        arrayList.trimToSize();
     }
 
     public static void stream_parallelStream() {

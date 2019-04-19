@@ -22,7 +22,7 @@
                     <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
                 -->
                 <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
-                <property name="url" value="jdbc:sqlserver://180.76.234.157:1433;instanceName=SQLEXPRESS;databaseName=Futures;"/>
+                <property name="url" value="jdbc:sqlserver://106.12.18.222:1433;instanceName=SQLEXPRESS;databaseName=Futures;"/>
 
                 <!-- 数据库用户... -->
                 <property name="username" value="sa"/>
