@@ -3,51 +3,28 @@ package com.jacky.strive.common;
 
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
-/**
- * @Author:denny
- * @Description:
- * @Date:2018/4/20
- */
+import java.util.concurrent.ThreadPoolExecutor;
+
 public final class ThreadPoolUtil {
+    private static ThreadPoolTaskExecutor poolTaskExecutor = new ThreadPoolTaskExecutor();
 
-    private ThreadPoolUtil() {
-    }
-
-    private static ThreadPoolTaskExecutor getExecutor() {
-        ThreadPoolTaskExecutor poolTaskExecutor = new ThreadPoolTaskExecutor();
-        poolTaskExecutor.setQueueCapacity(10000);
+    static {
+        //线程池维护线程的最少数量
         poolTaskExecutor.setCorePoolSize(5);
+        //线程池所使用的缓冲队列
+        poolTaskExecutor.setQueueCapacity(100);
+        //线程池维护线程的最大数量
         poolTaskExecutor.setMaxPoolSize(10);
-        poolTaskExecutor.setKeepAliveSeconds(5000);
+        //线程池维护线程所允许的空闲时间(默认60S)
+        poolTaskExecutor.setKeepAliveSeconds(3000);
+
+        // 这个策略重试添加当前的任务，他会自动重复调用 execute() 方法，直到成功  在调用者的线程中(主线程)执行被拒绝的任务(主线程只有一个)
+        poolTaskExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
         poolTaskExecutor.initialize();
-
-        return poolTaskExecutor;
     }
 
-    /**
-     * 使用线程池线程，异步执行
-     *
-     * @param runnable 待执行任务
-     */
     public static void execute(Runnable runnable) {
-        getExecutor().execute(() -> {
-            try {
-                runnable.run();
-            } catch (Exception ex) {
-                LogUtil.error(ex);
-            }
-        });
-    }
-
-    /**
-     * 使用线程池线程，异步执行
-     *
-     * @param runnable 待执行任务
-     * @param t1       任务参数
-     * @param <T>      任务参数
-     */
-    public static <T> void execute(Runnable runnable, T t1) {
-        execute(() -> runnable.run());
+        poolTaskExecutor.execute(runnable);
     }
 }
 
