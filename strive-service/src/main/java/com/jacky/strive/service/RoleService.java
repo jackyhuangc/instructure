@@ -9,8 +9,7 @@ import com.jacky.strive.dao.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.common.util.StringUtil;
+import com.jacky.strive.common.*;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;

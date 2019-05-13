@@ -1,7 +1,6 @@
 package com.jacky.strive.common;
 
 import lombok.Data;
-import qsq.biz.common.util.JsonUtil;
 
 public class BankCardUtil {
 

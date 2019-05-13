@@ -12,6 +12,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jacky.strive.common.LogUtil;
 import com.jacky.strive.common.SmsUtil;
+import com.jacky.strive.common.entity.ResResult;
 import com.jacky.strive.service.dto.PostEntityDto;
 import com.jacky.strive.service.dto.SmsDto;
 import lombok.Data;
@@ -28,11 +29,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import qsq.biz.common.util.BeanUtil;
-import qsq.biz.common.util.JsonUtil;
-import qsq.biz.common.util.StringUtil;
-import qsq.biz.scheduler.entity.ResResult;
 
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 
 @CrossOrigin() // 需支持跨域,否则客户端虽能正常访问，但也会报跨域异常
 @RestController
@@ -166,7 +165,7 @@ public class CommonController {
 
     @RequestMapping(value = "/sendSms", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<Boolean> sendSms(@RequestBody SmsDto smsDto) {
+    public ResResult<String> sendSms(@RequestBody SmsDto smsDto) {
 
         String sources = "0123456789";
         Random rand = new Random();
@@ -178,7 +177,7 @@ public class CommonController {
         smsDto.setContent(smsDto.getContent()+randNum);
 
         if (SmsUtil.sendSms(smsDto.getMobile(), smsDto.getContent())) {
-            return ResResult.success(randNum);
+            return ResResult.success(randNum.toString());
         } else {
             return ResResult.fail("发送失败");
         }

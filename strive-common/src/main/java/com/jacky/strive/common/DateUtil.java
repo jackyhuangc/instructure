@@ -3,7 +3,6 @@ package com.jacky.strive.common;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.commons.lang3.time.DateUtils;
-import qsq.biz.common.util.LogUtil;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -24,7 +23,7 @@ public class DateUtil extends DateUtils {
     public static final int DAY_SECONDS = 24 * 60 * 60;
     private static final int MILLI_2_NANO = 1000 * 1000;
     private static final int SECOND_2_MILLI = 1000;
-    private static final Date MIN_DATE = qsq.biz.common.util.DateUtil.parseDate("1970-01-01");
+    private static final Date MIN_DATE = DateUtil.parseDate("1970-01-01");
 
     /**
      * 默认日期时间格式：yyyy-MM-dd HH:mm:ss
@@ -57,7 +56,7 @@ public class DateUtil extends DateUtils {
     }
 
     public static Date today() {
-        return date(qsq.biz.common.util.DateUtil.now());
+        return date(DateUtil.now());
     }
 
     /**
@@ -223,7 +222,7 @@ public class DateUtil extends DateUtils {
             DateFormat dateFormat = new SimpleDateFormat(format);
             return dateFormat.format(date);
         } catch (Exception e) {
-            qsq.biz.common.util.LogUtil.error("日期转换出错", e);
+            LogUtil.error("日期转换出错", e);
             return StringUtils.EMPTY;
         }
     }
@@ -311,14 +310,14 @@ public class DateUtil extends DateUtils {
      * 比较时间分秒 小于
      */
     public static boolean lessThan(String time) {
-        return StringUtils.compare(qsq.biz.common.util.DateUtil.format(new Date(), "HH:mm"), time) < 0;
+        return StringUtils.compare(DateUtil.format(new Date(), "HH:mm"), time) < 0;
     }
 
     /**
      * 比较时间分秒 大于
      */
     public static boolean greaterThan(String time) {
-        return StringUtils.compare(qsq.biz.common.util.DateUtil.format(new Date(), "HH:mm"), time) > 0;
+        return StringUtils.compare(DateUtil.format(new Date(), "HH:mm"), time) > 0;
     }
 
     private static double diff(Date start, Date end, int seconds) {
@@ -358,7 +357,7 @@ public class DateUtil extends DateUtils {
      * @return
      */
     public static Long getTimestamp() {
-        return getTimestamp(qsq.biz.common.util.DateUtil.now());
+        return getTimestamp(DateUtil.now());
     }
 
     public static long nano2Milli(long nanoSeconds) {

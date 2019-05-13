@@ -1,5 +1,6 @@
 package com.jacky.strive.common;
 
+import com.jacky.strive.common.entity.ContentType;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -11,9 +12,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import qsq.biz.common.constant.ContentType;
-import qsq.biz.common.util.JsonUtil;
-import qsq.biz.common.util.StringUtil;
 
 import java.io.*;
 import java.net.ConnectException;

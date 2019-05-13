@@ -3,6 +3,8 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 import com.jacky.strive.dao.*;
 import com.jacky.strive.dao.model.*;
 import com.jacky.strive.service.dto.KvOrderConfig;
@@ -15,8 +17,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import qsq.biz.common.util.*;
-import qsq.biz.scheduler.entity.ResResult;
 import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;

@@ -1,5 +1,6 @@
 package com.jacky.strive.service;
 
+import com.jacky.strive.common.StringUtil;
 import com.jacky.strive.dao.MemberDao;
 import com.jacky.strive.dao.UserDao;
 import com.jacky.strive.dao.model.Member;
@@ -37,7 +38,7 @@ public class OauthService {
     UserService userService;
 
     public PrincipalDto findByUserName(String userName) {
-        if (qsq.biz.common.util.StringUtil.isEmtpy(userName)) {
+        if (StringUtil.isEmtpy(userName)) {
             return null;
         }
         

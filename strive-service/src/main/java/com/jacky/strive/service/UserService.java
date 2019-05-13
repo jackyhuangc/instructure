@@ -14,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.common.util.DateUtil;
-import qsq.biz.common.util.Md5Util;
-import qsq.biz.common.util.StringUtil;
+import com.jacky.strive.common.*;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.Arrays;
@@ -49,7 +46,7 @@ public class UserService {
         AssertUtil.isTrue(null == u, "手机号已存在");
 
         user.setAddTime(DateUtil.now());
-        user.setPassword(Md5Util.md5Encode(user.getTelphone().substring(user.getTelphone().length() - 6)));
+        user.setPassword(Md5Util.encode(user.getTelphone().substring(user.getTelphone().length() - 6)));
         int ret = userDao.insert(user);
         return ret > 0 ? user : null;
     }
@@ -74,10 +71,10 @@ public class UserService {
 
         User user = findByUserID(userID);
         AssertUtil.notNull(user, "用户不存在");
-        AssertUtil.isTrue(user.getPassword().equals(orgPass) || user.getPassword().equals(Md5Util.md5Encode(orgPass)),
+        AssertUtil.isTrue(user.getPassword().equals(orgPass) || user.getPassword().equals(Md5Util.encode(orgPass)),
                 "原密码不正确");
 
-        user.setPassword(Md5Util.md5Encode(newPass));
+        user.setPassword(Md5Util.encode(newPass));
 
         int ret = userDao.updateByExampleSelective(user, example);
         return ret > 0;

@@ -9,9 +9,8 @@ import com.jacky.strive.service.dto.MemberQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.common.util.StringUtil;
-import qsq.biz.scheduler.entity.ResResult;
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 
 /**
  * @author huangchao

@@ -1,9 +1,8 @@
 package com.jacky.strive.service.utils;
 
 import com.ctc.wstx.util.DataUtil;
-import com.jacky.strive.common.Base64Util;
-import com.jacky.strive.common.HttpUtil;
-import com.jacky.strive.common.LogUtil;
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 import com.jacky.strive.service.dto.WeChat.WxPrepay;
 import com.jacky.strive.service.dto.WeChat.WxRefund;
 import com.jacky.strive.service.dto.WeChat.WxSession;
@@ -21,12 +20,6 @@ import org.apache.http.util.EntityUtils;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
-import qsq.biz.common.util.DateUtil;
-import qsq.biz.common.util.JsonUtil;
-import qsq.biz.common.util.Md5Util;
-import qsq.biz.common.util.StringUtil;
-import qsq.biz.scheduler.entity.ResResult;
-
 import javax.net.ssl.SSLContext;
 import java.io.*;
 import java.math.BigDecimal;
@@ -134,7 +127,7 @@ public class WXRequestUtil {
                 String param = String.format("appId=%s&nonceStr=%s&package=prepay_id=%s&signType=MD5&timeStamp=%s&key=%s",
                         resPrepay.getAppId(), resPrepay.getNonceStr(), resPrepay.getPrepayId(), resPrepay.getTimeStamp(), API_KEY);
 
-                resPrepay.setPaySign(Md5Util.md5Encode(param).toUpperCase());
+                resPrepay.setPaySign(Md5Util.encode(param).toUpperCase());
 
                 return ResResult.process("等待支付", resPrepay);
             } else {
@@ -362,7 +355,7 @@ public class WXRequestUtil {
 
     private static String GetSign(Map<String, String> param) {
         String StringA = formatUrlMap(param, false, false);
-        String stringSignTemp = Md5Util.md5Encode((StringA + "&key=" + API_KEY).toUpperCase());
+        String stringSignTemp = Md5Util.encode((StringA + "&key=" + API_KEY).toUpperCase());
         return stringSignTemp;
     }
 

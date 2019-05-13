@@ -3,7 +3,8 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.common.AesCbcUtil;
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 import com.jacky.strive.dao.*;
 import com.jacky.strive.dao.model.*;
 import com.jacky.strive.service.dto.LoginThirdDto;
@@ -17,8 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import qsq.biz.common.util.*;
-import qsq.biz.scheduler.entity.ResResult;
 import tk.mybatis.mapper.entity.Example;
 
 import java.math.BigDecimal;
@@ -72,10 +71,10 @@ public class MemberService {
         member.setMemberInterestAction(BigDecimal.ZERO);
         if (!StringUtil.isEmtpy(member.getMemberPassword())) {
             if (member.getMemberPassword().length() <= 18) {
-                member.setMemberPassword(Md5Util.md5Encode(member.getMemberPassword()));
+                member.setMemberPassword(Md5Util.encode(member.getMemberPassword()));
             }
         } else {
-            member.setMemberPassword(Md5Util.md5Encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
+            member.setMemberPassword(Md5Util.encode(member.getMemberMobile().substring(member.getMemberMobile().length() - 6)));
         }
         int ret = memberDao.insert(member);
 
@@ -116,10 +115,10 @@ public class MemberService {
 
         Member member = findByMemberNo(memberNo);
         AssertUtil.notNull(member, "用户不存在");
-        AssertUtil.isTrue(member.getMemberPassword().equals(orgPass) || member.getMemberPassword().equals(Md5Util.md5Encode(orgPass)),
+        AssertUtil.isTrue(member.getMemberPassword().equals(orgPass) || member.getMemberPassword().equals(Md5Util.encode(orgPass)),
                 "原密码不正确");
 
-        member.setMemberPassword(Md5Util.md5Encode(newPass));
+        member.setMemberPassword(Md5Util.encode(newPass));
 
         int ret = memberDao.updateByExampleSelective(member, example);
         return ret > 0;

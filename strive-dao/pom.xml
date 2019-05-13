@@ -19,6 +19,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.jacky.strive</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
@@ -65,7 +70,6 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.2.3</version>
         </dependency>
-
     </dependencies>
     <build>
         <finalName>strive-dao</finalName>

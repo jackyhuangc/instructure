@@ -64,7 +64,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
      */
 
     public static boolean isMobileNumber(String mobileNumber) {
-        return !qsq.biz.common.util.StringUtil.isEmtpy(qsq.biz.common.util.StringUtil.formatMobilePhone(mobileNumber));
+        return !StringUtil.isEmtpy(formatMobilePhone(mobileNumber));
     }
 
     /**
@@ -72,7 +72,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
      */
 
     public static boolean isMobileNumber(String mobileNumber, boolean needReplace) {
-        return !qsq.biz.common.util.StringUtil.isEmtpy(qsq.biz.common.util.StringUtil.formatMobilePhone(mobileNumber, needReplace));
+        return !StringUtil.isEmtpy(formatMobilePhone(mobileNumber, needReplace));
     }
 
     /***
@@ -80,7 +80,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
      * */
     public static String formatPhone(String relativeTel) {
         String tel = formatMobilePhone(relativeTel);
-        if (!qsq.biz.common.util.StringUtil.isEmtpy(tel)) {
+        if (!isEmtpy(tel)) {
             return tel;
         }
         return relativeTel;
@@ -98,7 +98,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
      * 手机号码转换
      * */
     public static String formatMobilePhone(String relativeTel, boolean needReplace) {
-        if (qsq.biz.common.util.StringUtil.isEmtpy(relativeTel)) {
+        if (isEmtpy(relativeTel)) {
             return "";
         }
         if (needReplace) {
@@ -292,7 +292,7 @@ public class StringUtil extends org.springframework.util.StringUtils {
     }
 
     public static Date parseBirthdayFromIdCard(String idcard) {
-        if (qsq.biz.common.util.StringUtil.isEmtpy(idcard)) {
+        if (isEmtpy(idcard)) {
             return null;
         }
         idcard = idcard.trim();

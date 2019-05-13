@@ -6,9 +6,8 @@ import com.jacky.strive.service.ProductService;
 import com.jacky.strive.service.dto.ProductQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.scheduler.entity.ResResult;
-
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 /**
  * @author huangchao
  * @create 2018/6/6 下午1:55

@@ -10,8 +10,8 @@ import com.jacky.strive.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import qsq.biz.common.util.AssertUtil;
-import qsq.biz.scheduler.entity.ResResult;
+import com.jacky.strive.common.*;
+import com.jacky.strive.common.entity.ResResult;
 
 /**
  * 角色权限管理控制器
@@ -37,7 +37,7 @@ public class RoleController {
      */
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<String> addRole(@RequestBody Role role, Principal principal) throws IOException {
+    public ResResult<Role> addRole(@RequestBody Role role, Principal principal) throws IOException {
 
         Role ret = roleService.add(role);
         AssertUtil.notNull(ret, "角色创建失败");
@@ -58,7 +58,7 @@ public class RoleController {
      */
     @RequestMapping(value = "/modify/{role_id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<String> updateRole(@PathVariable("role_id") String roleId, @RequestBody Role role, Principal principal) throws IOException {
+    public ResResult<Role> updateRole(@PathVariable("role_id") String roleId, @RequestBody Role role, Principal principal) throws IOException {
 
         Role ret = roleService.modify(role);
         AssertUtil.notNull(ret, "角色更新失败");
@@ -75,7 +75,7 @@ public class RoleController {
      */
     @RequestMapping(value = "/delete/{role_id}", method = RequestMethod.POST)
     @ResponseBody
-    public ResResult<String> deleteRole(@PathVariable("role_id") String roleId, Principal principal) throws IOException {
+    public ResResult<Boolean> deleteRole(@PathVariable("role_id") String roleId, Principal principal) throws IOException {
 
         boolean ret = roleService.enable(roleId, false);
         AssertUtil.isTrue(ret, "角色禁用失败");
