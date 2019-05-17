@@ -1,12 +1,8 @@
 package com.jacky.strive.api.controller;
 
-import com.jacky.strive.common.*;
-import com.jacky.strive.dao.model.Member;
-import com.jacky.strive.dao.model.MemberCard;
-import com.jacky.strive.dao.model.MemberCharge;
+import com.jacky.common.util.*;
+import com.jacky.common.*;
 import com.jacky.strive.service.UserService;
-import com.jacky.strive.service.enums.ChargeStatusEnum;
-import com.jacky.strive.service.enums.ChargeTypeEnum;
 import lombok.Data;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.ibatis.io.Resources;
@@ -20,10 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.jacky.strive.common.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Reader;
 import java.math.BigDecimal;
 import java.security.Principal;
@@ -179,7 +172,7 @@ public class HomeController {
 
             // 执行sql查询
             ResultSet resultSet = statement.executeQuery(String.format(" select ApplyHistory.*,Investor.Telephone from ApplyHistory inner join Investor on ApplyHistory.InvestorID=Investor.InvestorID where ApplyHistory.InvestorID='%s' and APID=%s", investorID, apid));
-            List<Map> list = MapUtil.convertList(resultSet);
+            List<Map> list = MapUtil.toList(resultSet);
 
             List<_ApplyHistory> historyList = list.stream().collect(Collectors.mapping(s -> {
 

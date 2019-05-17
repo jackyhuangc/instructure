@@ -1,8 +1,8 @@
 package com.jacky.strive.job;
 
-import com.jacky.strive.common.HttpUtil;
-import com.jacky.strive.common.LogUtil;
-import com.jacky.strive.common.ThreadPoolUtil;
+import com.jacky.common.util.HttpUtil;
+import com.jacky.common.util.LogUtil;
+import com.jacky.common.util.ThreadPoolUtil;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

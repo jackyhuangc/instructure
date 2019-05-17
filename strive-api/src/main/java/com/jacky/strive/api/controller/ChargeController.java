@@ -1,7 +1,8 @@
 package com.jacky.strive.api.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.util.AssertUtil;
+import com.jacky.common.entity.result.ResResult;
 import com.jacky.strive.dao.model.MemberCharge;
 import com.jacky.strive.service.ChargeService;
 import com.jacky.strive.service.MemberService;
@@ -10,7 +11,7 @@ import com.jacky.strive.service.dto.ChargeQueryDto;
 import com.jacky.strive.service.enums.ChargeTypeEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.jacky.strive.common.*;
+import com.jacky.common.*;
 
 /**
  * @author huangchao

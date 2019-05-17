@@ -1,13 +1,14 @@
 package com.jacky.strive.api.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.jacky.common.util.AssertUtil;
 import com.jacky.strive.dao.model.User;
 import com.jacky.strive.service.UserService;
 import com.jacky.strive.service.dto.UserQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.*;
+import com.jacky.common.entity.result.ResResult;
 
 
 /**

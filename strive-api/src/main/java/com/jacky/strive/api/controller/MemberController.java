@@ -1,16 +1,16 @@
 package com.jacky.strive.api.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.jacky.common.util.AssertUtil;
 import com.jacky.strive.dao.model.Member;
 import com.jacky.strive.dao.model.MemberAddress;
 import com.jacky.strive.service.MemberService;
 import com.jacky.strive.service.dto.LoginThirdDto;
 import com.jacky.strive.service.dto.MemberQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.*;
+import com.jacky.common.entity.result.ResResult;
 
 /**
  * @author huangchao

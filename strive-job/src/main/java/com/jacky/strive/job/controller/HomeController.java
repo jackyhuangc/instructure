@@ -1,10 +1,8 @@
 package com.jacky.strive.job.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.common.DateUtil;
-import com.jacky.strive.common.LogUtil;
-import com.jacky.strive.common.MapUtil;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.entity.result.ResResult;
+import com.jacky.common.util.*;
 import com.jacky.strive.dao.model.*;
 import com.jacky.strive.service.*;
 import com.jacky.strive.service.dto.ChargeQueryDto;
@@ -23,7 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.jacky.strive.common.*;
+import com.jacky.common.*;
 
 import java.io.Reader;
 import java.math.BigDecimal;
@@ -460,7 +458,7 @@ public class HomeController {
 
             // 执行sql查询
             ResultSet resultSet = statement.executeQuery(" select * from ApplyHistory where AuditState IN (" + status + ") and AuditTime>DATEADD(day,-7,GETDATE()) and AuditRemark not like '%已处理%'");
-            List<Map> list = MapUtil.convertList(resultSet);
+            List<Map> list = MapUtil.toList(resultSet);
 
             List<_ApplyHistory> historyList = list.stream().collect(Collectors.mapping(s -> {
 

@@ -1,13 +1,14 @@
 package com.jacky.strive.api.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.jacky.common.util.AssertUtil;
 import com.jacky.strive.dao.model.Product;
 import com.jacky.strive.service.ProductService;
 import com.jacky.strive.service.dto.ProductQueryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.*;
+import com.jacky.common.entity.result.ResResult;
 /**
  * @author huangchao
  * @create 2018/6/6 下午1:55

@@ -3,8 +3,9 @@ package com.jacky.strive.service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.util.*;
+import com.jacky.common.*;
+import com.jacky.common.entity.result.ResResult;
 import com.jacky.strive.dao.*;
 import com.jacky.strive.dao.model.*;
 import com.jacky.strive.service.dto.BindingReqDto;
@@ -139,8 +140,8 @@ public class ChargeService {
     public ResResult bindSms(BindingReqDto bindingReqDto) {
 
         // 仅本地校验
-        AssertUtil.isTrue(BankCardUtil.validate(bindingReqDto.getCardNum()), "银行卡号无效");
-        AssertUtil.isTrue(IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
+        AssertUtil.isTrue(CardUtil.validateBankCard(bindingReqDto.getCardNum()), "银行卡号无效");
+        AssertUtil.isTrue(CardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
 
         Example example = new Example(MemberCard.class);
         Example.Criteria criteria = example.createCriteria();
@@ -210,8 +211,8 @@ public class ChargeService {
     public ResResult bind(BindingReqDto bindingReqDto) {
 
         // 模拟验证过程
-        AssertUtil.isTrue(BankCardUtil.validate(bindingReqDto.getCardNum()), "银行卡号无效");
-        AssertUtil.isTrue(IdCardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
+        AssertUtil.isTrue(CardUtil.validateBankCard(bindingReqDto.getCardNum()), "银行卡号无效");
+        AssertUtil.isTrue(CardUtil.validateIdCard18(bindingReqDto.getCardIdentity()), "身份证号无效");
 
         Example example = new Example(MemberCard.class);
         Example.Criteria criteria = example.createCriteria();

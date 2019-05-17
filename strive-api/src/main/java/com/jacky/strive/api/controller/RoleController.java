@@ -5,13 +5,14 @@ import java.security.Principal;
 import java.util.List;
 
 import com.github.pagehelper.PageInfo;
+import com.jacky.common.util.AssertUtil;
 import com.jacky.strive.dao.model.Role;
 import com.jacky.strive.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.*;
+import com.jacky.common.entity.result.ResResult;
 
 /**
  * 角色权限管理控制器

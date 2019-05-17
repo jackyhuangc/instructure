@@ -3,14 +3,16 @@ package com.jacky.strive.job;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.jacky.strive.common.LogUtil;
-import com.jacky.strive.common.MapUtil;
+import com.jacky.common.util.JsonUtil;
+import com.jacky.common.util.LogUtil;
+import com.jacky.common.util.MapUtil;
+import com.jacky.common.util.StringUtil;
 import lombok.Data;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import com.jacky.strive.common.*;
+import com.jacky.common.*;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -220,7 +222,7 @@ public class GoldTools {
             ResultSet resultSet = statement.executeQuery(" select pi.pid,pi.ptitle,pi.procode from wp_productinfo as pi" +
                     " where pi.isdelete=0");
 
-            List<Map> list = MapUtil.convertList(resultSet);
+            List<Map> list = MapUtil.toList(resultSet);
 
             List<_Product> productList = list.stream().collect(Collectors.mapping(s -> {
                 _Product product = new _Product();

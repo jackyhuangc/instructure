@@ -10,9 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.jacky.strive.common.LogUtil;
-import com.jacky.strive.common.SmsUtil;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.util.JsonUtil;
+import com.jacky.common.util.LogUtil;
+import com.jacky.common.util.SmsUtil;
+import com.jacky.common.util.StringUtil;
+import com.jacky.common.entity.result.ResResult;
 import com.jacky.strive.service.dto.PostEntityDto;
 import com.jacky.strive.service.dto.SmsDto;
 import lombok.Data;
@@ -30,8 +32,7 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.jacky.strive.common.*;
-import com.jacky.strive.common.entity.ResResult;
+import com.jacky.common.*;
 
 @CrossOrigin() // 需支持跨域,否则客户端虽能正常访问，但也会报跨域异常
 @RestController

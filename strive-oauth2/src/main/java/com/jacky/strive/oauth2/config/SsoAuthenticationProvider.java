@@ -1,6 +1,6 @@
 package com.jacky.strive.oauth2.config;
 
-import com.jacky.strive.common.Md5Util;
+import com.jacky.common.util.Md5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;

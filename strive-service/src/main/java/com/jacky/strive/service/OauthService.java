@@ -1,7 +1,6 @@
 package com.jacky.strive.service;
 
-import com.jacky.strive.common.StringUtil;
-import com.jacky.strive.dao.MemberDao;
+import com.jacky.common.util.StringUtil;
 import com.jacky.strive.dao.UserDao;
 import com.jacky.strive.dao.model.Member;
 import com.jacky.strive.dao.model.User;
@@ -9,7 +8,6 @@ import com.jacky.strive.service.dto.PrincipalDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 
