@@ -9,11 +9,14 @@
         <module name="api" />
         <module name="common" />
         <module name="dao" />
-        <module name="instructure" />
         <module name="job" />
         <module name="oauth2" />
+        <module name="practice" />
         <module name="service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="instructure" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
