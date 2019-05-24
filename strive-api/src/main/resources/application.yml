@@ -86,3 +86,6 @@ spring:
 #      resources[0]:
 #        user-info-uri: http://localhost:8088/admin/me
 #        token-info-uri: http://localhost:8088/admin/oauth/check_token
+env:
+  systemName: xxx
+  version: 1.0.1
