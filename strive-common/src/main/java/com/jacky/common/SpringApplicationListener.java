@@ -27,7 +27,7 @@ public class SpringApplicationListener implements ApplicationListener {
             EnvConfig envConfig = SpringContextHolder.getBean(EnvConfig.class);
 
             // 监听到ContextRefreshedEvent事件，用于应用启动监控
-            LogUtil.error(String.format("应用%s，版本%s 正在启动.....", envConfig.getSystemName(), envConfig.getVersion()));
+            LogUtil.error(String.format("应用%s，版本%s 正在启动.....", envConfig.getAppName(), envConfig.getVersion()));
         } else if (applicationEvent instanceof ContextStartedEvent) {
             // LogUtil.info("ContextStartedEvent......");
         } else if (applicationEvent instanceof ContextStoppedEvent) {
@@ -37,7 +37,7 @@ public class SpringApplicationListener implements ApplicationListener {
             EnvConfig envConfig = SpringContextHolder.getBean(EnvConfig.class);
 
             // LogUtil.info("监听到ContextClosedEvent事件，用于应用关闭监控......");
-            LogUtil.error(String.format("应用%s，版本%s 正在关闭.....", envConfig.getSystemName(), envConfig.getVersion()));
+            LogUtil.error(String.format("应用%s，版本%s 正在关闭.....", envConfig.getAppName(), envConfig.getVersion()));
         } else if (applicationEvent instanceof RequestHandledEvent) {
             // LogUtil.info("RequestHandledEvent......");
         }

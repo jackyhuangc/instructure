@@ -18,6 +18,10 @@ public class JobApplication {
 
         SpringApplication.run(JobApplication.class, args);
 
+        //runLocalTask();
+    }
+
+    private static void runLocalTask() {
         ThreadPoolUtil.execute(new Runnable() {
             @Override
             public void run() {

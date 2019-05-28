@@ -25,9 +25,9 @@
             <!--<version>${scheduler.version}</version>-->
         <!--</dependency>-->
         <dependency>
-            <groupId>com.jacky.strive</groupId>
+            <groupId>com.jacky</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.jacky.strive</groupId>

@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class EnvConfig {
 
-    @Value("${env.systemName}")
-    private String systemName;
+    @Value("${env.appName}")
+    private String appName;
 
     @Value("${env.version}")
     private String version;
