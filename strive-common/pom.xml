@@ -25,7 +25,7 @@
         <poi-ooxml.version>3.16</poi-ooxml.version>
         <httpcore.version>4.4.9</httpcore.version>
         <httpclient.version>4.5.3</httpclient.version>
-        <jackson-core.version>2.9.8</jackson-core.version>
+        <jackson-core.version>2.10.1</jackson-core.version>
         <org.springframework.version>5.1.6.RELEASE</org.springframework.version>
         <amqp-client.version>5.6.0</amqp-client.version>
         <lombok.version>1.16.18</lombok.version>
