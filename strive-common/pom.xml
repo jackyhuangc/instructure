@@ -29,7 +29,7 @@
         <org.springframework.version>5.1.6.RELEASE</org.springframework.version>
         <amqp-client.version>5.6.0</amqp-client.version>
         <lombok.version>1.16.18</lombok.version>
-        <bcprov-jdk15on.version>1.60</bcprov-jdk15on.version>
+        <bcprov-jdk15on.version>1.67</bcprov-jdk15on.version>
         <dozer-core.version>6.0.0</dozer-core.version>
         <validation-api.version>2.0.0.CR3</validation-api.version>
     </properties>
